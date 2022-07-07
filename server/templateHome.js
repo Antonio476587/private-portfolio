@@ -19,7 +19,7 @@ export default function template(body) {
     <!-- Preload CSS -->
     <link rel="stylesheet" href="/css/preload.css" type="text/css">
     <meta name="description"
-      content="Have a great day watching my portfolio, there are my skills, a brief summary of me and my future vision. I really want to help to everyone need it, contact me in every moment you want, i will response you in no moment">
+      content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future">
     <meta name="keywords" content="Portfolio">
     <meta name="keywords" content="CVOnline">
     <meta name="keywords" content="USA">

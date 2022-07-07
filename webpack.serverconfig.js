@@ -1,27 +1,24 @@
 import dotenv from "dotenv";
 import webpack from "webpack";
 import nodeExternals from "webpack-node-externals"; 
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import path from "path";
+import { __dirname } from "./pathEMS.js";
 
 dotenv.config();
 
 const mode = process.env.MODE || "development";
 
 const serverConfig = {
-  mode: mode,
+  mode,
   entry: { server: ["./index.js"] },
   target: "node",
   externals: [nodeExternals({
-    allowlist: ["lowdb", "steno"]
-})],
+    allowlist: ["lowdb", "steno"],
+  })],
   externalsPresets: { node: true },
   output: {
     filename: "server.cjs",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -48,8 +45,8 @@ const serverConfig = {
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-}
+    maxAssetSize: 512000,
+  },
 };
 
-export default serverConfig
+export default serverConfig;

@@ -1,17 +1,14 @@
 import dotenv from "dotenv";
 import webpack from "webpack";
-import { fileURLToPath } from "url";
 import path from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { __dirname } from "./pathEMS.js";
 
 dotenv.config();
 
 const mode = process.env.MODE || "development";
 
 const browserConfig = {
-  mode: mode,
+  mode,
   entry: { app: ["./src/App.jsx"] },
   output: {
     filename: "[name].bundle.js",
@@ -63,8 +60,8 @@ const browserConfig = {
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-}
+    maxAssetSize: 512000,
+  },
 };
 
 export default browserConfig;

@@ -14,7 +14,7 @@
     "lint": "eslint server src --ext js,jsx",
     "hmr": "webpack serve",
     "watch": "webpack --watch",
-    "build": "webpack --mode production && webpack --mode production --config webpack.serverconfig.js",
+    "build": "rm -r -f dist && npm run build-files && npm run build-server",
     "compile": "webpack",
     "build-files": "webpack --mode production",
     "hmr-server": "webpack serve --config webpack.serverconfig.js",

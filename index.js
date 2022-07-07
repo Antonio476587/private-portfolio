@@ -39,6 +39,7 @@ app.get("*", (req, res, next) => {
 });
 
 const port = process.env.PORT || 80;
+const securePort = process.env.SECURE_PORT || 443;
 
 connectToDB();
 if (cert && key) {
@@ -46,7 +47,7 @@ if (cert && key) {
     cert,
     key,
     ca: fs.readFileSync("./ca_bundle.crt"),
-  }, app).listen(port);
+  }, app).listen(securePort);
 }
 
-app.listen("80");
+app.listen(port);

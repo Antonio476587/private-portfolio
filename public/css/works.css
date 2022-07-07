@@ -18,9 +18,9 @@
 }
 
 .carousel-item .bd-placeholder-img {
-  background: url(/img/Moca-800.jpg);
+  background: url(/img/tracker2.jpg);
   width: 70%;
-  height: 50%;
+  height: 55%;
   font-size: 1.125rem;
   text-anchor: middle;
   -webkit-user-select: none;
@@ -30,20 +30,38 @@
 }
 
 .carousel-item:nth-child(2) .bd-placeholder-img {
-  background: url(/img/Target-800.jpg);
+  background: url(/img/NFT1.jpeg);
+}
+
+.carousel-item:nth-child(3) .bd-placeholder-img {
+  background: url(/img/three1.jpg);
+}
+
+.carousel-item:nth-child(4) .bd-placeholder-img {
+  background: url(/img/three4.png);
+}
+
+.carousel-item:nth-child(5) .bd-placeholder-img {
+  background: url(/img/barba2.jpg);
+}
+
+.carousel-item:nth-child(6) .bd-placeholder-img {
+  background: url(/img/bonsai1.jpg);
+}
+
+.carousel-item:nth-child(7) .bd-placeholder-img {
+  background: url(/img/bgcomplement.jpg);
 }
 
 .carousel-item:last-child .bd-placeholder-img {
-  background: url(/img/treeonaray.png);
+  background: url(/img/hommies1.jpg);
 }
 
-.carousel-item .bd-placeholder-img,
-.carousel-item:nth-child(2) .bd-placeholder-img,
-.carousel-item:last-child .bd-placeholder-img {
+.carousel-item .bd-placeholder-img {
   /*     background-position: 50% 145%; */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
 }
 
 .carousel-item.active {
@@ -63,6 +81,17 @@
 
 .carousel-item p {
   font-weight: bolder;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 8%;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 0% 10% 10% 0%;
+}
+
+.carousel-control-next {
+  border-radius: 10% 0% 0% 10%;
 }
 
 /* Carousel base class */

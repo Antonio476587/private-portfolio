@@ -67,10 +67,12 @@
 
 /* img */
 
-#body-work img {
+#body-work img, 
+#body-work video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
+  object-position: center;
 }
 
 /* Divitions */
@@ -268,7 +270,7 @@ section.banner-1 h2 {
 
 section.banner-1 p {
   margin-bottom: 15%;
-  font-size: 125%;
+  font-size: 110%;
   letter-spacing: .75px;
 }
 
@@ -318,7 +320,7 @@ div.div-p,
 .main-footer .div-p {
   margin: 2.5em;
   text-align: center;
-  font-size: 130%;
+  font-size: 115%;
 }
 
 /* Section 2 img */

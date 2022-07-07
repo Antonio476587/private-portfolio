@@ -16,7 +16,7 @@
 .wrapper-container {
   position: fixed;
   width: 99.9vw;
-  height: 100vh;
+  height: 100vh;  
   background-color: var(--bs-dark);
   z-index: 100000;
 }
@@ -672,6 +672,13 @@ svg {
     top: 690px;
     left: 480px;
   }
+  section.banner-1 p {
+    font-size: 120%;
+  }  
+  div.div-p,
+  .main-footer .div-p {
+  font-size: 130%;
+}
 }
 
 /* Ultra large desktops */

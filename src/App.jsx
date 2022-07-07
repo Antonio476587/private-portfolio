@@ -14,8 +14,6 @@ const element = (
 
 const pathName = window.location.pathname;
 
-console.log("Funcionando?");
-
 if (pathName) {
   if (pathName === "/") ReactDOM.hydrate(element, document.getElementById("page"));
   if (pathName !== "/") ReactDOM.hydrate(element, document.getElementById("body"));

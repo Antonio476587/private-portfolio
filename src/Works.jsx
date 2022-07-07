@@ -2,20 +2,48 @@ import React, { useRef } from "react";
 
 const contents = [
   {
-    h1: "lorem ipsum",
-    p: "lorem ipsum avec se suari no pairet.",
+    h1: "My first SPA",
+    p: "With MERN stack, google sign in, JWT, etc.",
+    urlId: "work/1",
   },
   {
-    h1: "lorem ipsum",
-    p: "lorem ipsum avec se suari no pairet.",
+    h1: "NFTs",
+    p: "NFTs where appear Elon Musk, Lebron James, BonsAI...",
+    urlId: "work/2",
   },
   {
-    h1: "lorem ipsum",
-    p: "lorem ipsum avec se suari no pairet.",
+    h1: "Three on a line",
+    p: "How I did the little AI",
+    urlId: "work/3",
+  },
+  {
+    h1: "Three on a line game",
+    p: "You can play alone with a little AI",
+    urlId: "tic-tac-toe.html",
+  },
+  {
+    h1: "BarbaJS with CSS plugin and Gsap",
+    p: "Beatifuld and smooth transitions.",
+    urlId: "work/4",
+  },
+  {
+    h1: "My first static page.",
+    p: "This is my BonsAI page",
+    urlId: "work/5",
+  },
+  {
+    h1: "Background Complement",
+    p: "Background Complement with an interface to manage",
+    urlId: "bgcomplement.html",
+  },
+  {
+    h1: "My friends",
+    p: "They are the best choice and achieve I have made",
+    urlId: "work/6",
   },
 ];
 
-function CarouselItem({ urlId, content, classActive = "" }) {
+function CarouselItem({ content, classActive = "" }) {
   return (
     <div className={`carousel-item ${classActive}`}>
       <div
@@ -29,7 +57,7 @@ function CarouselItem({ urlId, content, classActive = "" }) {
           <h1>{content.h1}</h1>
           <p>{content.p}</p>
           <p>
-            <a className="btn btn-lg btn-light" href={urlId}>
+            <a className="btn btn-lg btn-light" href={content.urlId}>
               See More
             </a>
           </p>
@@ -50,13 +78,9 @@ export default function Works() {
       ref={worksRef}
     >
       <div className="carousel-inner">
-        <CarouselItem
-          urlId="work/1"
-          content={contents[0]}
-          classActive="active"
-        />
-        <CarouselItem urlId="work/2" content={contents[1]} />
-        <CarouselItem urlId="tic-tac-toe.html" content={contents[2]} />
+        {contents.map((con, index) => (
+          index === 0 ? <CarouselItem content={con} classActive="active" /> : <CarouselItem content={con} />
+        ))}
       </div>
       <button
         className="carousel-control-prev"

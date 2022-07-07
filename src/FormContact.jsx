@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { envelope, cloudArrowD, send, envelopeOpen } from "./Svg.jsx";
 import TextInput from "./TextInput.jsx";
 
 function ContactForm({ active }) {
-  const [message, setMessage] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [nameMessage, setNameMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [toastTitle, setToastTitle] = useState("Error");
   const [toastContent, setToastContent] = useState("Si");
   const [showingValidation, setShowingValidation] = useState("");
   const [giveNFT, setGiveNFT] = useState("nft-gift-desactive");
+  const [clear, setClear] = useState(false);
 
   function showError(e) {
     setShowingValidation("denied-toast");
@@ -24,14 +23,14 @@ function ContactForm({ active }) {
   }
 
   async function fetchMessage(data) {
-    const { message } = data;
+
     try {
       const headers = { "Content-Type": "application/json" };
 
       const response = await fetch("/messages", {
         method: "POST",
         headers,
-        body: JSON.stringify(message),
+        body: JSON.stringify(data),
       });
       const body = await response.text();
       /*       const result = JSON.parse(body); */
@@ -44,9 +43,11 @@ function ContactForm({ active }) {
   function UpperChange(e, naturalValue) {
     const { name, value: textValue } = e.target;
     const value = naturalValue === undefined ? textValue : naturalValue;
-    setMessage((prevState) => ({
-      message: { ...prevState.message, [name]: value },
-    }));
+
+    if (name == "name") setNameMessage(value);
+    if (name == "email") setEmail(value);
+    if (name == "message") setMessage(value);
+
   }
 
   function showValidation(data) {
@@ -54,31 +55,43 @@ function ContactForm({ active }) {
     setToastTitle("Success");
     setToastContent(data);
     setGiveNFT("nft-gift-active");
+    setClear(true);
+
     setTimeout(() => {
       setShowingValidation("");
+      setClear(false);
     }, 2000);
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (
-      message.name.length <= 3 ||
-      message.email.length <= 3 ||
-      message.message.length <= 3
-    ) {
+
+    if (nameMessage.length <= 3) {
+      showError("You must fill all the fields to send the message.");
+      return;
+    } else if (email.length <= 3) {
+      showError("You must fill all the fields to send the message.");
+      return;
+    } else if (message.length <= 3) {
       showError("You must fill all the fields to send the message.");
       return;
     }
 
     const created = new Date();
 
-    const newMessage = message;
-    newMessage.message.date = created;
+    const newMessage = {
+      nameMessage,
+      email,
+      message,
+      date: created,
+    };
 
     const data = await fetchMessage(newMessage);
+
     if (data) {
       showValidation(data);
     }
+
   }
 
   return (
@@ -126,8 +139,10 @@ function ContactForm({ active }) {
                 name="name"
                 id="name"
                 UpperChange={UpperChange}
+                value={nameMessage}
                 key="name"
                 placeholder="Name or enterprise name"
+                Clear={clear}
               />
             </div>
             <div className="contact-input-email-div">
@@ -137,7 +152,9 @@ function ContactForm({ active }) {
                 id="email"
                 placeholder="Email"
                 key="email"
+                value={email}
                 UpperChange={UpperChange}
+                Clear={clear}
               />
             </div>
             <div className="contact-input-message-div">
@@ -149,7 +166,9 @@ function ContactForm({ active }) {
 Note: It's not the original NFT."
                 tag="textarea"
                 rows="5"
+                value={message}
                 UpperChange={UpperChange}
+                Clear={clear}
               />
             </div>
             <div className="contact-button-submit-div">

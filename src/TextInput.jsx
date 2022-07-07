@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function format(text) {
   return text != null ? text : "";
@@ -9,9 +9,12 @@ function unformat(text) {
 }
 
 export default function TextInput(props) {
-  const { upperValue } = props;
 
-  const [value, setValue] = useState(format(upperValue));
+  const [value, setValue] = useState(format(props.value));
+
+  useEffect(() => {
+    setValue("");
+  }, [props.Clear]);
 
   function onBlur(e) {
     const { UpperChange } = props;

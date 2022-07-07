@@ -7,6 +7,8 @@ import { arrow, arrowCaret } from "./Svg.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
+let regVideo = /mp4/;
+
 export default function Work({ work, index }) {
   const sectionRef1 = useRef();
   const sectionRef2 = useRef();
@@ -221,9 +223,7 @@ export default function Work({ work, index }) {
     location.assign(index - 1);
   }
   function nextSection() {
-    index === 2
-      ? location.assign("/tic-tac-toe.html")
-      : location.assign(index + 1);
+    location.assign(index + 1);
   }
   return (
     <div
@@ -253,7 +253,7 @@ export default function Work({ work, index }) {
             </div>
 
             <div className="banner-1-img">
-              <img src={work.img1} alt="There will be alt text soon..." />
+              <img src={work.img1[0]} alt={work.img1[1]} />
             </div>
           </div>
 
@@ -268,7 +268,9 @@ export default function Work({ work, index }) {
 
         <section className="section-2 section-main container" ref={sectionRef2}>
           <div className="div-img">
-            <img src={work.img2} alt="There will be alt text soon..." />
+            {work.img2[0].match(regVideo) ?
+              <video src={work.img2[0]} autoPlay="true" loop="true" controls /> :
+              <img src={work.img2[0]} alt={work.img2[1]} />}
           </div>
 
           <div className="div-p">
@@ -284,7 +286,9 @@ export default function Work({ work, index }) {
           </div>
 
           <div className="div-img">
-            <img src={work.img3} alt="There will be alt text soon..." />
+            {work.img3[0].match(regVideo) ?
+              <video src={work.img3[0]} autoPlay="true" loop="true" controls /> :
+              <img src={work.img3[0]} alt={work.img3[1]} />}
           </div>
         </section>
 
@@ -303,7 +307,9 @@ export default function Work({ work, index }) {
               {arrow}
             </button>
             <div>
-              <img src={work.img4} alt="There will be alt text soon..." />
+              {work.img4[0].match(regVideo) ?
+                <video src={work.img4[0]} autoPlay="true" loop="true" controls /> :
+                <img src={work.img4[0]} alt={work.img4[1]} />}
             </div>
             <button
               type="button"

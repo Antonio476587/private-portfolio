@@ -59,34 +59,28 @@ export default function MenuNFT() {
       </button>
       <div className="menu-nft-div">
         <MenuNFTItem price="5$" img="/img/1.png" name="1">
-          Lorem ipsum dolor sit amet consectetur.
+          It&apos;s a flower, but it&apos;s like a minecraft flower.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="2">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="15$" img="/img/2.jpg" name="2">
+          Two mountains, they are a big tiny pair.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="3">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="40$" img="/img/3.jpg" name="3">
+          The ocean is mistery, but beatiful.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="4">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="100$" img="/img/4.jpg" name="4">
+          BonsAI, such a pretty tree.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="5">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="200$" img="/img/5.jpg" name="5">
+          No one knows.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="6">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="1000$" img="/img/6.jpg" name="6">
+          I can feel it.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="7">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="2500$" img="/img/7.jpg" name="7">
+          Lebron, the choose one from quite height.
         </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="8">
-          Lorem ipsum dolor sit amet consectetur.
-        </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="9">
-          Lorem ipsum dolor sit amet consectetur.
-        </MenuNFTItem>
-        <MenuNFTItem price="5$" img="/img/1.png" name="10">
-          Lorem ipsum dolor sit amet consectetur.
+        <MenuNFTItem price="5000$" img="/img/8.png" name="8">
+          Mars or Elon Mars?
         </MenuNFTItem>
       </div>
     </div>

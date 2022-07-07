@@ -28,11 +28,11 @@ const abilities = [
     ability: "Graphic Design",
     abs: [
       {
-        name: "lorem ipsum",
+        name: "Photoshop",
         content: stars(4),
       },
       {
-        name: "lorem ipsum",
+        name: "Illustrator",
         content: stars(3),
       },
     ],
@@ -42,15 +42,15 @@ const abilities = [
     ability: "Languages",
     abs: [
       {
-        name: "lorem ipsum",
-        content: "lorem ipsum",
+        name: "Spanish",
+        content: "Native",
       },
       {
-        name: "lorem ipsum",
+        name: "English",
         content: stars(3, true),
       },
       {
-        name: "lorem ipsum",
+        name: "French",
         content: stars(1, true),
       },
     ],
@@ -60,133 +60,151 @@ const abilities = [
     ability: "Programming",
     abs: [
       {
-        name: "lorem ipsum",
+        name: "Web Basics",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "HTML",
             content: stars(4),
           },
           {
-            name: "lorem ipsum",
+            name: "JavaScript",
             content: stars(3, true),
           },
           {
-            name: "lorem ipsum",
+            name: "CSS",
             content: stars(3, true),
           },
           {
-            name: "lorem ipsum",
+            name: "Prototype",
             content: stars(2),
           },
         ],
       },
       {
-        name: "lorem ipsum",
+        name: "JavaScript",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "NodeJS",
+            content: stars(3, true),
+          },
+          {
+            name: "React",
             content: stars(3),
           },
           {
-            name: "lorem ipsum",
+            name: "Express",
             content: stars(3),
           },
           {
-            name: "lorem ipsum",
+            name: "GraphQL",
             content: stars(3),
           },
           {
-            name: "lorem ipsum",
+            name: "TypeScript",
             content: stars(3),
           },
           {
-            name: "lorem ipsum",
+            name: "JSDoc",
             content: stars(2),
-          },
-          {
-            name: "lorem ipsum",
-            content: stars(1, true),
           },
         ],
       },
       {
-        name: "lorem ipsum",
+        name: "Typescript",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "React",
+            content: stars(3),
+          },
+          {
+            name: "Deno",
+            content: stars(2, true),
+          },
+        ],
+      },
+      {
+        name: "Languages",
+        content: null,
+        subAbs: [
+          {
+            name: "JavaScript",
             content: stars(3, true),
           },
           {
-            name: "lorem ipsum",
+            name: "Python",
             content: stars(2),
           },
           {
-            name: "lorem ipsum",
+            name: "C",
+            content: stars(2),
+          },
+          {
+            name: "Solidity",
             content: stars(1, true),
           },
           {
-            name: "lorem ipsum",
-            content: stars(1),
-          },
-          {
-            name: "lorem ipsum",
+            name: "Go",
             content: stars(0, true),
           },
         ],
       },
       {
-        name: "lorem ipsum",
+        name: "Tools",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "Bootstrap",
             content: stars(4),
           },
           {
-            name: "lorem ipsum",
+            name: "Webpack",
             content: stars(3),
           },
           {
-            name: "lorem ipsum",
+            name: "Git & GitHub",
             content: stars(2, true),
           },
           {
-            name: "lorem ipsum",
+            name: "Eslint",
             content: stars(2, true),
           },
           {
-            name: "lorem ipsum",
+            name: "Babel",
             content: stars(2, true),
           },
         ],
       },
       {
-        name: "lorem ipsum",
+        name: "Databases",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "LowDB",
             content: stars(4),
           },
           {
-            name: "lorem ipsum",
+            name: "MongoDB",
             content: stars(3, true),
+          },
+          {
+            name: "MariaDB",
+            content: stars(2),
           },
         ],
       },
       {
-        name: "lorem ipsum",
+        name: "CMS",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
+            name: "WordPress",
             content: stars(3, true),
           },
           {
-            name: "lorem ipsum",
+            name: "Zyro",
             content: stars(1, true),
           },
         ],
@@ -198,41 +216,41 @@ const abilities = [
     ability: "Information",
     abs: [
       {
-        name: "lorem ipsum",
-        content: "lorem ipsum",
+        name: "Name:",
+        content: "Felix Cabello",
       },
       {
-        name: "lorem ipsum",
-        content: "lorem ipsum",
+        name: "Age:",
+        content: "18",
       },
       {
-        name: "lorem ipsum",
-        content: "lorem ipsum",
+        name: "Country:",
+        content: "Venezuela",
       },
       {
-        name: "lorem ipsum",
-        content: "lorem ipsum",
+        name: "State:",
+        content: "La Guaira",
       },
       {
-        name: "lorem ipsum",
+        name: "Favorites",
         content: null,
         subAbs: [
           {
-            name: "lorem ipsum",
-            content: "lorem ipsum",
+            name: "Meal:",
+            content: "Soup",
           },
           {
-            name: "lorem ipsum",
+            name: "Color:",
             content: <span className="span-orange" />,
           },
           {
-            name: "lorem ipsum",
-            content: "lorem ipsum",
+            name: "Anime:",
+            content: "Naruto",
           },
           {
-            name: "lorem ipsum",
-            content: "lorem ipsum",
-          }
+            name: "Sport:",
+            content: "Martial Arts",
+          },
         ],
       },
     ],

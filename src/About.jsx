@@ -28,7 +28,11 @@ const InfoAbout = React.forwardRef((props, ref) => (
 
     <div className="container text-container">
       <p className="text m-1 pr p-about-me">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta officiis provident quo accusantium quisquam aliquam non ipsam dicta fugiat atque ad, voluptates sunt maxime a voluptatem facere nisi, hic quidem velit. In non dolore fugiat facilis! Totam, facilis. Modi error non commodi atque aperiam a sed mollitia voluptate corporis magni.
+        I always want to give my best, help who need it and grow as a person. I
+        would like to provide a great programming experience by working with
+        you, I don’t consider any project too big or small. I always try to be
+        updated and consider me responsible and constant, and if I got errors, I
+        try to learn from them as much as I can, ¡Thanks for visit me!
       </p>
     </div>
   </div>

@@ -51,7 +51,7 @@ const browserConfig = {
       chunks: "all",
     },
   },
-  devtool: "source-map",
+  devtool: mode === "development" ? "source-map" : false,
   devServer: {
     static: {
       directory: path.resolve(__dirname, "public"),
@@ -60,6 +60,11 @@ const browserConfig = {
     open: true,
     historyApiFallback: { index: "/indexwebpack.html" },
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+}
 };
 
 export default browserConfig;

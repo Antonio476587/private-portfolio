@@ -41,10 +41,15 @@ const serverConfig = {
       },
     ],
   },
-  devtool: "source-map",
+  devtool: mode === "development" ? "source-map" : false,
   devServer: {
     static: false,
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+}
 };
 
 export default serverConfig

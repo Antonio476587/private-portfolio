@@ -9,10 +9,13 @@ const mode = process.env.MODE || "development";
 
 const browserConfig = {
   mode,
-  entry: { app: ["./src/App.jsx"] },
+  entry: { app: ["./src/App.tsx"] },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "public/js"),
+  },
+  resolve: {
+    extensions: [".tsx", "jsx", ".ts", ".js"],
   },
   module: {
     rules: [
@@ -39,6 +42,19 @@ const browserConfig = {
             ],
           },
         },
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
     ],
   },

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
-import https from "https";
+import http2 from "http2";
 import fs from "fs";
 
 import { connectToDB, getDB } from "./db/db.js";
@@ -43,7 +43,7 @@ const securePort = process.env.SECURE_PORT || 443;
 
 connectToDB();
 if (cert && key) {
-  https.createServer({
+  http2.createSecureServer({
     cert,
     key,
     ca: fs.readFileSync("./ca_bundle.crt"),

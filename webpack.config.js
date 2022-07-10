@@ -9,7 +9,10 @@ const mode = process.env.MODE || "development";
 
 const browserConfig = {
     mode,
-    entry: ["whatwg-fetch", { app: ["./src/App.tsx"] }],
+    entry: { 
+        polyfill: ["whatwg-fetch"],
+        app: ["./src/App.tsx"],
+    },
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "public/js"),

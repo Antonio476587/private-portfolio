@@ -13,7 +13,7 @@ const serverConfig = {
     entry: { server: ["./index.js"] },
     target: "node",
     externals: [nodeExternals({
-        allowlist: ["lowdb", "steno"],
+        allowlist: ["lowdb", "steno", "whatwg-fetch"],
     })],
     externalsPresets: { node: true },
     output: {

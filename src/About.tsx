@@ -4,9 +4,9 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import HeaderAbout from "./HeaderAbout.jsx";
-import Illustration from "./Illustration.jsx";
-import { personSvg, arrowLeftSquare, workSvg } from "./Svg.jsx";
+import HeaderAbout from "./HeaderAbout";
+import Illustration from "./Illustration";
+import { personSvg, arrowLeftSquare, workSvg } from "./Svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,161 +18,161 @@ let colorBox;
 let colorBox2;
 
 const InfoAbout = React.forwardRef((props, ref) => (
-  <div className="container mb-5 about-me cajita" ref={ref}>
-    <div className="container title-me d-flex">
-      <div className="container">
-        <h3 className="h3">About me</h3>
-      </div>
-      <span className="container">{personSvg}</span>
-    </div>
+    <div className="container mb-5 about-me cajita" ref={ref}>
+        <div className="container title-me d-flex">
+            <div className="container">
+                <h3 className="h3">About me</h3>
+            </div>
+            <span className="container">{personSvg}</span>
+        </div>
 
-    <div className="container text-container">
-      <p className="text m-1 pr p-about-me">
+        <div className="container text-container">
+            <p className="text m-1 pr p-about-me">
         I always want to give my best, help who need it and grow as a person. I
         would like to provide a great programming experience by working with
         you, I don’t consider any project too big or small. I always try to be
         updated and consider me responsible and constant, and if I got errors, I
         try to learn from them as much as I can, ¡Thanks for visit me!
-      </p>
+            </p>
+        </div>
     </div>
-  </div>
 ));
 
 export default function About() {
-  const box = useRef();
-  const infoAboutRef = useRef();
-  const headerAboutRef = useRef();
-  const illustrationRef = useRef();
-  const tl = useRef();
-  const q = gsap.utils.selector(box);
+    const box = useRef();
+    const infoAboutRef = useRef();
+    const headerAboutRef = useRef();
+    const illustrationRef = useRef();
+    const tl = useRef();
+    const q = gsap.utils.selector(box);
 
-  const boxes = [];
+    const boxes = [];
 
-  for (let i = 0; i < 50; i++) {
-    const element = <div key={i + 1} className="svg-div" />;
-    boxes.push(element);
-  }
-
-  useEffect(() => {
-    anime.set(".svg-div", {
-      translateX: () => anime.random(-400, 400),
-      translateY: () => anime.random(-1100, 1100),
-      rotate: () => anime.random(0, 360),
-    });
-  }, []);
-
-  useEffect(() => {
-    function randomValues() {
-      if (location.pathname !== "/about") return;
-      anime({
-        targets: [".svg-div"],
-        easing: "easeInOutQuad",
-        duration: 6000,
-        scale: () => anime.random(0.5, 1.5),
-        translateX: () => anime.random(-400, 400),
-        translateY: () => anime.random(-1100, 1100),
-        rotate: () => anime.random(0, 360),
-        complete: randomValues,
-      });
-      gsap.getProperty(".svg-div", "--gradient-color") === black
-        ? (colorBox = azure)
-        : (colorBox = black);
-      gsap.to(q(".svg-div"), {
-        duration: 6,
-        "--gradient-color": colorBox,
-      });
-      gsap.getProperty(".svg-div", "--gradient-color-2") === sand
-        ? (colorBox2 = orange)
-        : (colorBox2 = sand);
-      gsap.to(q(".svg-div"), {
-        duration: 6,
-        "--gradient-color-2": colorBox2,
-      });
+    for (let i = 0; i < 50; i++) {
+        const element = <div key={i + 1} className="svg-div" />;
+        boxes.push(element);
     }
 
-    randomValues();
-  });
-
-  useEffect(() => {
-    let animation2;
-    tl.current = gsap.timeline({
-      defaults: {
-        duration: 1,
-        scale: 0.3,
-        autoAlpha: 0,
-      },
-    });
-
-    const animation1 = gsap.from(infoAboutRef.current, {
-      delay: 0.5,
-      duration: 1,
-      autoAlpha: 0,
-      scale: 0.3,
-      rotation: 45,
-      onComplete: () => {
-        animation1.kill();
-        animation2 = gsap.to(infoAboutRef.current, {
-          rotation: 45,
-          autoAlpha: 0,
-          scrollTrigger: {
-            id: "infoTrigger",
-            trigger: infoAboutRef.current,
-            start: "top top",
-            end: "bottom top+=50",
-            scrub: true,
-            toggleActions: "play none none reverse",
-          },
+    useEffect(() => {
+        anime.set(".svg-div", {
+            translateX: () => anime.random(-400, 400),
+            translateY: () => anime.random(-1100, 1100),
+            rotate: () => anime.random(0, 360),
         });
-      },
+    }, []);
+
+    useEffect(() => {
+        function randomValues() {
+            if (location.pathname !== "/about") return;
+            anime({
+                targets: [".svg-div"],
+                easing: "easeInOutQuad",
+                duration: 6000,
+                scale: () => anime.random(0.5, 1.5),
+                translateX: () => anime.random(-400, 400),
+                translateY: () => anime.random(-1100, 1100),
+                rotate: () => anime.random(0, 360),
+                complete: randomValues,
+            });
+            gsap.getProperty(".svg-div", "--gradient-color") === black
+                ? (colorBox = azure)
+                : (colorBox = black);
+            gsap.to(q(".svg-div"), {
+                duration: 6,
+                "--gradient-color": colorBox,
+            });
+            gsap.getProperty(".svg-div", "--gradient-color-2") === sand
+                ? (colorBox2 = orange)
+                : (colorBox2 = sand);
+            gsap.to(q(".svg-div"), {
+                duration: 6,
+                "--gradient-color-2": colorBox2,
+            });
+        }
+
+        randomValues();
     });
 
-    tl.current
-      .from(headerAboutRef.current, {
-        xPercent: 3,
-        scrollTrigger: {
-          id: "section1",
-          trigger: headerAboutRef.current,
-          start: "top+=150 bottom",
-          end: "center center",
-          scrub: true,
-          toggleActions: "play none none reverse",
-        },
-      })
-      .from(illustrationRef.current, {
-        scrollTrigger: {
-          id: "section3",
-          trigger: illustrationRef.current,
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
-          toggleActions: "play none none reverse",
-        },
-      });
+    useEffect(() => {
+        let animation2;
+        tl.current = gsap.timeline({
+            defaults: {
+                duration: 1,
+                scale: 0.3,
+                autoAlpha: 0,
+            },
+        });
 
-    return () => {
-      tl.current.kill();
-      animation1.kill();
-      animation2.kill();
-    };
-  }, []);
+        const animation1 = gsap.from(infoAboutRef.current, {
+            delay: 0.5,
+            duration: 1,
+            autoAlpha: 0,
+            scale: 0.3,
+            rotation: 45,
+            onComplete: () => {
+                animation1.kill();
+                animation2 = gsap.to(infoAboutRef.current, {
+                    rotation: 45,
+                    autoAlpha: 0,
+                    scrollTrigger: {
+                        id: "infoTrigger",
+                        trigger: infoAboutRef.current,
+                        start: "top top",
+                        end: "bottom top+=50",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    },
+                });
+            },
+        });
 
-  return (
-    <div className="about" id="About" role="main" aria-roledescription="about">
-      <a href="/?P=false" className="back-about">
-        <span className="container">{arrowLeftSquare}</span>
-      </a>
+        tl.current
+            .from(headerAboutRef.current, {
+                xPercent: 3,
+                scrollTrigger: {
+                    id: "section1",
+                    trigger: headerAboutRef.current,
+                    start: "top+=150 bottom",
+                    end: "center center",
+                    scrub: true,
+                    toggleActions: "play none none reverse",
+                },
+            })
+            .from(illustrationRef.current, {
+                scrollTrigger: {
+                    id: "section3",
+                    trigger: illustrationRef.current,
+                    start: "top bottom",
+                    end: "center bottom",
+                    scrub: true,
+                    toggleActions: "play none none reverse",
+                },
+            });
 
-      <div ref={box}>{boxes}</div>
+        return () => {
+            tl.current.kill();
+            animation1.kill();
+            animation2.kill();
+        };
+    }, []);
 
-      <InfoAbout ref={infoAboutRef} />
+    return (
+        <div className="about" id="About" role="main" aria-roledescription="about">
+            <a href="/?P=false" className="back-about">
+                <span className="container">{arrowLeftSquare}</span>
+            </a>
 
-      <HeaderAbout ref={headerAboutRef} />
+            <div ref={box}>{boxes}</div>
 
-      <Illustration ref={illustrationRef} />
+            <InfoAbout ref={infoAboutRef} />
 
-      <Link to="/works" className="go-work">
-        <span className="container">{workSvg}</span>
-      </Link>
-    </div>
-  );
+            <HeaderAbout ref={headerAboutRef} />
+
+            <Illustration ref={illustrationRef} />
+
+            <Link to="/works" className="go-work">
+                <span className="container">{workSvg}</span>
+            </Link>
+        </div>
+    );
 }

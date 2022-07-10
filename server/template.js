@@ -1,5 +1,5 @@
 export default function template(body) {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
   <html lang="es">
   
   <head>

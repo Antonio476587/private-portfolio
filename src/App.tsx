@@ -4,17 +4,17 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import "bootstrap";
-import Page from "./Page.jsx";
+import Page from "./Page";
 
 const element = (
-  <BrowserRouter>
-    <Page />
-  </BrowserRouter>
+    <BrowserRouter>
+        <Page />
+    </BrowserRouter>
 );
 
-const pathName = window.location.pathname;
+const pathName: string = window.location.pathname;
 
 if (pathName) {
-  if (pathName === "/") ReactDOM.hydrate(element, document.getElementById("page"));
-  if (pathName !== "/") ReactDOM.hydrate(element, document.getElementById("body"));
+    if (pathName === "/") ReactDOM.hydrate(element, document.getElementById("page"));
+    if (pathName !== "/") ReactDOM.hydrate(element, document.getElementById("body"));
 }

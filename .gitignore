@@ -12,6 +12,8 @@ private.key
 
 .env
 
+dev.env
+
 *.well-known
 
 package-lock.json

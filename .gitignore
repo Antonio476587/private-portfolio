@@ -1,18 +1,6 @@
 node_modules
 
-robots.txt
-
 dist
-
-ca_bundle.crt
-
-certificate.crt
-
-private.key
-
-.env
-
-*.well-known
 
 package-lock.json
 

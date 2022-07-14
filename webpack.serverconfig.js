@@ -20,6 +20,9 @@ const serverConfig = {
         filename: "server.cjs",
         path: path.resolve(__dirname, "dist"),
     },
+    resolve: {
+        extensions: [".tsx", "jsx", ".ts", ".js"],
+    },
     module: {
         rules: [
             {
@@ -35,6 +38,11 @@ const serverConfig = {
                         ],
                     },
                 },
+            },
+            {
+                test: /\.(tsx|ts)?$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
             },
         ],
     },

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
+import spdy from "spdy";
 import express from "express";
-import http2 from "http2";
 import fs from "fs";
 
 import { connectToDB, getDB } from "./db/db.js";
@@ -20,11 +20,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.post("/messages", async (req, res) => {
-    const db = getDB();
-    const { messages } = db.data;
-    const message = messages.push(req.body);
-    await db.write();
-    res.send("The message was succesfully recibed.");
+    try {
+        const db = getDB();
+        const { messages } = db.data;
+        const message = messages.push(req.body);
+        await db.write();
+        res.status(201).send("The message was succesfully recibed.");
+    } catch (error) {
+        res.status(400).send(error);
+    }
 });
 
 app.all("*", (req, res, next) => {
@@ -43,11 +47,11 @@ const securePort = process.env.SECURE_PORT || 443;
 
 connectToDB();
 if (cert && key) {
-    http2.createSecureServer({
+    spdy.createServer({
         cert,
         key,
         ca: fs.readFileSync("./ca_bundle.crt"),
-    }, app).listen(securePort);
+    }, app).listen(securePort).on("error", (error) => { throw new Error(error); });
 }
 
 app.listen(port);

@@ -234,6 +234,7 @@ export default function template(body) {
     
       </div>
     
+      <script src="/js/polyfill.bundle.js" type="application/javascript"></script>
       <!-- app -->
       <script src="/js/app.bundle.js" type="application/javascript"></script>
       <!-- Vendor -->

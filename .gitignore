@@ -1,5 +1,7 @@
 node_modules
 
+dev.env
+
 dist
 
 package-lock.json

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-const Nav = React.forwardRef(({ typeLink }, ref) => {
+interface NavProps {
+    typeLink?: string,
+}
+
+const Nav = React.forwardRef(function Nav({ typeLink }: NavProps, ref: React.RefObject<HTMLAnchorElement>) {
     if (typeLink === "LinkFirst") {
         return (
             <div className="second-nav">
@@ -43,48 +47,70 @@ const Nav = React.forwardRef(({ typeLink }, ref) => {
 });
 
 export default function HeaderWork() {
-    const bookmarkRef = useRef();
-    const aLinksRef = useRef([]);
+    const bookmarkRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const aLinksRef: React.RefObject<HTMLAnchorElement[]> = useRef([]);
 
-    function addMouseOverEvent(e) {
-        aLinksRef.current.forEach((aLink) => {
-            if (aLink.className.includes("active")) aLink.classList.remove("active");
-        });
-        e.target.classList.toggle("active");
-        const { clientHeight } = e.target;
-        const { clientWidth } = e.target;
-        const left = e.target.offsetLeft;
+    function addMouseOverEvent(event: MouseEvent): void {
+        if (event.target == null) return;
 
-        bookmarkRef.current.childNodes[0].style.height = `${clientHeight + 10}px`;
-        bookmarkRef.current.childNodes[0].style.width = `${clientWidth + 10}px`;
-        bookmarkRef.current.style.left = `${left - 5}px`;
+        const { target } = event;
+
+        let { clientHeight } = target;
+        let { clientWidth } = target;
+        let { offsetLeft: left }= target;
+
+        clientHeight = typeof clientHeight === "string" ? globalThis.parseInt(clientHeight, 10) : clientHeight;
+        clientWidth = typeof clientWidth === "string" ? globalThis.parseInt(clientWidth, 10) : clientWidth;
+        left = typeof left === "string" ? globalThis.parseInt(left, 10) : left;
+
+        target.classList.toggle("active");
+
+        if (aLinksRef.current) {
+            aLinksRef.current.forEach((aLink) => {
+                if (aLink.className.includes("active")) aLink.classList.remove("active");
+            });
+        }
+
+        if (bookmarkRef.current) {
+            if (bookmarkRef.current.childNodes[0]) {
+                bookmarkRef.current.childNodes[0].style.height = `${clientHeight + 10}px`;
+                bookmarkRef.current.childNodes[0].style.width = `${clientWidth + 10}px`;
+                bookmarkRef.current.style.left = `${left - 5}px`;
+            }
+        }
     }
 
-    function addMouseLeaveEvent(e) {
-        e.target.classList.toggle("active");
-        bookmarkRef.current.childNodes[0].style.height = "0px";
+    function addMouseLeaveEvent(event: MouseEvent): void {
+        event.target?.classList.toggle("active");
+        if (bookmarkRef.current?.childNodes[0]) bookmarkRef.current.childNodes[0].style.height = "0px";
     }
 
+    // Refactor [93]
     useEffect(() => {
         const aLinks = aLinksRef.current;
-        bookmarkRef.current.style.left = `${aLinks[2].offsetLeft - 5}px`;
 
-        aLinks.forEach((aLink) => {
-            aLink.addEventListener("mouseover", addMouseOverEvent);
-        });
-        aLinks.forEach((aLink) => {
-            aLink.addEventListener("mouseleave", addMouseLeaveEvent);
-        });
+        if (aLinks) {
+            if (bookmarkRef.current && aLinks[2]) bookmarkRef.current.style.left = `${aLinks[2].offsetLeft - 5}px`;
+    
+            aLinks.forEach((aLink) => {
+                aLink.addEventListener("mouseover", addMouseOverEvent);
+            });
+            aLinks.forEach((aLink) => {
+                aLink.addEventListener("mouseleave", addMouseLeaveEvent);
+            });
+        }
 
         return () => {
-            aLinks.forEach((aLink) => {
-                aLink.removeEventListener("mouseover", addMouseOverEvent);
-            });
-            aLinks.forEach((aLink) => {
-                aLink.removeEventListener("mouseleave", addMouseLeaveEvent);
-            });
+            if (aLinks) {
+                aLinks.forEach((aLink) => {
+                    aLink.removeEventListener("mouseover", addMouseOverEvent);
+                });
+                aLinks.forEach((aLink) => {
+                    aLink.removeEventListener("mouseleave", addMouseLeaveEvent);
+                });
+            }
         };
-    });
+    }, [aLinksRef, aLinksRef.current]);
     /* For future changes
   function moveBookmarkResponsive() {
     if (!nav.className.includes("collapsing") || nav === undefined) return;
@@ -92,9 +118,11 @@ export default function HeaderWork() {
     bookmarkRef.current.style.top = `${aLinks[2].offsetTop}px`;
   }
  */
-    const addALinksRefs = (el) => {
-        if (el && !aLinksRef.current.includes(el)) {
-            aLinksRef.current.push(el);
+    const addALinksRefs = (el: HTMLAnchorElement): void => {
+        if (aLinksRef.current) {
+            if (el && !aLinksRef.current.includes(el)) {
+                aLinksRef.current.push(el);
+            }
         }
     };
 

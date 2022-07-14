@@ -1,18 +1,25 @@
 import React, { useState, useRef } from "react";
 
-function MenuNFTItem({ price, img, name, children }) {
-    const nftDetailRef = useRef();
-    const nftPriceRef = useRef();
+interface MenuNFTItemProps {
+    price: string;
+    img: string;
+    name: string;
+    children: React.ReactNode;
+}
+
+function MenuNFTItem({ price, img, name, children }: MenuNFTItemProps) {
+    const nftDetailRef: React.RefObject<HTMLDivElement>  = useRef(null);
+    const nftPriceRef: React.RefObject<HTMLDivElement>  = useRef(null);
 
     function activeNFT() {
-        nftDetailRef.current.classList.toggle("nft-item-detail-active");
-        nftPriceRef.current.classList.toggle("nft-item-price-hidden");
+        if (nftDetailRef.current) nftDetailRef.current.classList.toggle("nft-item-detail-active");
+        if (nftPriceRef.current) nftPriceRef.current.classList.toggle("nft-item-price-hidden");
     }
 
     return (
         <div
             role="button"
-            tabIndex="0"
+            tabIndex={0}
             className="menu-nft-item"
             onClick={activeNFT}
             key={price}
@@ -32,19 +39,19 @@ function MenuNFTItem({ price, img, name, children }) {
 }
 
 export default function MenuNFT() {
-    const [Active, setActive] = useState("disabled");
+    const [active, setActive] = useState("disabled");
 
-    function ActiveMenuNFT() {
-        if (Active === "active") return setActive("disabled");
+    function activeMenuNFT() {
+        if (active === "active") return setActive("disabled");
         return setActive("active");
     }
 
     return (
-        <div className={`menu-nft menu-nft-${Active}`}>
+        <div className={`menu-nft menu-nft-${active}`}>
             <button
                 id="nft-button"
                 className="menu-nft-button"
-                onClick={ActiveMenuNFT}
+                onClick={activeMenuNFT}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

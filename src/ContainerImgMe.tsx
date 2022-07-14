@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-export default function ContainerImgMe({ nameContainer }) {
+interface ContainerImgMeProps {
+    nameContainer: string;
+}
+
+export default function ContainerImgMe({ nameContainer }: ContainerImgMeProps) {
     const [active, setActive] = useState("active-me");
     const [active2, setActive2] = useState("desactive-me");
 

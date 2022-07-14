@@ -1,19 +1,22 @@
 import React from "react";
 import { starSvg, starHalfSvg, starBlackSvg } from "./Svg";
 
-const stars = (num, booleanHalfStar = false) => {
-    let starsQuantity = num;
+const stars = (num: number, booleanHalfStar = false) => {
+    let starsQuantity: number = num;
     let halfStar = booleanHalfStar;
 
-    const totalStars = [];
+    const totalStars: React.ReactElement<SVGElement>[] = [];
 
     for (let i = 0; i < 5; i++) {
-        if (starsQuantity <= 0 && halfStar) {
+        switch (true) {
+        case starsQuantity <= 0 && halfStar:
             totalStars.push(starHalfSvg);
             halfStar = !halfStar;
-        } else if (starsQuantity <= 0) {
+            break;
+        case starsQuantity <= 0:
             totalStars.push(starBlackSvg);
-        } else if (starsQuantity > 0) {
+            break;
+        default:
             totalStars.push(starSvg);
             starsQuantity -= 1;
         }
@@ -22,7 +25,19 @@ const stars = (num, booleanHalfStar = false) => {
     return totalStars;
 };
 
-const abilities = [
+export interface ability {
+    name: string;
+    content?: React.ReactElement<SVGElement>[] | React.ReactElement | string;
+    subAbs?: ability[];
+}
+
+interface abilities {
+    id: string
+    ability: string;
+    abs: ability[]
+}
+
+const abilities: abilities[] = [
     {
         id: "graphic__design",
         ability: "Graphic Design",
@@ -61,7 +76,6 @@ const abilities = [
         abs: [
             {
                 name: "Web Basics",
-                content: null,
                 subAbs: [
                     {
                         name: "HTML",
@@ -83,7 +97,6 @@ const abilities = [
             },
             {
                 name: "JavaScript",
-                content: null,
                 subAbs: [
                     {
                         name: "NodeJS",
@@ -113,7 +126,6 @@ const abilities = [
             },
             {
                 name: "Typescript",
-                content: null,
                 subAbs: [
                     {
                         name: "React",
@@ -127,7 +139,6 @@ const abilities = [
             },
             {
                 name: "Languages",
-                content: null,
                 subAbs: [
                     {
                         name: "JavaScript",
@@ -153,7 +164,6 @@ const abilities = [
             },
             {
                 name: "Tools",
-                content: null,
                 subAbs: [
                     {
                         name: "Bootstrap",
@@ -179,7 +189,6 @@ const abilities = [
             },
             {
                 name: "Databases",
-                content: null,
                 subAbs: [
                     {
                         name: "LowDB",
@@ -197,7 +206,6 @@ const abilities = [
             },
             {
                 name: "CMS",
-                content: null,
                 subAbs: [
                     {
                         name: "WordPress",
@@ -233,7 +241,6 @@ const abilities = [
             },
             {
                 name: "Favorites",
-                content: null,
                 subAbs: [
                     {
                         name: "Meal:",

@@ -1,28 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 
-function format(text) {
+function format(text: string | null) {
     return text != null ? text : "";
 }
 
-function unformat(text) {
-    return text.trim().length === 0 ? null : text;
+function unformat(text: string | null) {
+    return text?.trim().length === 0 ? null : text;
 }
 
-export default function TextInput(props) {
+interface TextInputProps {
+    type?: string;
+    name: string;
+    id: string;
+    key: string;
+    placeholder: string;
+    tag?: string;
+    rows?: string;
+    columns?: string;
+    UpperChange(e: MouseEvent, value: null | string | email): void;
+    value: string | null | email;
+    clear: boolean;
+}
+
+export default function TextInput(props: TextInputProps): React.ReactElement {
 
     const [value, setValue] = useState(format(props.value));
+    const { UpperChange } = props;
 
     useEffect(() => {
         setValue("");
-    }, [props.Clear]);
+    }, [props.clear]);
 
-    function onBlur(e) {
-        const { UpperChange } = props;
+    function onBlur(e: MouseEvent) {
         UpperChange(e, unformat(value));
     }
 
-    function onChange(e) {
-        setValue(e.target.value);
+    function onChange(e: ChangeEvent) {
+        e.target.value !== null ? setValue(e.target.value) : setValue("");
     }
 
     const { tag = "input" } = props;

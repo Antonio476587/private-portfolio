@@ -1,11 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, FormEvent } from "react";
 
 import { envelope, cloudArrowD, send, envelopeOpen } from "./Svg";
 import TextInput from "./TextInput";
 
-function ContactForm({ active }) {
+interface ContactFormProps {
+    active: boolean;
+}
+
+interface Message {
+    nameMessage: string,
+    email: email,
+    message: string,
+    date: Date,
+}
+
+function ContactForm({ active }: ContactFormProps) {
     const [nameMessage, setNameMessage] = useState("");
-    const [email, setEmail] = useState("");
+    const [email, setEmail]: [email, React.Dispatch<React.SetStateAction<email>>]= useState("mibebitofiufiu@fantonix.space");
     const [message, setMessage] = useState("");
     const [toastTitle, setToastTitle] = useState("Error");
     const [toastContent, setToastContent] = useState("Si");
@@ -13,85 +24,108 @@ function ContactForm({ active }) {
     const [giveNFT, setGiveNFT] = useState("nft-gift-desactive");
     const [clear, setClear] = useState(false);
 
-    function showError(e) {
-        setShowingValidation("denied-toast");
-        setToastTitle("Error");
-        setToastContent(e);
+    function removeToast(clearInputs?: true): void {
         setTimeout(() => {
+            setToastTitle("");
+            setToastContent("");
             setShowingValidation("");
+            if (clearInputs) setClear(false);
         }, 2000);
     }
 
-    async function fetchMessage(data) {
+    function showToast(title: string, content: string, clearInputs?: true): void {
+        setToastTitle(title);
+        setToastContent(content);
+        removeToast(clearInputs);
+    }
 
+    function _showError(e: string): void {
+        setShowingValidation("denied-toast");
+        showToast("Error", `${e}`);
+    }
+
+    function showError(e: Error): void {
+        _showError(`${e}`);
+    }
+
+    function _showValidation(data: string): void {
+        setShowingValidation("success-toast");
+        showToast("Success", data);
+        setGiveNFT("nft-gift-active");
+    }
+
+    function showValidation(data: string): void {
+        _showValidation(data);
+    }
+
+    function isEmail(email: string | number |null | email): email is email {
+        return (email as email).match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== undefined;
+    }
+
+    function UpperChange(e: MouseEvent, naturalValue: null | string | email): void {
+        if (e.target) {
+            const { name, value: textValue } = e.target;
+            const value = naturalValue === undefined ? textValue : naturalValue;
+    
+            if (name == "name" && typeof value == "string") setNameMessage(value?? "");
+            if (name == "email" && isEmail(value)) setEmail(value?? "mibebitofiufiu@fantonix.space");
+            if (name == "message" && typeof value == "string") setMessage(value?? "");
+        }
+    }
+
+
+    async function fetchMessage(data: Message) {
         try {
-            const headers = { "Content-Type": "application/json" };
-
-            const response = await fetch("/messages", {
+            const headers: Headers = new Headers({
+                "Content-Type": "application/json",
+            });
+            const response: Response = await fetch("/messages", {
                 method: "POST",
                 headers,
                 body: JSON.stringify(data),
             });
-            const body = await response.text();
+            const body: string = await response.text();
             /*       const result = JSON.parse(body); */
             return body;
-        } catch (e) {
-            return showError();
+        } catch (error) {
+            showError(error);
+            return null;
         }
     }
 
-    function UpperChange(e, naturalValue) {
-        const { name, value: textValue } = e.target;
-        const value = naturalValue === undefined ? textValue : naturalValue;
-
-        if (name == "name") setNameMessage(value);
-        if (name == "email") setEmail(value);
-        if (name == "message") setMessage(value);
-
-    }
-
-    function showValidation(data) {
-        setShowingValidation("success-toast");
-        setToastTitle("Success");
-        setToastContent(data);
-        setGiveNFT("nft-gift-active");
-        setClear(true);
-
-        setTimeout(() => {
-            setShowingValidation("");
-            setClear(false);
-        }, 2000);
-    }
-
-    async function handleSubmit(e) {
+    async function handleSubmit(e: FormEvent): Promise<string | null> {
         e.preventDefault();
-
-        if (nameMessage.length <= 3) {
-            showError("You must fill all the fields to send the message.");
-            return;
-        } else if (email.length <= 3) {
-            showError("You must fill all the fields to send the message.");
-            return;
-        } else if (message.length <= 3) {
-            showError("You must fill all the fields to send the message.");
-            return;
+        let data: string | null;
+        try {
+            if (nameMessage.length <= 3) {
+                throw new Error("You must fill all the fields to send the message.");
+            } else if (email.length <= 3) {
+                throw new Error("You must fill all the fields to send the message.");
+            } else if (message.length <= 3) {
+                throw new Error("You must fill all the fields to send the message.");
+            }
+    
+            const created: Date = new Date();
+    
+            const newMessage: Message = {
+                nameMessage,
+                email,
+                message,
+                date: created,
+            };
+    
+            data = await fetchMessage(newMessage);
+    
+            if (data) {
+                showValidation(data);
+                setClear(true);
+                setGiveNFT("nft-gift-active");
+            }
+        } catch (error) {
+            showError(error);
+            return null;
         }
-
-        const created = new Date();
-
-        const newMessage = {
-            nameMessage,
-            email,
-            message,
-            date: created,
-        };
-
-        const data = await fetchMessage(newMessage);
-
-        if (data) {
-            showValidation(data);
-        }
-
+        return data;
     }
 
     return (
@@ -102,7 +136,7 @@ function ContactForm({ active }) {
             </div>
 
             <div className="contact-nft-gift">
-                <div className={`div-nft-gift ${giveNFT}`} tabIndex="0">
+                <div className={`div-nft-gift ${giveNFT}`} tabIndex={0}>
                     <div className="div-nft-gift-hover-1" />
                     <div className="div-nft-gift-hover-2" />
                     {giveNFT === "nft-gift-desactive" ? null : (
@@ -138,11 +172,11 @@ function ContactForm({ active }) {
                                 type="text"
                                 name="name"
                                 id="name"
-                                UpperChange={UpperChange}
-                                value={nameMessage}
                                 key="name"
                                 placeholder="Name or enterprise name"
-                                Clear={clear}
+                                UpperChange={UpperChange}
+                                value={nameMessage}
+                                clear={clear}
                             />
                         </div>
                         <div className="contact-input-email-div">
@@ -150,11 +184,11 @@ function ContactForm({ active }) {
                                 type="email"
                                 name="email"
                                 id="email"
-                                placeholder="Email"
                                 key="email"
+                                placeholder="Email"
                                 value={email}
                                 UpperChange={UpperChange}
-                                Clear={clear}
+                                clear={clear}
                             />
                         </div>
                         <div className="contact-input-message-div">
@@ -168,7 +202,7 @@ Note: It's not the original NFT."
                                 rows="5"
                                 value={message}
                                 UpperChange={UpperChange}
-                                Clear={clear}
+                                clear={clear}
                             />
                         </div>
                         <div className="contact-button-submit-div">
@@ -188,8 +222,10 @@ export default function FormContact() {
 
     function formControl() {
         const form = document.querySelector(".contact-body-div");
-        form.classList.toggle("contact-body-active");
-        setActive(!active);
+        if (form) {
+            form.classList.toggle("contact-body-active");
+            setActive(!active);
+        }
     }
 
     return (

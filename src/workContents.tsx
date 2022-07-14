@@ -1,17 +1,4 @@
-import React from "react";
-
-interface Work {
-  h2: string,
-  p1: string,
-  img1: string[],
-  img2: string[],
-  p2: string,
-  p3: string,
-  img3: string[],
-  p4: string,
-  img4: string[],
-  styles: string[],
-}
+import Work from "Work";
 
 const workContents: Array<Work> = [
     {

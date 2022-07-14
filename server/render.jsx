@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 
-import Page from "../src/Page.jsx";
+import Page from "../src/Page.tsx";
 import template from "./template.js";
 import templateHome from "./templateHome.js";
 

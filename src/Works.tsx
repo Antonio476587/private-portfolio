@@ -1,6 +1,17 @@
 import React, { useRef } from "react";
 
-const contents = [
+interface WorkPresentation {
+    h1: string;
+    p: string;
+    urlId: string;
+}
+
+interface CarouselItemProps {
+    content: WorkPresentation;
+    classActive?: string;
+}
+
+const contents: WorkPresentation[] = [
     {
         h1: "My first SPA",
         p: "With MERN stack, google sign in, JWT, etc.",
@@ -43,7 +54,7 @@ const contents = [
     },
 ];
 
-function CarouselItem({ content, classActive = "" }) {
+function CarouselItem({ content, classActive = "" }: CarouselItemProps) {
     return (
         <div className={`carousel-item ${classActive}`}>
             <div
@@ -58,7 +69,7 @@ function CarouselItem({ content, classActive = "" }) {
                     <p>{content.p}</p>
                     <p>
                         <a className="btn btn-lg btn-light" href={content.urlId}>
-              See More
+                            See More
                         </a>
                     </p>
                 </div>
@@ -68,7 +79,7 @@ function CarouselItem({ content, classActive = "" }) {
 }
 
 export default function Works() {
-    const worksRef = useRef();
+    const worksRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     return (
         <div

@@ -4,38 +4,38 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import HeaderWork from "./HeaderWork";
 import { arrow, arrowCaret } from "./Svg";
-import NotFound from "NotFound";
+import NotFound from "./NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const regVideo = /mp4/;
 
 interface Work {
-  h2: string,
-  p1: string,
-  img1: string[],
-  img2: string[],
-  p2: string,
-  p3: string,
-  img3: string[],
-  p4: string,
-  img4: string[],
-  styles: string[],
+  h2: string;
+  p1: string;
+  img1: string[];
+  img2: string[];
+  p2: string;
+  p3: string;
+  img3: string[];
+  p4: string;
+  img4: string[];
+  styles: string[];
 }
 
-interface PropsWork {
-  work: Work | undefined,
-  index: number
+interface WorkProps {
+  work: Work | undefined;
+  index: number;
 }
 
-export default function Work(props: PropsWork): JSX.Element {
-    const divitionRefs: React.MutableRefObject<Array<HTMLDivElement>> = useRef([]);
-    const sectionRef1: React.MutableRefObject<any> = useRef();
-    const sectionRef2: React.MutableRefObject<any> = useRef();
-    const sectionRef3: React.MutableRefObject<any> = useRef();
-    const sectionRef4: React.MutableRefObject<any> = useRef();
-    const likeRunesRef:  React.MutableRefObject<any> = useRef();
-    const tl: React.MutableRefObject<any> = useRef();
+function Work({ work, index }: WorkProps): JSX.Element {
+    const divitionRefs: React.RefObject<Array<HTMLDivElement>> = useRef([]);
+    const sectionRef1: React.RefObject<HTMLElement> = useRef(null);
+    const sectionRef2: React.RefObject<HTMLElement> = useRef(null);
+    const sectionRef3: React.RefObject<HTMLElement> = useRef(null);
+    const sectionRef4: React.RefObject<HTMLElement> = useRef(null);
+    const likeRunesRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
     const qRunes: gsap.utils.SelectorFunc = gsap.utils.selector(likeRunesRef);
     const q: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef1);
     const q2: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef2);
@@ -50,20 +50,22 @@ export default function Work(props: PropsWork): JSX.Element {
             },
         });
 
-        divitionRefs.current.forEach((div: HTMLDivElement) => {
-            tl.current.from(div, {
-                scrollTrigger: {
-                    trigger: div,
-                    scrub: true,
-                    toggleActions: "play none none reverse",
-                    end: "bottom center+=100",
-                },
+        if (divitionRefs.current) {
+            divitionRefs.current.forEach((div: HTMLDivElement) => {
+                tl.current?.from(div, {
+                    scrollTrigger: {
+                        trigger: div,
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                        end: "bottom center+=100",
+                    },
+                });
             });
-        });
+        }
         return () => {
-            tl.current.kill();
+            if (tl.current) tl.current.kill();
         };
-    }, []);
+    }, [divitionRefs.current, divitionRefs]);
 
     useEffect(() => {
         let animation4: gsap.core.Tween, animation5: gsap.core.Tween;
@@ -130,12 +132,13 @@ export default function Work(props: PropsWork): JSX.Element {
         });
         return () => {
             animation1.kill();
-
+            animation2.kill();
+            animation3.kill();
             animation4.kill();
             animation5.kill();
             animation6.kill();
         };
-    }, []);
+    }, [qRunes, q, likeRunesRef, sectionRef1]);
 
     useEffect(() => {
         const animation1: gsap.core.Tween = gsap.from(q2(".div-img"), {
@@ -166,7 +169,7 @@ export default function Work(props: PropsWork): JSX.Element {
             animation1.kill();
             animation2.kill();
         };
-    }, []);
+    }, [q2, sectionRef2]);
 
     useEffect(() => {
         const animation1: gsap.core.Tween = gsap.from(q3(".div-img"), {
@@ -197,7 +200,7 @@ export default function Work(props: PropsWork): JSX.Element {
             animation1.kill();
             animation2.kill();
         };
-    }, []);
+    }, [q3, sectionRef3]);
 
     useEffect(() => {
         const animation1: gsap.core.Tween = gsap.from(q4(".div-p"), {
@@ -228,125 +231,139 @@ export default function Work(props: PropsWork): JSX.Element {
             animation1.kill();
             animation2.kill();
         };
-    }, []);
+    }, [q4, sectionRef4]);
 
-    function addRefs(el: HTMLDivElement) {
-        if (el && !divitionRefs.current.includes(el)) {
-            divitionRefs.current.push(el);
+    function addRefs(el: HTMLDivElement): void {
+        if (divitionRefs.current) {
+            if (el && !divitionRefs.current.includes(el)) {
+                divitionRefs.current.push(el);
+            }
         }
     }
 
-    function prevSection() {
+    function prevSection(): void {
         if (index === 1) return;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore: Unreachable code error
-        location.assign(index - 1);
-    }
-    function nextSection() {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore: Unreachable code error
-        location.assign(index + 1);
+        location.assign((index - 1).toString());
     }
 
-    const { work, index } = props;
-    if (work) return (
-        <div
-            id="body-work"
-            style={{
-                "--color-body-background": work.styles[0],
-                "--color-foreground": work.styles[1],
-                "--color-foreground-2": work.styles[2],
-            }}
-        >
-            <div className="like-runes" ref={likeRunesRef}>
-                <div className="div" />
-                <div className="div" />
+    function nextSection(): void {
+        location.assign((index + 1).toString());
+    }
+
+    if (work)
+        return (
+            <div
+                id="body-work"
+                style={{
+                    "--color-body-background": work.styles[0] ?? "#EBEBFF",
+                    "--color-foreground": work.styles[1] ?? "#0C043E",
+                    "--color-foreground-2": work.styles[2] ?? "#111",
+                }}
+            >
+                <div className="like-runes" ref={likeRunesRef}>
+                    <div className="div" />
+                    <div className="div" />
+                </div>
+                <HeaderWork />
+
+                <main className="main">
+                    <section className="section container banner-1" ref={sectionRef1}>
+                        <div className="banner-1-div">
+                            <div className="container">
+                                <h2 title="work-title">{work.h2}</h2>
+                                <p>{work.p1}</p>
+
+                                <div className="div" />
+                                <div className="div" />
+                                <div className="div" />
+                            </div>
+
+                            <div className="banner-1-img">
+                                <img src={work.img1[0]} alt={work.img1[1]} />
+                            </div>
+                        </div>
+
+                        <span className="arrow-span-1">
+                            {arrowCaret}
+                            {arrowCaret}
+                            {arrowCaret}
+                        </span>
+                    </section>
+
+                    <div className="divition" ref={addRefs} />
+
+                    <section
+                        className="section-2 section-main container"
+                        ref={sectionRef2}
+                    >
+                        <div className="div-img">
+                            {work.img2[0]?.match(regVideo) ? (
+                                <video src={work.img2[0]} autoPlay loop controls />
+                            ) : (
+                                <img src={work.img2[0]} alt={work.img2[1]} />
+                            )}
+                        </div>
+
+                        <div className="div-p">
+                            <p>{work.p2}</p>
+                        </div>
+                    </section>
+
+                    <div className="divition" ref={addRefs} />
+
+                    <section
+                        className="section-3 section-main container"
+                        ref={sectionRef3}
+                    >
+                        <div className="div-p">
+                            <p>{work.p3}</p>
+                        </div>
+
+                        <div className="div-img">
+                            {work.img3[0]?.match(regVideo) ? (
+                                <video src={work.img3[0]} autoPlay loop controls />
+                            ) : (
+                                <img src={work.img3[0]} alt={work.img3[1]} />
+                            )}
+                        </div>
+                    </section>
+
+                    <div className="divition" ref={addRefs} />
+
+                    <footer className="main-footer container" ref={sectionRef4}>
+                        <div className="div-p">
+                            <p>{work.p4}</p>
+                        </div>
+                        <div className="main-footer-bottom">
+                            <button
+                                type="button"
+                                className="main-footer-span"
+                                onClick={prevSection}
+                            >
+                                {arrow}
+                            </button>
+                            <div>
+                                {work.img4[0]?.match(regVideo) ? (
+                                    <video src={work.img4[0]} autoPlay loop controls />
+                                ) : (
+                                    <img src={work.img4[0]} alt={work.img4[1]} />
+                                )}
+                            </div>
+                            <button
+                                type="button"
+                                className="main-footer-span"
+                                onClick={nextSection}
+                            >
+                                {arrow}
+                            </button>
+                        </div>
+                    </footer>
+
+                    <div className="divition" ref={addRefs} />
+                </main>
             </div>
-            <HeaderWork />
-
-            <main className="main">
-                <section className="section container banner-1" ref={sectionRef1}>
-                    <div className="banner-1-div">
-                        <div className="container">
-                            <h2 title="work-title">{work.h2}</h2>
-                            <p>{work.p1}</p>
-
-                            <div className="div" />
-                            <div className="div" />
-                            <div className="div" />
-                        </div>
-
-                        <div className="banner-1-img">
-                            <img src={work.img1[0]} alt={work.img1[1]} />
-                        </div>
-                    </div>
-
-                    <span className="arrow-span-1">
-                        {arrowCaret}
-                        {arrowCaret}
-                        {arrowCaret}
-                    </span>
-                </section>
-
-                <div className="divition" ref={addRefs} />
-
-                <section className="section-2 section-main container" ref={sectionRef2}>
-                    <div className="div-img">
-                        {work.img2[0].match(regVideo) ?
-                            <video src={work.img2[0]} autoPlay="true" loop="true" controls /> :
-                            <img src={work.img2[0]} alt={work.img2[1]} />}
-                    </div>
-
-                    <div className="div-p">
-                        <p>{work.p2}</p>
-                    </div>
-                </section>
-
-                <div className="divition" ref={addRefs} />
-
-                <section className="section-3 section-main container" ref={sectionRef3}>
-                    <div className="div-p">
-                        <p>{work.p3}</p>
-                    </div>
-
-                    <div className="div-img">
-                        {work.img3[0].match(regVideo) ?
-                            <video src={work.img3[0]} autoPlay="true" loop="true" controls /> :
-                            <img src={work.img3[0]} alt={work.img3[1]} />}
-                    </div>
-                </section>
-
-                <div className="divition" ref={addRefs} />
-
-                <footer className="main-footer container" ref={sectionRef4}>
-                    <div className="div-p">
-                        <p>{work.p4}</p>
-                    </div>
-                    <div className="main-footer-bottom">
-                        <button
-                            type="button"
-                            className="main-footer-span"
-                            onClick={prevSection}
-                        >
-                            {arrow}
-                        </button>
-                        <div>
-                            {work.img4[0].match(regVideo) ?
-                                <video src={work.img4[0]} autoPlay="true" loop="true" controls /> :
-                                <img src={work.img4[0]} alt={work.img4[1]} />}
-                        </div>
-                        <button
-                            type="button"
-                            className="main-footer-span"
-                            onClick={nextSection}
-                        >
-                            {arrow}
-                        </button>
-                    </div>
-                </footer>
-
-                <div className="divition" ref={addRefs} />
-            </main>
-        </div>
-    ); else return <NotFound/>;
+        );
+    else return <NotFound />;
 }
+
+export default Work;

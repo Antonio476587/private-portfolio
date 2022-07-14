@@ -1,6 +1,6 @@
 import React from "react";
 
-const aboutSvg = (
+const aboutSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -14,7 +14,7 @@ const aboutSvg = (
     </svg>
 );
 
-const workSvg = (
+const workSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -34,7 +34,7 @@ const workSvg = (
     </svg>
 );
 
-const xSquareSvg = (
+const xSquareSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -48,7 +48,7 @@ const xSquareSvg = (
     </svg>
 );
 
-const starSvg = (
+const starSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -61,7 +61,7 @@ const starSvg = (
     </svg>
 );
 
-const starHalfSvg = (
+const starHalfSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -74,7 +74,7 @@ const starHalfSvg = (
     </svg>
 );
 
-const starBlackSvg = (
+const starBlackSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -87,7 +87,7 @@ const starBlackSvg = (
     </svg>
 );
 
-const personSvg = (
+const personSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -100,7 +100,7 @@ const personSvg = (
     </svg>
 );
 
-const briefcase = (
+const briefcase: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -113,7 +113,7 @@ const briefcase = (
     </svg>
 );
 
-const textRight = (
+const textRight: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -129,7 +129,7 @@ const textRight = (
     </svg>
 );
 
-const twitter = (
+const twitter: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -142,7 +142,7 @@ const twitter = (
     </svg>
 );
 
-const linkedin = (
+const linkedin: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -155,7 +155,7 @@ const linkedin = (
     </svg>
 );
 
-const github = (
+const github: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -168,7 +168,7 @@ const github = (
     </svg>
 );
 
-const envelope = (
+const envelope: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -181,7 +181,7 @@ const envelope = (
     </svg>
 );
 
-const arrow90DD = (
+const arrow90DD: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -197,7 +197,7 @@ const arrow90DD = (
     </svg>
 );
 
-const cloudArrowD = (
+const cloudArrowD: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -214,7 +214,7 @@ const cloudArrowD = (
     </svg>
 );
 
-const send = (
+const send: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -227,7 +227,7 @@ const send = (
     </svg>
 );
 
-const arrowLeftSquare = (
+const arrowLeftSquare: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -243,7 +243,7 @@ const arrowLeftSquare = (
     </svg>
 );
 
-const envelopeOpen = (
+const envelopeOpen: React.ReactElement<SVGElement> = (
     <svg
         version="1.1"
         width="16"
@@ -261,7 +261,7 @@ const envelopeOpen = (
     </svg>
 );
 
-const arrow = (
+const arrow: React.ReactElement<SVGElement> = (
     <svg
         id="arrow"
         data-name="arrow"
@@ -275,7 +275,7 @@ const arrow = (
     </svg>
 );
 
-const arrowCaret = (
+const arrowCaret: React.ReactElement<SVGElement> = (
     <svg
         id="arrow-caret-down"
         data-name="arrow-caret-down"
@@ -289,7 +289,7 @@ const arrowCaret = (
     </svg>
 );
 
-const houseSvg = (
+const houseSvg: React.ReactElement<SVGElement> = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

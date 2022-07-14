@@ -1,17 +1,15 @@
 import React from "react";
 import { aboutSvg, workSvg } from "./Svg";
 
-export default function MainMenuItem({ name, id }) {
-    let svg;
-    if (name === "About") {
-        svg = aboutSvg;
-    }
-    if (name === "Works") {
-        svg = workSvg;
-    }
+interface MainMenuItemProps {
+    name: "About" | "Works";
+    id: string;
+}
 
+export default function MainMenuItem({ name, id }: MainMenuItemProps) {
+    const svg: React.ReactElement<SVGElement> = name === "About" ? aboutSvg : workSvg;
     return (
-        <div className="main-menu-item" tabIndex="0" id={id} key={id}>
+        <div className="main-menu-item" tabIndex={0} id={id} key={id}>
             <div style={{ "--i": 1 }} className="main-item-div">
                 <div style={{ "--i": 2 }}>
                     <div style={{ "--i": 3 }}>

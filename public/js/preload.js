@@ -19,6 +19,16 @@ const colors = [
     "rgb(68, 36, 0)",
 ];
 
+function randomValues() {
+    if (windowLoaded) return;
+    animation3 = gsap.to(preload, {
+        backgroundColor: gsap.utils.random(colors),
+        duration: 3,
+        power: "power1",
+        onComplete: randomValues,
+    });
+}
+
 function handleAnimationEnd(event) {
     event.stopPropagation();
     const { target } = event;
@@ -96,16 +106,6 @@ if (locatitation.search === "?P=false" && locatitation.pathname === "/") {
         direction: "alternate",
         loop: false,
     });
-
-    function randomValues() {
-        if (windowLoaded) return;
-        animation3 = gsap.to(preload, {
-            backgroundColor: gsap.utils.random(colors),
-            duration: 3,
-            power: "power1",
-            onComplete: randomValues,
-        });
-    }
 
     randomValues();
 

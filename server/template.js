@@ -17,7 +17,7 @@ export default function template(body) {
     <link rel="stylesheet" href="/css/animate.min.css"
       type="text/css" />
     <!-- Preload CSS -->
-    <link rel="stylesheet" href="/css/preload.css" type="text/css">
+    <link rel="preload" href="/css/preload.css" as="style"/>
     <meta name="description"
       content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future">
     <meta name="keywords" content="Portfolio">

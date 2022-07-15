@@ -1,61 +1,63 @@
 export default function template(body) {
     return `<!DOCTYPE html>
-  <html lang="es">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Felix Antonio Cabello Garmendia">
-    <meta name="googlebot" content="index">
-    <meta name="googlebot" content="follow">
-    <meta name="slurp" content="index">
-    <meta name="slurp" content="follow">
-    <meta name="robots">
-    <meta name="user-scalable" content="no">
-    <!-- animate.css -->
-    <link rel="stylesheet" href="/css/animate.min.css"
-      type="text/css" />
-    <!-- Preload CSS -->
-    <link rel="stylesheet" href="/css/preload.css" type="text/css">
-    <meta name="description"
-      content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future">
-    <meta name="keywords" content="Portfolio">
-    <meta name="keywords" content="CVOnline">
-    <meta name="keywords" content="USA">
-    <meta name="keywords" content="EEUU">
-    <meta name="keywords" content="United States">
-    <meta name="keywords" content="Venezuela">
-    <meta name="keywords" content="Latam">
-    <meta name="keywords" content="Latinoamerica">
-    <meta name="keywords" content="Fantoniox">
-    <meta name="keywords" content="Future">
-    <title>elix Antonio Cabello Portfolio/CVonline</title>
-    <!-- Josefin Sans Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
-    <!-- Normalize -->
-    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-    <!-- Boopstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- Common Style -->
-    <link rel="stylesheet" href="/css/index.css" type="text/css">
-    <!-- Icon link -->
-    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
-    <!-- GSAP -->
-    <script src="/js/gsap.min.js"></script>
-    <!-- GSAP Scroll Trigger -->
-    <script src="/js/ScrollToPlugin.min.js"></script>
-    <!-- GSAP Scroll To -->
-    <script src="/js/ScrollTrigger.min.js"></script>
-    <!-- GSAP Register global plugin -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.registerPlugin(ScrollToPlugin);
-    </script>
-    <!-- AnimeJS-->
-    <script src="/js/anime.min.js"></script>
-  
-  </head>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Felix Antonio Cabello Garmendia" />
+      <meta name="googlebot" content="index" />
+      <meta name="googlebot" content="follow" />
+      <meta name="slurp" content="index" />
+      <meta name="slurp" content="follow" />
+      <meta name="robots" />
+      <meta name="user-scalable" content="no" />
+      <!-- animate.css -->
+      <link rel="stylesheet" href="/css/animate.min.css" type="text/css" />
+      <!-- Preload CSS -->
+      <link rel="preload" href="/css/preload.css" as="style"/>
+      <meta
+        name="description"
+        content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future"
+      />
+      <meta name="keywords" content="Portfolio" />
+      <meta name="keywords" content="CVOnline" />
+      <meta name="keywords" content="USA" />
+      <meta name="keywords" content="EEUU" />
+      <meta name="keywords" content="United States" />
+      <meta name="keywords" content="Venezuela" />
+      <meta name="keywords" content="Latam" />
+      <meta name="keywords" content="Latinoamerica" />
+      <meta name="keywords" content="Fantoniox" />
+      <meta name="keywords" content="Future" />
+      <title>elix Antonio Cabello Portfolio/CVonline</title>
+      <!-- Josefin Sans Google Fonts -->
+      <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap"
+        rel="stylesheet"
+      />
+      <!-- Normalize -->
+      <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+      <!-- Boopstrap -->
+      <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <!-- Common Style -->
+      <link rel="stylesheet" href="/css/index.css" type="text/css" />
+      <!-- Icon link -->
+      <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
+      <!-- GSAP -->
+      <link rel="preload" href="/js/gsap.min.js" as="script">
+      <!-- GSAP Scroll Trigger -->
+      <script src="/js/ScrollToPlugin.min.js"></script>
+      <!-- GSAP Scroll To -->
+      <script src="/js/ScrollTrigger.min.js"></script>
+      <!-- GSAP Register global plugin -->
+      <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollToPlugin);
+      </script>
+      <!-- AnimeJS-->
+      <link rel="preload" href="/js/anime.min.js" as="script">
+    </head>
   
   <body allow="fullscreen *">
   
@@ -159,8 +161,8 @@ export default function template(body) {
       </div>
   
       <!-- Preload -->
-      <script src="/js/preload.js" type="application/javascript"></script>
-  
+      <link rel="preload" href="/js/preload.js" as="script">
+
       <!-- Contact page -->
       <!-- Main -->
       <div id="page">

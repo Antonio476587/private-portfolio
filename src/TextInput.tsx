@@ -36,7 +36,7 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
     }
 
     function onChange(e: ChangeEvent) {
-        e.target.value !== null ? setValue(e.target.value) : setValue("");
+        e.target.value !== null && typeof e.target.value !== "number" ? setValue(e.target.value) : setValue("");
     }
 
     const { tag = "input" } = props;

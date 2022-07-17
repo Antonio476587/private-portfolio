@@ -148,6 +148,7 @@ function ContactForm({ active }: ContactFormProps) {
                         type="button"
                         title="button to download the NFT"
                         aria-disabled={active}
+                        aria-label="Download NFT inactive"
                     >
                         {cloudArrowD}
                     </button>
@@ -157,6 +158,7 @@ function ContactForm({ active }: ContactFormProps) {
                             type="button"
                             title="button to download the NFT"
                             aria-disabled={active}
+                            aria-label="Download NFT active"
                         >
                             {cloudArrowD}
                         </button>
@@ -206,7 +208,7 @@ Note: It's not the original NFT."
                             />
                         </div>
                         <div className="contact-button-submit-div">
-                            <button type="submit" title="send-form" aria-disabled={active}>
+                            <button type="submit" title="send-form" aria-disabled={active} aria-label="Send Form">
                                 {send}
                             </button>
                         </div>
@@ -235,6 +237,7 @@ export default function FormContact() {
                 className="contact-body-button"
                 type="button"
                 onClick={formControl}
+                aria-label="Display and Hid Contact Form"
             >
                 {!active ? envelope : envelopeOpen}
             </button>

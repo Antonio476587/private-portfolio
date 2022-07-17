@@ -98,6 +98,7 @@ export default function Works() {
                 type="button"
                 data-bs-target="#myCarousel"
                 data-bs-slide="prev"
+                aria-label="Previous Carousel Item"
             >
                 <span className="carousel-control-prev-icon" aria-hidden="true" />
                 <span className="visually-hidden">Previous</span>
@@ -107,6 +108,7 @@ export default function Works() {
                 type="button"
                 data-bs-target="#myCarousel"
                 data-bs-slide="next"
+                aria-label="Next Carousel Item"
             >
                 <span className="carousel-control-next-icon" aria-hidden="false" />
                 <span className="visually-hidden">Next</span>

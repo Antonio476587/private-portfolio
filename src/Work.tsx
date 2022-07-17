@@ -339,6 +339,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
                                 type="button"
                                 className="main-footer-span"
                                 onClick={prevSection}
+                                aria-label="Previous Section"
                             >
                                 {arrow}
                             </button>
@@ -353,6 +354,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
                                 type="button"
                                 className="main-footer-span"
                                 onClick={nextSection}
+                                aria-label="Next Section"
                             >
                                 {arrow}
                             </button>

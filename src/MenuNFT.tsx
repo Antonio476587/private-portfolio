@@ -52,6 +52,7 @@ export default function MenuNFT() {
                 id="nft-button"
                 className="menu-nft-button"
                 onClick={activeMenuNFT}
+                aria-label="NFT Show up and off"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -22,6 +22,7 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
                             className="buttonContent"
                             id={`btn-${ab.name}`}
                             onClick={() => setHidden(!hidden)}
+                            aria-label="Display and hid subabilities"
                         >
                             {arrow90DD}
                         </button>

@@ -46,6 +46,7 @@ export default function Menu({ changeVisibilityMenu }) {
                 <button
                     type="button"
                     className="menu-btn"
+                    aria-label="Menu Button"
                     onClick={changeVisibilityMenu}
                 >
                     {xSquareSvg}

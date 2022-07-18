@@ -6,8 +6,15 @@ import fs from "fs";
 import { connectToDB, getDB } from "./db/db.js";
 import render from "./server/render.jsx";
 
-const cert = fs.readFileSync("./certificate.crt");
-const key = fs.readFileSync("./private.key");
+let cert;
+let key;
+
+try {
+    cert = fs.readFileSync("./certificate.crt");
+    key = fs.readFileSync("./private.key");
+} catch (error) {
+    console.log(error);
+}
 
 const app = express();
 

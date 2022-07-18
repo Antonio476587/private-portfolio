@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import webpack from "webpack";
 import path from "path";
 import { __dirname } from "./pathEMS.js";
+import TerserPlugin from "terser-webpack-plugin";
 
 dotenv.config();
 
@@ -66,6 +67,8 @@ const browserConfig = {
             name: "vendor",
             chunks: "all",
         },
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
     devtool: mode === "development" ? "source-map" : false,
     devServer: {

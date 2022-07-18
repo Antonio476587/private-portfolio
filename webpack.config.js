@@ -3,6 +3,12 @@ import webpack from "webpack";
 import path from "path";
 import { __dirname } from "./pathEMS.js";
 import TerserPlugin from "terser-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
+
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 
 dotenv.config();
 
@@ -10,16 +16,17 @@ const mode = process.env.MODE || "development";
 
 const browserConfig = {
     mode,
-    entry: { 
+    entry: {
         polyfill: ["whatwg-fetch"],
         app: ["./src/App.tsx"],
+        style: "./styles/index.scss",
     },
     output: {
-        filename: "[name].bundle.min.js",
-        path: path.resolve(__dirname, "public/js"),
+        filename: "js/[name].bundle.min.js",
+        path: path.resolve(__dirname, "public"),
     },
     resolve: {
-        extensions: [".tsx", ".jsx", ".ts", ".js"],
+        extensions: [".tsx", ".jsx", ".ts", ".js", ".css", ".scss", ".sass"],
     },
     module: {
         rules: [
@@ -55,20 +62,34 @@ const browserConfig = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    "style-loader",
+                    { loader: MiniCssExtractPlugin.loader },
                     "css-loader",
                     "sass-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require("sass"),
+                        },
+                    },
                 ],
             },
         ],
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "./css/teststyle.css"
+        }),
+    ],
     optimization: {
         splitChunks: {
             name: "vendor",
             chunks: "all",
         },
         minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [
+            new TerserPlugin(),
+            new OptimizeCssAssetsPlugin(),
+        ],
     },
     devtool: mode === "development" ? "source-map" : false,
     devServer: {

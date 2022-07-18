@@ -30,4 +30,6 @@ package-lock.json
 
 **/vendor*
 
+**/*LICENSE.txt
+
 **/db.json

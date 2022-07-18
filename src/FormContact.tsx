@@ -62,7 +62,7 @@ function ContactForm({ active }: ContactFormProps) {
         return (email as email).match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== undefined;
     }
 
-    function UpperChange(e: MouseEvent, naturalValue: null | string | email): void {
+    function upperChange(e: MouseEvent, naturalValue: null | string | email): void {
         if (e.target) {
             const { name, value: textValue } = e.target;
             const value = naturalValue === undefined ? textValue : naturalValue;
@@ -176,7 +176,7 @@ function ContactForm({ active }: ContactFormProps) {
                                 id="name"
                                 key="name"
                                 placeholder="Name or enterprise name"
-                                UpperChange={UpperChange}
+                                upperChange={upperChange}
                                 value={nameMessage}
                                 clear={clear}
                             />
@@ -189,7 +189,7 @@ function ContactForm({ active }: ContactFormProps) {
                                 key="email"
                                 placeholder="Email"
                                 value={email}
-                                UpperChange={UpperChange}
+                                upperChange={upperChange}
                                 clear={clear}
                             />
                         </div>
@@ -203,7 +203,7 @@ Note: It's not the original NFT."
                                 tag="textarea"
                                 rows="5"
                                 value={message}
-                                UpperChange={UpperChange}
+                                upperChange={upperChange}
                                 clear={clear}
                             />
                         </div>

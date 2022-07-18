@@ -17,7 +17,7 @@ interface TextInputProps {
     tag?: string;
     rows?: string;
     columns?: string;
-    UpperChange(e: MouseEvent, value: null | string | email): void;
+    upperChange(e: MouseEvent, value: null | string | email): void;
     value: string | null | email;
     clear: boolean;
 }
@@ -25,14 +25,14 @@ interface TextInputProps {
 export default function TextInput(props: TextInputProps): React.ReactElement {
 
     const [value, setValue] = useState(format(props.value));
-    const { UpperChange } = props;
+    const { upperChange } = props;
 
     useEffect(() => {
         setValue("");
     }, [props.clear]);
 
     function onBlur(e: MouseEvent) {
-        UpperChange(e, unformat(value));
+        upperChange(e, unformat(value));
     }
 
     function onChange(e: ChangeEvent) {

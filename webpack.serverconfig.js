@@ -21,7 +21,7 @@ const serverConfig = {
         path: path.resolve(__dirname, "dist"),
     },
     resolve: {
-        extensions: [".tsx", "jsx", ".ts", ".js"],
+        extensions: [".tsx", ".jsx", ".ts", ".js"],
     },
     module: {
         rules: [

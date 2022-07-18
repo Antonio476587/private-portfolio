@@ -18,7 +18,7 @@ const browserConfig = {
         path: path.resolve(__dirname, "public/js"),
     },
     resolve: {
-        extensions: [".tsx", "jsx", ".ts", ".js"],
+        extensions: [".tsx", ".jsx", ".ts", ".js"],
     },
     module: {
         rules: [

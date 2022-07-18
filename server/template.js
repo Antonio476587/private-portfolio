@@ -58,9 +58,9 @@ export default function template(body) {
       
       <script src="/js/polyfill.bundle.js" type="application/javascript"></script>
       <!-- app -->
-      <script src="/js/app.bundle.js" type="application/javascript"></script>
+      <script src="/js/app.bundle.min.js" type="application/javascript"></script>
       <!-- Vendor -->
-      <script src="/js/vendor.bundle.js" type="application/javascript"></script>
+      <script src="/js/vendor.bundle.min.js" type="application/javascript"></script>
       <!-- Home -->
       <script src="/js/home.js" type="application/javascript"></script>
     </body>

@@ -15,7 +15,7 @@ const browserConfig = {
         app: ["./src/App.tsx"],
     },
     output: {
-        filename: "[name].bundle.js",
+        filename: "[name].bundle.min.js",
         path: path.resolve(__dirname, "public/js"),
     },
     resolve: {

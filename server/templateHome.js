@@ -15,7 +15,7 @@ export default function template(body) {
       <!-- animate.css -->
       <link rel="stylesheet" href="/css/animate.min.css" type="text/css" />
       <!-- Preload CSS -->
-      <link rel="preload" href="/css/preload.css" as="style"/>
+      <link rel="stylesheet" href="/css/preload.css" />
       <meta
         name="description"
         content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future"
@@ -45,7 +45,7 @@ export default function template(body) {
       <!-- Icon link -->
       <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
       <!-- GSAP -->
-      <link rel="preload" href="/js/gsap.min.js" as="script">
+      <script src="/js/gsap.min.js"></script>
       <!-- GSAP Scroll Trigger -->
       <script src="/js/ScrollToPlugin.min.js"></script>
       <!-- GSAP Scroll To -->
@@ -56,7 +56,7 @@ export default function template(body) {
         gsap.registerPlugin(ScrollToPlugin);
       </script>
       <!-- AnimeJS-->
-      <link rel="preload" href="/js/anime.min.js" as="script">
+      <script src="/js/anime.min.js"></script>
     </head>
   
   <body allow="fullscreen *">
@@ -161,7 +161,7 @@ export default function template(body) {
       </div>
   
       <!-- Preload -->
-      <link rel="preload" href="/js/preload.js" as="script">
+      <script src="/js/preload.js"></script>
 
       <!-- Contact page -->
       <!-- Main -->

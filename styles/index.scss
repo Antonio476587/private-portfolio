@@ -1,10 +1,10 @@
-@import "home.css";
-@import "main.css";
-@import "menu.css";
-@import "about.css";
-@import "works.css";
-@import "contact.css";
-@import "notfound.css";
+@import "home.scss";
+@import "main.scss";
+@import "menu.scss";
+@import "about.scss";
+@import "works.scss";
+@import "contact.scss";
+@import "notfound.scss";
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 /* Variables and GLOBAL STYLES */
@@ -20,6 +20,12 @@
   background-color: var(--bs-dark);
   z-index: 100000;
 }
+
+$color-shadow: #000;
+$animate-duration: 1400ms;
+$color-body-background: #ffffcc;
+$color-foreground: #66cccc;
+$color-foreground-2: #003333;
 
 :root {
   --color-shadow: #000;
@@ -39,8 +45,8 @@
   .animate__animated {
     -webkit-animation-duration: 1s !important;
     animation-duration: 1s !important;
-    -webkit-transition-duration: var(--animate-duration) !important;
-    transition-duration: var(--animate-duration) !important;
+    -webkit-transition-duration: $animate-duration !important;
+    transition-duration: $animate-duration !important;
     -webkit-animation-iteration-count: unset;
     animation-iteration-count: unset;
   }
@@ -484,7 +490,7 @@ svg {
   nav ul div {
     display: flex;
     width: 47%;
-    border-bottom: 2px solid var(--color-foreground-2);
+    border-bottom: 2px solid $color-foreground-2;
   }
 
   nav li .active {

@@ -48,16 +48,16 @@ body .menu .div-menu-btn {
   width: 100%;
   border: none;
   background: #222;
-  box-shadow: 0 0 3px 3px var(--color-shadow);
+  box-shadow: 0 0 3px 3px $color-shadow;
   transition: 0.5s;
 }
 
 .div-menu-btn .menu-btn:hover {
-  box-shadow: 0 0 14px 8px var(--color-shadow);
+  box-shadow: 0 0 14px 8px $color-shadow;
 }
 
 .menu-btn svg {
-  box-shadow: 0 0 10.5px 4.5px var(--color-shadow);
+  box-shadow: 0 0 10.5px 4.5px $color-shadow;
   color: var(--bs-light);
 }
 /* Menu Items */
@@ -89,7 +89,7 @@ body .nav-menu {
   background: #222;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0px 0px 1em 0px var(--color-shadow);
+  box-shadow: inset 0px 0px 1em 0px $color-shadow;
 }
 
 /* Children´s menu item */
@@ -99,7 +99,7 @@ body .nav-menu {
   width: 90%;
   height: 90%;
   background: darkorange;
-  box-shadow: inset 0px 0px 1em 0px var(--color-shadow);
+  box-shadow: inset 0px 0px 1em 0px $color-shadow;
   align-items: center;
   justify-content: center;
 }
@@ -178,13 +178,13 @@ body .nav-menu {
     #111111 90%
   );
   border-radius: 50%;
-  color: var(--color-shadow);
+  color: $color-shadow;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   transform: rotate(-8deg);
   transition: 1s;
-  filter: drop-shadow(0px 0px 2px var(--color-shadow));
+  filter: drop-shadow(0px 0px 2px $color-shadow);
 }
 
 /* Children´s span */

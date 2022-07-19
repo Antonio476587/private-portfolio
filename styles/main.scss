@@ -40,7 +40,7 @@
   top: 50%;
   left: 0%;
   perspective-origin: bottom;
-  /*     background: var(--color-shadow); */
+  /*     background: $color-shadow; */
   /*     perspective-origin: -260% 50%; */
 }
 
@@ -94,7 +94,7 @@
     #b42754 87.5%,
     #a31f55 100%
   );
-  box-shadow: inset 0px 0px 1em 0px var(--color-shadow);
+  box-shadow: inset 0px 0px 1em 0px $color-shadow;
   transform: translateZ(calc(var(--i) * 2px));
   transform-style: preserve-3d;
   align-items: center;

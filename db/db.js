@@ -2,8 +2,9 @@ import { Low, JSONFile } from "lowdb";
 
 let db;
 
-async function connectToDB() {
-    const adapter = new JSONFile("../db/db.json");
+async function connectToDB(url) {
+    const databasePath = url || "../db/db.json";
+    const adapter = new JSONFile(databasePath);
     db = new Low(adapter);
     await db.read();
     db.data = db.data || { messages: [] };

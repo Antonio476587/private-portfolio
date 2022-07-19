@@ -18,7 +18,7 @@
 }
 
 .carousel-item .bd-placeholder-img {
-  background: url(/img/tracker2.jpg);
+  background: url(Images/tracker2.jpg);
   width: 70%;
   height: 55%;
   font-size: 1.125rem;
@@ -30,31 +30,31 @@
 }
 
 .carousel-item:nth-child(2) .bd-placeholder-img {
-  background: url(/img/NFT1.jpeg);
+  background: url(Images/NFT1.jpeg);
 }
 
 .carousel-item:nth-child(3) .bd-placeholder-img {
-  background: url(/img/three1.jpg);
+  background: url(Images/three1.jpg);
 }
 
 .carousel-item:nth-child(4) .bd-placeholder-img {
-  background: url(/img/three4.png);
+  background: url(Images/three4.png);
 }
 
 .carousel-item:nth-child(5) .bd-placeholder-img {
-  background: url(/img/barba2.jpg);
+  background: url(Images/barba2.jpg);
 }
 
 .carousel-item:nth-child(6) .bd-placeholder-img {
-  background: url(/img/bonsai1.jpg);
+  background: url(Images/bonsai1.jpg);
 }
 
 .carousel-item:nth-child(7) .bd-placeholder-img {
-  background: url(/img/bgcomplement.jpg);
+  background: url(Images/bgcomplement.jpg);
 }
 
 .carousel-item:last-child .bd-placeholder-img {
-  background: url(/img/hommies1.jpg);
+  background: url(Images/hommies1.jpg);
 }
 
 .carousel-item .bd-placeholder-img {
@@ -97,7 +97,7 @@
 /* Carousel base class */
 .carousel {
   height: 100vh;
-  background: url(/img/bg-works.jpg);
+  background: url(Images/bg-works.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

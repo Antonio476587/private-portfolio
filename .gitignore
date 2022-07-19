@@ -33,3 +33,7 @@ package-lock.json
 **/*LICENSE.txt
 
 **/db.json
+
+assets
+
+**/index.css

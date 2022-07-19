@@ -112,7 +112,7 @@ a.go-work {
 
 .bbtn {
   position: absolute;
-  background: url(/svgs/arrow-clockwise.svg);
+  background: url(Svgs/arrow-clockwise.svg);
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -204,20 +204,20 @@ a.go-work {
 }
 
 .simon-antonio div:first-child {
-  background: url(/img/le-simon-antonio.jpg);
+  background: url(Images/le-simon-antonio.jpg);
   position: absolute;
 }
 .simon-antonio div:last-child {
-  background: url(/img/le-simon.jpg);
+  background: url(Images/le-simon.jpg);
   position: absolute;
 }
 
 .antonio-simon div:first-child {
-  background: url(/img/le-antonio-simon.jpg);
+  background: url(Images/le-antonio-simon.jpg);
   position: absolute;
 }
 .antonio-simon div:last-child {
-  background: url(/img/le-antonio.jpg);
+  background: url(Images/le-antonio.jpg);
   position: absolute;
 }
 
@@ -341,7 +341,7 @@ a.go-work {
 }
 
 ul.notes li.note-active {
-  background: url(/img/8.png);
+  background: url(Images/8.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

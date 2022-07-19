@@ -24,9 +24,15 @@ const browserConfig = {
     output: {
         filename: "js/[name].bundle.min.js",
         path: path.resolve(__dirname, "public"),
+        assetModuleFilename: "assets/[hash][ext][query]"
     },
     resolve: {
         extensions: [".tsx", ".jsx", ".ts", ".js", ".css", ".scss", ".sass"],
+        alias: {
+            Images: path.resolve(__dirname, "public/img/"),
+            Svgs: path.resolve(__dirname, "public/svgs"),
+            Fonts: path.resolve(__dirname, "public/fonts"),
+        },
     },
     module: {
         rules: [
@@ -73,11 +79,16 @@ const browserConfig = {
                     },
                 ],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+                // More information here https://webpack.js.org/guides/asset-modules/
+                type: "asset/resource",
+            },
         ],
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "./css/teststyle.css"
+            filename: "./css/index.css"
         }),
     ],
     optimization: {

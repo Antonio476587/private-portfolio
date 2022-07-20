@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node dist/server.cjs",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "server": "nodemon dist/server.cjs",
     "lint": "eslint server src --ext js,jsx",
     "hmr": "webpack serve",
@@ -22,7 +22,7 @@
     "watch-server": "webpack --watch --config webpack.serverconfig.js ",
     "build-server": "webpack --mode production --config webpack.serverconfig.js",
     "compile-server": "webpack --config webpack.serverconfig.js",
-    "generate-db": "node db/generatedb.js"
+    "generate-db": "node db/createDB.js"
   },
   "repository": {
     "type": "git",

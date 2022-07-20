@@ -13,7 +13,7 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
 
     if (subAbs !== null) {
         return (
-            <tr className="li">
+            <tr className="tr">
                 <div className="ab d-flex">
                     <h4 className="h4 ability">{ab.name}</h4>
                     <div className="container level">
@@ -44,7 +44,7 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
         );
     }
     return (
-        <tr className="li">
+        <tr className="tr">
             <div className="ab d-flex">
                 <td><h4 className="h4 ability">{ab.name}</h4></td>
                 <td><div className="container level">{ab.content}</div></td>
@@ -65,7 +65,7 @@ const AbilitiesTable = React.forwardRef(function AbilitiesTable({ id, ability, a
             </thead>
 
             <tbody className="container abs">
-                <div className="ol ol-abs">
+                <div className="div-row div-abs">
                     {abilityRow}
                 </div>
             </tbody>

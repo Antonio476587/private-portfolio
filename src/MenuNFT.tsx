@@ -17,8 +17,7 @@ function MenuNFTItem({ price, img, name, children }: MenuNFTItemProps) {
     }
 
     return (
-        <div
-            role="button"
+        <button
             tabIndex={0}
             className="menu-nft-item"
             onClick={activeNFT}
@@ -34,7 +33,7 @@ function MenuNFTItem({ price, img, name, children }: MenuNFTItemProps) {
                 <h3>{name}</h3>
                 <p>{children}</p>
             </div>
-        </div>
+        </button>
     );
 }
 

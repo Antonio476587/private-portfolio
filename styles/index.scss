@@ -1,3 +1,4 @@
+@import "variables.scss";
 @import "home.scss";
 @import "main.scss";
 @import "menu.scss";
@@ -16,23 +17,9 @@
 .wrapper-container {
   position: fixed;
   width: 99.9vw;
-  height: 100vh;  
+  height: 100vh;
   background-color: var(--bs-dark);
   z-index: 100000;
-}
-
-$color-shadow: #000;
-$animate-duration: 1400ms;
-$color-body-background: #ffffcc;
-$color-foreground: #66cccc;
-$color-foreground-2: #003333;
-
-:root {
-  --color-shadow: #000;
-  --animate-duration: 1400ms;
-  --color-body-background: #ffffcc;
-  --color-foreground: #66cccc;
-  --color-foreground-2: #003333;
 }
 
 .any-infinite {
@@ -125,18 +112,18 @@ svg {
   .bg-complement {
     width: 125px;
     height: 125px;
-  }
 
-  .bg-complement div::before {
-    transform: rotateX(90deg) translateZ(62.5px);
-  }
+    div::before {
+      transform: rotateX(90deg) translateZ(62.5px);
+    }
 
-  .bg-complement div::after {
-    transform: rotateX(-90deg) translateZ(62.5px);
-  }
+    div::after {
+      transform: rotateX(-90deg) translateZ(62.5px);
+    }
 
-  .bg-complement span {
-    transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
+    span {
+      transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
+    }
   }
 
   #h1 {
@@ -156,39 +143,39 @@ svg {
   /* Home page */
   .home {
     height: 100vh;
-  }
 
-  #h1 {
-    font-size: 13vw;
-  }
+    #h1 {
+      font-size: 13vw;
+    }
 
-  .bg-complement {
-    width: 125px;
-    height: 125px;
-  }
+    .bg-complement {
+      width: 125px;
+      height: 125px;
 
-  .bg-complement div::before {
-    transform: rotateX(90deg) translateZ(62.5px);
-  }
+      div::before {
+        transform: rotateX(90deg) translateZ(62.5px);
+      }
 
-  .bg-complement div::after {
-    transform: rotateX(-90deg) translateZ(62.5px);
-  }
+      div::after {
+        transform: rotateX(-90deg) translateZ(62.5px);
+      }
 
-  .bg-complement span {
-    transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
-  }
+      span {
+        transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
+      }
+    }
 
-  .divi-content {
-    top: 70%;
-  }
+    .divi-content {
+      top: 70%;
 
-  .nav-home {
-    top: 81%;
-  }
+      h4 {
+        font-size: calc(1.25rem + 0.3vw);
+      }
+    }
 
-  .divi-content h4 {
-    font-size: calc(1.25rem + 0.3vw);
+    .nav-home {
+      top: 81%;
+    }
   }
 
   /* About page */
@@ -197,19 +184,21 @@ svg {
 
   .contact {
     height: 100%;
-  }
 
-  .contacts {
-    padding: 0.5em;
-  }
+    .contacts {
+      padding: 0.5em;
+    }
 
-  .footer blockquote b {
-    font-size: 100%;
-    font-weight: bold;
-  }
+    .footer {
+      blockquote b {
+        font-size: 100%;
+        font-weight: bold;
+      }
 
-  .goodbye {
-    font-size: 80%;
+      .goodbye {
+        font-size: 80%;
+      }
+    }
   }
 
   /* Works */
@@ -224,72 +213,76 @@ svg {
   /* Home page */
   .home {
     height: 100vh;
-  }
 
-  #h1 {
-    font-size: 16vw;
-  }
+    #h1 {
+      font-size: 16vw;
+    }
 
-  .divi-content {
-    top: 85%;
-  }
+    .divi-content {
+      top: 85%;
+    }
 
-  .nav-home {
-    top: 90%;
+    .nav-home {
+      top: 90%;
+    }
   }
 
   /* About page */
 
-  .me {
-    position: relative;
-    min-width: 40vw;
-    min-height: 40vh;
-    height: initial;
-    aspect-ratio: 3/4 !important;
-    border-right: 2px solid var(--bs-orange);
-  }
+  #About {
+    .flexing.cajita {
+      .me {
+        position: relative;
+        min-width: 40vw;
+        min-height: 40vh;
+        height: initial;
+        aspect-ratio: 3/4 !important;
+        border-right: 2px solid var(--bs-orange);
+      }
+    }
 
-  .ninja-icon {
-    font-size: 2em;
-  }
+    .about-me {
+      .text {
+        font-size: 120%;
+      }
+    }
 
-  .text {
-    font-size: 120%;
-  }
+    .container-illustration {
+      ul.notes li#note1 {
+        width: 80px;
+        height: 80px;
+        top: 156px;
+        left: 54px;
+      }
 
-  ul.notes li#note1 {
-    width: 80px;
-    height: 80px;
-    top: 156px;
-    left: 54px;
-  }
+      ul.notes li#note2 {
+        width: 80px;
+        height: 80px;
+        top: 148px;
+        left: 665px;
+      }
+      ul.notes li#note3 {
+        width: 50px;
+        height: 50px;
+        top: 25px;
+        left: 351px;
+      }
+      ul.notes li#note4 {
+        width: 110px;
+        height: 70px;
+        top: 505px;
+        left: 355px;
+      }
 
-  ul.notes li#note2 {
-    width: 80px;
-    height: 80px;
-    top: 148px;
-    left: 665px;
-  }
-  ul.notes li#note3 {
-    width: 50px;
-    height: 50px;
-    top: 25px;
-    left: 351px;
-  }
-  ul.notes li#note4 {
-    width: 110px;
-    height: 70px;
-    top: 505px;
-    left: 355px;
-  }
+      .ability {
+        font-size: 120%;
+        font-family: var(--bs-font-monospace);
+      }
 
-  .ability {
-    font-size: 120%;
-    font-family: var(--bs-font-monospace);
-  }
-
-  .level {
-    font-size: 0.8em;
+      .level {
+        font-size: 0.8em;
+      }
+    }
   }
 
   /* Works page */
@@ -303,31 +296,32 @@ svg {
   .contact {
     min-height: 100vh;
     height: 100%;
-  }
 
-  .contacts {
-    padding: 1em;
-    color: var(--bs-red);
-  }
+    .contacts {
+      padding: 1em;
+      color: var(--bs-red);
 
-  .contacts svg {
-    width: 2em;
-    height: 2em;
-  }
+      svg {
+        width: 2em;
+        height: 2em;
+      }
+    }
 
-  div.contact-body {
-    height: 10vh;
-  }
+    .contact-body {
+      height: 10vh;
 
-  div.contact-body-active {
-    height: max-content;
-  }
+      .contact-body-active {
+        height: max-content;
+      }
+    }
 
-  .footer blockquote b {
-    font-size: 130%;
-    color: var(--bs-dark);
+    .footer {
+      blockquote b {
+        font-size: 130%;
+        color: var(--bs-dark);
+      }
+    }
   }
-
   /* Works */
 
   .carousel-caption {
@@ -341,18 +335,18 @@ svg {
   .bg-complement {
     width: 200px;
     height: 200px;
-  }
 
-  .bg-complement div::before {
-    transform: rotateX(90deg) translateZ(100px);
-  }
+    div::before {
+      transform: rotateX(90deg) translateZ(100px);
+    }
 
-  .bg-complement div::after {
-    transform: rotateX(-90deg) translateZ(100px);
-  }
+    div::after {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
 
-  .bg-complement span {
-    transform: rotateY(calc(90deg * var(--i))) translateZ(100px);
+    span {
+      transform: rotateY(calc(90deg * var(--i))) translateZ(100px);
+    }
   }
 
   #h1 {
@@ -366,21 +360,21 @@ svg {
 
   /* Main */
 
-  .main-menu .main-menu-item {
-    width: 50%;
-    height: 100%;
-    perspective-origin: 360% 50%;
-  }
+  .main-menu {
+    #main-menu-item1,
+    #main-menu-item2 {
+      width: 50%;
+      height: 100%;
+      perspective-origin: 360% 50%;
+      top: 0;
+      left: 0%;
+    }
 
-  #main-menu-item1 {
-    top: 0;
-    left: 0%;
-  }
-
-  #main-menu-item2 {
-    top: 0%;
-    left: 50%;
-    perspective-origin: -260% 50%;
+    #main-menu-item2 {
+      top: 0%;
+      left: 50%;
+      perspective-origin: -260% 50%;
+    }
   }
 
   /* About page */
@@ -401,10 +395,10 @@ svg {
 
   .flexing {
     display: flex;
-  }
 
-  .me {
-    width: 35vw;
+    .me {
+      width: 35vw;
+    }
   }
 
   /* Antonio Simon */
@@ -413,46 +407,43 @@ svg {
 
   .about-me {
     margin-left: 5vw;
-  }
 
-  .title-me h3 {
-    font-size: 200%;
-  }
+    .title-me {
+      h3 {
+        font-size: 200%;
+      }
 
-  .title-me span svg {
-    width: 2.5em;
-    height: 2.5em;
-  }
-
-  .container-mini-yo {
-    width: 25%;
-    transform: translateY(30%);
+      span svg {
+        width: 2.5em;
+        height: 2.5em;
+      }
+    }
   }
 
   /* Abilities */
 
   .div-abilities {
     width: 30vw;
-  }
 
-  .graphic__design {
-    top: 60%;
-    left: 60%;
-  }
+    &.graphic__design {
+      top: 60%;
+      left: 60%;
+    }
 
-  .langs {
-    top: 10%;
-    left: 55%;
-  }
+    &.langs {
+      top: 10%;
+      left: 55%;
+    }
 
-  .programming {
-    top: 10%;
-    left: -5%;
-  }
+    &.programming {
+      top: 10%;
+      left: -5%;
+    }
 
-  .attrs {
-    top: 5%;
-    left: 0%;
+    &.attrs {
+      top: 5%;
+      left: 0%;
+    }
   }
 
   /* Works page */
@@ -463,10 +454,6 @@ svg {
     line-height: 1.4;
   }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
-
   /* Work page */
 
   /* Header */
@@ -474,27 +461,29 @@ svg {
   .bookmark {
     left: 60%;
     opacity: 1;
+
+    .bookmark-child {
+      width: 6em;
+      height: 4.3em;
+      clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
+      border-radius: 0 0 6% 6%;
+    }
   }
 
-  .bookmark-child {
-    width: 6em;
-    height: 4.3em;
-    clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
-    border-radius: 0 0 6% 6%;
-  }
+  nav {
+    ul {
+      flex: 1;
 
-  nav ul {
-    flex: 1;
-  }
+      div {
+        display: flex;
+        width: 47%;
+        border-bottom: 2px solid $color-foreground-2;
+      }
+    }
 
-  nav ul div {
-    display: flex;
-    width: 47%;
-    border-bottom: 2px solid $color-foreground-2;
-  }
-
-  nav li .active {
-    color: #fff !important;
+    li .active {
+      color: #fff !important;
+    }
   }
 
   /* Section 1 */
@@ -502,88 +491,86 @@ svg {
   section.banner-1 {
     margin: 1.5em auto;
     height: 85vh;
-  }
 
-  section.banner-1 .banner-1-div {
-    display: flex;
-    height: 80%;
-  }
+    .banner-1-div {
+      display: flex;
+      height: 80%;
 
-  section.banner-1 h2 {
-    line-height: 170%;
-  }
+      .container {
+        width: 90%;
 
-  .banner-1-div .container {
-    width: 90%;
-  }
+        /* Stripe effect */
+        .div {
+          width: 10%;
+          height: 10%;
+          top: 0%;
+          left: 100%;
 
-  /* Stripe effect */
+          &::before {
+            width: 100%;
+            height: 100%;
+            top: 120%;
+            left: 0%;
+          }
 
-  .banner-1-div .container .div {
-    width: 10%;
-    height: 10%;
-    top: 0%;
-    left: 100%;
-  }
+          &::after {
+            width: 100%;
+            height: 50%;
+            top: 240%;
+            left: 0%;
+          }
 
-  .banner-1-div .container .div::before {
-    width: 100%;
-    height: 100%;
-    top: 120%;
-    left: 0%;
-  }
+          /*  Second stripe effect */
+          &:nth-child(4) {
+            width: 10%;
+            height: 5%;
+            top: 31%;
+            left: 100%;
+          }
 
-  .banner-1-div .container .div::after {
-    width: 100%;
-    height: 50%;
-    top: 240%;
-    left: 0%;
-  }
+          &:nth-child(4)::before {
+            width: 100%;
+            height: 200%;
+            top: 150%;
+            left: 0%;
+          }
 
-  /*  Second stripe effect */
+          &:nth-child(4)::after {
+            width: 100%;
+            height: 390%;
+            top: 390%;
+            left: 0%;
+          }
 
-  .banner-1-div .container .div:nth-child(4) {
-    width: 10%;
-    height: 5%;
-    top: 31%;
-    left: 100%;
-  }
+          /*  Third stripe effect */
 
-  .banner-1-div .container .div:nth-child(4)::before {
-    width: 100%;
-    height: 200%;
-    top: 150%;
-    left: 0%;
-  }
+          &:nth-child(5) {
+            width: 10%;
+            height: 5%;
+            top: 72%;
+            left: 100%;
+          }
 
-  .banner-1-div .container .div:nth-child(4)::after {
-    width: 100%;
-    height: 390%;
-    top: 390%;
-    left: 0%;
-  }
+          &:nth-child(5)::before {
+            width: 100%;
+            height: 100%;
+            top: 130%;
+            left: 0%;
+          }
 
-  /*  Third stripe effect */
+          &:nth-child(5)::after {
+            width: 100%;
+            height: 300%;
+            top: 260%;
+            left: 0%;
+          }
+        }
+      }
 
-  .banner-1-div .container .div:nth-child(5) {
-    width: 10%;
-    height: 5%;
-    top: 72%;
-    left: 100%;
-  }
-
-  .banner-1-div .container .div:nth-child(5)::before {
-    width: 100%;
-    height: 100%;
-    top: 130%;
-    left: 0%;
-  }
-
-  .banner-1-div .container .div:nth-child(5)::after {
-    width: 100%;
-    height: 300%;
-    top: 260%;
-    left: 0%;
+      h2 {
+        line-height: 170%;
+      }
+    }
   }
 
   /* SECTION MAIN for section 2/3 */
@@ -597,12 +584,11 @@ svg {
     grid-template-rows: 100%;
     grid-auto-flow: dense;
     column-gap: 4%;
-  }
 
-  .section-main .div-img {
-    height: 80%;
+    .div-img {
+      height: 80%;
+    }
   }
-
   /* Contact page */
 
   div.contact-body-active {
@@ -618,14 +604,14 @@ svg {
 
   .footer {
     justify-content: end;
-  }
 
-  .footer blockquote b {
-    font-size: 130%;
-  }
+    .header-foot {
+      margin-bottom: 3%;
+    }
 
-  .header-foot {
-    margin-bottom: 3%;
+    blockquote b {
+      font-size: 130%;
+    }
   }
 }
 
@@ -641,50 +627,52 @@ svg {
     width: 25vw;
   }
 
-  .ilustration-container {
+  .container-illustration {
     max-width: 90vw;
   }
 
   /* Works page */
 
-  .featurette-heading {
-    margin-top: 7rem;
-  }
-
   /* Contact */
 
-  ul.notes li#note1 {
-    width: 100px;
-    height: 100px;
-    top: 208px;
-    left: 70px;
+  ul.notes {
+    li#note1 {
+      width: 100px;
+      height: 100px;
+      top: 208px;
+      left: 70px;
+    }
+
+    li#note2 {
+      width: 100px;
+      height: 100px;
+      top: 200px;
+      left: 900px;
+    }
+
+    li#note3 {
+      width: 75px;
+      height: 75px;
+      top: 30px;
+      left: 470px;
+    }
+
+    li#note4 {
+      width: 145px;
+      height: 95px;
+      top: 690px;
+      left: 480px;
+    }
   }
 
-  ul.notes li#note2 {
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 900px;
-  }
-  ul.notes li#note3 {
-    width: 75px;
-    height: 75px;
-    top: 30px;
-    left: 470px;
-  }
-  ul.notes li#note4 {
-    width: 145px;
-    height: 95px;
-    top: 690px;
-    left: 480px;
-  }
+  /* Work */
   section.banner-1 p {
     font-size: 120%;
-  }  
+  }
   div.div-p,
   .main-footer .div-p {
-  font-size: 130%;
-}
+    font-size: 130%;
+  }
 }
 
 /* Ultra large desktops */
@@ -696,36 +684,37 @@ svg {
   }
 
   /* About */
-
-  .container-mini-yo {
-    transform: none;
-  }
 }
 
 /* Hyper Ultra large Screen */
 @media screen and (min-width: 1800px) {
-  ul.notes li#note1 {
-    width: 175px;
-    height: 175px;
-    top: 546px;
-    left: 120px;
-  }
-  ul.notes li#note2 {
-    width: 175px;
-    height: 175px;
-    top: 524px;
-    left: 1510px;
-  }
-  ul.notes li#note3 {
-    width: 125px;
-    height: 125px;
-    top: 248px;
-    left: 785px;
-  }
-  ul.notes li#note4 {
-    width: 220px;
-    height: 163px;
-    top: 1355px;
-    left: 800px;
+  ul.notes {
+    li#note1 {
+      width: 175px;
+      height: 175px;
+      top: 546px;
+      left: 120px;
+    }
+
+    li#note2 {
+      width: 175px;
+      height: 175px;
+      top: 524px;
+      left: 1510px;
+    }
+
+    li#note3 {
+      width: 125px;
+      height: 125px;
+      top: 248px;
+      left: 785px;
+    }
+
+    li#note4 {
+      width: 220px;
+      height: 163px;
+      top: 1355px;
+      left: 800px;
+    }
   }
 }

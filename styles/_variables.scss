@@ -1,0 +1,28 @@
+
+$color-shadow: #000;
+$animate-duration: 1400ms;
+$color-body-background: #ffffcc;
+$color-foreground: #66cccc;
+$color-foreground-2: #003333;
+
+/* Home */
+
+$polygon-complement: polygon(
+  0% 5%,
+  5% 0%,
+  95% 0%,
+  100% 5%,
+  100% 95%,
+  95% 100%,
+  5% 100%,
+  0% 95%
+);
+
+/* About */
+
+$gradient-color: #fcff9e;
+$gradient-color-2: #fd7e17;
+$airscooter-color: #f1e7db;
+$airscooter-color-2: #ccf4f3;
+$airscooter-air: #f1eee7;
+$airscooter-air-2: rgba(0, 0, 0, 0);

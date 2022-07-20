@@ -18,12 +18,11 @@ export default function ContainerImgMe({ nameContainer }: ContainerImgMeProps) {
 
     return (
         <div className="container me pt-5 mb-5 col-5">
-            <span
+            <button
                 className="bbtn"
                 onClick={changeMe}
                 title="button-me"
                 aria-labelledby="This is a button to change me-img"
-                role="button"
                 tabIndex={0}
                 aria-roledescription="button"
             />

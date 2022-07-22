@@ -2,7 +2,7 @@
 /* BODY And global things */
 
 #body-work {
-  background-color: $color-body-background;
+  background-color: var(--color-body-background);
   padding-bottom: 2em;
   overflow: hidden;
 
@@ -18,7 +18,7 @@
       height: 30%;
       top: 0%;
       left: 0%;
-      background: $color-foreground;
+      background: var(--color-foreground);
 
       &::before,
       &::after {
@@ -28,7 +28,7 @@
         height: 100%;
         top: 120%;
         left: 0%;
-        background: $color-foreground;
+        background: var(--color-foreground);
       }
       &::after {
         width: 100%;
@@ -78,7 +78,7 @@ div.divition {
   margin-bottom: 2em;
   width: 95%;
   height: 0.2em;
-  background: $color-foreground-2;
+  background: var(--color-foreground-2);
 
   &:last-of-type {
     margin-bottom: 0.8em;
@@ -92,7 +92,7 @@ div.divition {
     left: 50%;
     width: 4%;
     height: 1em;
-    background: $color-body-background;
+    background: var(--color-body-background);
     transform: translateX(-50%);
     z-index: 800;
   }
@@ -177,7 +177,7 @@ section.banner-1 {
   .container {
     position: relative;
     padding: 1em 1.5em;
-    background: $color-foreground;
+    background: var(--color-foreground);
     color: var(--bs-white);
     z-index: 100;
   }
@@ -212,7 +212,7 @@ section.banner-1 {
   height: 20%;
   top: 100%;
   left: 0%;
-  background: $color-foreground;
+  background: var(--color-foreground);
 
   &::before {
     content: "";
@@ -221,7 +221,7 @@ section.banner-1 {
     height: 100%;
     top: 0%;
     left: 120%;
-    background: $color-foreground;
+    background: var(--color-foreground);
   }
 
   &::after {
@@ -231,7 +231,7 @@ section.banner-1 {
     height: 100%;
     top: 0%;
     left: 240%;
-    background: $color-foreground;
+    background: var(--color-foreground);
   }
 
   /* Second stripe effect */
@@ -279,7 +279,7 @@ section.banner-1 {
   flex-direction: column;
 
   svg {
-    fill: $color-foreground;
+    fill: var(--color-foreground);
     animation: jumping 1s alternate;
     animation-delay: 1s;
     animation-iteration-count: 9;
@@ -320,7 +320,7 @@ section.section-2 div.div-img {
     height: 100%;
     top: -1%;
     left: -1%;
-    background: $color-foreground;
+    background: var(--color-foreground);
     z-index: -1;
   }
 
@@ -331,7 +331,7 @@ section.section-2 div.div-img {
     height: 100%;
     top: 5%;
     left: 5%;
-    background: $color-foreground;
+    background: var(--color-foreground);
     z-index: -1;
   }
 }
@@ -346,7 +346,7 @@ section.section-3 div.div-img {
     height: 100%;
     top: -1%;
     left: 1%;
-    background: $color-foreground;
+    background: var(--color-foreground);
     z-index: -1;
   }
   &::after {
@@ -356,7 +356,7 @@ section.section-3 div.div-img {
     height: 100%;
     top: 3%;
     left: -3%;
-    background: $color-foreground;
+    background: var(--color-foreground);
     z-index: -1;
   }
 }

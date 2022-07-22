@@ -1,4 +1,4 @@
-import Work from "Work";
+import { Work } from "Work";
 
 const workContents: Array<Work> = [
     {

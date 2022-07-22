@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import HeaderWork from "./HeaderWork";
 import { arrow, arrowCaret } from "./Svg";
 import NotFound from "./NotFound";
+
+import workContents from "./workContents";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -368,4 +371,18 @@ function Work({ work, index }: WorkProps): JSX.Element {
     else return <NotFound />;
 }
 
-export default Work;
+function WorkWrapper() {
+    const { id } = useParams();
+
+    if (typeof id === "string") {
+        const workID = parseInt(id);
+        if (!isNaN(workID)) {
+            return <Work work={workContents[workID]} index={workID}/>;
+        }
+    }
+    return <NotFound />;
+
+}
+
+export default WorkWrapper;
+export { Work };

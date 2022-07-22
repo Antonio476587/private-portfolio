@@ -4,7 +4,8 @@ import Contact from "./Contact";
 import MainMenuItem from "./MainMenuItem";
 // import Menu from "./Menu";
 
-function aboutLinkTween(main: HTMLElement | false, aboutLink: HTMLElement): any {
+function aboutLinkTween(main: HTMLElement | false, aboutLink: HTMLElement, e?: Event): void {
+    e?.preventDefault();
     if (main) scrollTo(0, main.offsetTop);
     const q = gsap.utils.selector(aboutLink);
     gsap.set(q(".main-menu-item"), { clearProps: "all" });
@@ -18,11 +19,12 @@ function aboutLinkTween(main: HTMLElement | false, aboutLink: HTMLElement): any 
         perspectiveOrigin: "center",
         duration: 1,
         onComplete: () =>
-            location.assign(gsap.getProperty(aboutLink, "data-link").toString()),
+        {if (aboutLink.dataset.link) location.assign(aboutLink.dataset.link);},
     });
 }
 
-function workLinkTween(main: HTMLElement | false, worksLink: HTMLElement): any {
+function workLinkTween(main: HTMLElement | false, worksLink: HTMLElement, e?: Event): void {
+    e?.preventDefault();
     if (main) scrollTo(0, main.offsetTop);
     const q = gsap.utils.selector(worksLink);
     gsap.set(q(".main-menu-item"), { clearProps: "all" });
@@ -36,7 +38,7 @@ function workLinkTween(main: HTMLElement | false, worksLink: HTMLElement): any {
         perspectiveOrigin: "center",
         duration: 1,
         onComplete: () =>
-            location.assign(gsap.getProperty(worksLink, "data-link").toString()),
+        {if(worksLink.dataset.link) location.assign(worksLink.dataset.link);},
     });
 }
 
@@ -103,13 +105,13 @@ export default function MainPage() {
         const worksLink: HTMLElement | boolean = worksLinkRef.current?? false;
 
         if (aboutLink && worksLink) {
-            aboutLink.addEventListener("click", () => {aboutLinkTween(main, aboutLink);}, false);
-            worksLink.addEventListener("click", () => {workLinkTween(main, worksLink);}, false);
+            aboutLink.addEventListener("click", (e) => {aboutLinkTween(main, aboutLink, e);}, false);
+            worksLink.addEventListener("click", (e) => {workLinkTween(main, worksLink, e);}, false);
         }
         return () => {
             if (aboutLink && worksLink) {   
-                aboutLink.removeEventListener("click", () => {aboutLinkTween(main, aboutLink);}, false);
-                worksLink.removeEventListener("click", () => {workLinkTween(main, worksLink);}, false);
+                aboutLink.removeEventListener("click", (e) => {aboutLinkTween(main, aboutLink, e);}, false);
+                worksLink.removeEventListener("click", (e) => {workLinkTween(main, worksLink, e);}, false);
             }
         };
     }, []);
@@ -124,10 +126,10 @@ export default function MainPage() {
             <Contact changeVisibilityMenu={changeVisibilityMenu} ref={contactRef} />
             <main id="main" ref={mainRef}>
                 <div className="main-menu">
-                    <a data-link="/about" ref={aboutLinkRef}>
+                    <a data-link="/about" ref={aboutLinkRef} href="/about">
                         <MainMenuItem name="About" id="main-menu-item1" />
                     </a>
-                    <a data-link="/works" ref={worksLinkRef}>
+                    <a data-link="/works" ref={worksLinkRef} href="/works">
                         <MainMenuItem name="Works" id="main-menu-item2" />
                     </a>
                 </div>

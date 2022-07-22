@@ -58,11 +58,11 @@ a.go-work {
   height: 50px;
   width: 50px;
   z-index: 0;
-  background: $gradient-color-2;
+  background: var(--gradient-color-2);
   background: linear-gradient(
     90deg,
-    $gradient-color 0%,
-    $gradient-color-2 100%
+    var(--gradient-color) 0%,
+    var(--gradient-color-2) 100%
   );
   filter: blur(1px);
   border-radius: 50%;
@@ -419,100 +419,104 @@ a.go-work {
     padding: 5%;
     font-family: var(--bs-font-sans-serif);
     font-weight: bolder;
-    letter-spacing: -0.5px;
+    letter-spacing: 1.5px;
+    text-decoration: underline dotted 3px;
+    text-decoration-color: #fd7e17;
   }
 
   .div-row {
     padding: 0;
-    padding-top: 0.5rem;
     background-color: var(--bs-gray-100);
-    border-right: 1px solid var(--bs-white);
-    border-left: 1px solid var(--bs-white);
+    display: flex;
+    flex-direction: column;
 
-    .tr {
-      list-style: none;
+    .ab {
+      padding: 0.5rem 1.5rem;
+      width: 97%;
+      margin: auto;
+      background-color: var(--bs-dark);
+      color: var(--bs-white);
+      border-bottom: 1px solid var(--bs-white);
+      border-radius: 10px;
+      justify-content: space-between;
+      align-items: center;
 
-      .ab {
-        padding: 0.5rem;
-        width: 100%;
-        background-color: var(--bs-dark);
-        color: var(--bs-white);
-        border-bottom: 1px solid var(--bs-white);
-        border-radius: 10%;
-        justify-content: center;
-        align-items: center;
-
-        .ability {
-          flex: 1;
-          font-size: 110%;
-          font-family: var(--bs-font-monospace);
-          margin-top: 0.5rem;
-        }
-
-        .level {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0 !important;
-          width: max-content;
-          font-size: 105%;
-          font-family: var(--bs-font-monospace);
-
-          svg {
-            width: 1em;
-            height: 1em;
-          }
-
-          button {
-            padding: 0.5em;
-            background: var(--bs-orange);
-            color: var(--bs-white);
-            border: none;
-            border-radius: 5%;
-          }
-        }
+      .ability {
+        flex: 1;
+        font-size: 110%;
+        font-family: var(--bs-font-monospace);
+        margin-top: 0.5rem;
       }
 
-      .ul-sub-abs tr {
+      .level {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+        width: max-content;
+        font-size: 105%;
+        font-family: var(--bs-font-monospace);
+
+        svg {
+          width: 1em;
+          height: 1em;
+        }
+
+        button {
+          padding: 0.5em;
+          background: var(--bs-orange);
+          color: var(--bs-white);
+          border: none;
+          border-radius: 5%;
+        }
+      }
+    }
+
+    .ul-sub-abs {
+      padding-right: 0.5rem;
+      li {
         list-style: none;
       }
+    }
 
-      .sub-ab {
-        padding: 0.5rem;
-        width: 100%;
-        background-color: var(--bs-dark);
-        color: var(--bs-white);
-        border-bottom: 1px solid var(--bs-white);
+    .sub-ab {
+      padding: 0.5rem 1rem;
+      width: 100%;
+      background-color: var(--bs-dark);
+      color: var(--bs-white);
+      border-bottom: 1px solid var(--bs-white);
+      border-radius: 10px;
+      align-items: center;
+
+      // width: 97%;
+      // margin: auto;
+      justify-content: space-between;
+
+      .sub-ability {
+        flex: 1;
+        font-size: 100%;
+        font-family: var(--bs-font-monospace);
+        margin-top: 0.5rem;
+      }
+
+      .sub-level {
+        display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 5% 0 0 5%;
+        padding: 0 !important;
+        width: max-content;
 
-        .sub-ability {
-          flex: 1;
-          font-size: 100%;
-          font-family: var(--bs-font-monospace);
-          margin-top: 0.5rem;
+        svg {
+          width: 0.85em;
+          height: 0.85em;
         }
+      }
 
-        .sub-level {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0 !important;
-          width: max-content;
-
-          svg {
-            width: 0.85em;
-            height: 0.85em;
-          }
-        }
-
-        .span-orange {
-          width: 1.5em;
-          height: 1.5em;
-          background-color: var(--bs-orange);
-          border-radius: 35%;
-        }
+      .span-orange {
+        width: 1.5em;
+        height: 1.5em;
+        background-color: var(--bs-orange);
+        border-radius: 35%;
       }
     }
   }

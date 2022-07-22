@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const azure = "rgb(240, 255, 255)";
 const black = "rgb(34, 38, 42)";
 const orange = "rgb(253, 126, 23)";
-const sand = "rgb(252, 255, 158)";
+const sand = "rgb(106, 90, 205)";
 let colorBox;
 let colorBox2;
 

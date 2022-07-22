@@ -21,7 +21,6 @@ const stars = (num: number, booleanHalfStar = false) => {
             starsQuantity -= 1;
         }
     }
-
     return totalStars;
 };
 

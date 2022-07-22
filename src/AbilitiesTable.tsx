@@ -13,8 +13,8 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
 
     if (subAbs !== null) {
         return (
-            <tr className="tr">
-                <div className="ab d-flex">
+            <tr className="div-row">
+                <td className="ab d-flex">
                     <h4 className="h4 ability">{ab.name}</h4>
                     <div className="container level">
                         <button
@@ -27,28 +27,28 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
                             {arrow90DD}
                         </button>
                     </div>
-                </div>
-                <table>
-                    <tbody className="ul-sub-abs" hidden={hidden}>
+                </td>
+                <td>
+                    <ul className="ul-sub-abs" hidden={hidden}>
                         {subAbs.map((abs) => (
-                            <tr key={abs.name}>
+                            <li key={abs.name}>
                                 <div className="sub-ab d-flex">
-                                    <td><h4 className="h5 sub-ability">{abs.name}</h4></td>
-                                    <td><div className="container sub-level">{abs.content}</div></td>
+                                    <div><h4 className="h5 sub-ability">{abs.name}</h4></div>
+                                    <div><div className="container sub-level">{abs.content}</div></div>
                                 </div>
-                            </tr>
+                            </li>
                         ))}
-                    </tbody>
-                </table>
+                    </ul>
+                </td>
             </tr>
         );
     }
     return (
-        <tr className="tr">
-            <div className="ab d-flex">
-                <td><h4 className="h4 ability">{ab.name}</h4></td>
-                <td><div className="container level">{ab.content}</div></td>
-            </div>
+        <tr className="div-row">
+            <td className="ab d-flex">
+                <div><h4 className="h4 ability">{ab.name}</h4></div>
+                <div><div className="container level">{ab.content}</div></div>
+            </td>
         </tr>
     );
 }
@@ -65,9 +65,7 @@ const AbilitiesTable = React.forwardRef(function AbilitiesTable({ id, ability, a
             </thead>
 
             <tbody className="container abs">
-                <div className="div-row div-abs">
-                    {abilityRow}
-                </div>
+                {abilityRow}
             </tbody>
         </table>
     );

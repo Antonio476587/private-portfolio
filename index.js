@@ -2,7 +2,9 @@ import dotenv from "dotenv";
 import spdy from "spdy";
 import express from "express";
 import fs from "fs";
+import path from "path";
 
+import { __dirname as __root_dirname } from "./pathEMS.js";
 import { connectToDB, getDB } from "./db/db.js";
 import render from "./server/render.jsx";
 
@@ -30,10 +32,12 @@ app.post("/messages", async (req, res) => {
     try {
         const db = getDB();
         const { messages } = db.data;
+        console.log(db, db.data);
         const message = messages.push(req.body);
         await db.write();
         res.status(201).send("The message was succesfully recibed.");
     } catch (error) {
+        console.log(error);
         res.status(400).send(error);
     }
 });
@@ -52,7 +56,7 @@ app.get("*", (req, res, next) => {
 const port = process.env.PORT || 80;
 const securePort = process.env.SECURE_PORT || 443;
 
-connectToDB();
+connectToDB(path.resolve(__root_dirname, "db/db.json"));
 if (cert && key) {
     spdy.createServer({
         cert,

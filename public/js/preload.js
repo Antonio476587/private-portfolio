@@ -21,7 +21,7 @@ const colors = [
 
 function randomValues() {
     if (windowLoaded) return;
-    animation3 = gsap.to(preload, {
+    gsap.to(preload, {
         backgroundColor: gsap.utils.random(colors),
         duration: 3,
         power: "power1",

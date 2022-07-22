@@ -208,43 +208,39 @@ button.contact-body-button {
       object-fit: cover;
     }
 
-    a {
-      margin-top: auto;
-    }
+  }
+  a {
+    margin-top: auto;
+  }
 
-    button {
-      width: 3.5em;
-      height: 3.5em;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-bottom: auto;
+  button {
+    width: 3.5em;
+    height: 3.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: auto;
 
-      svg {
-        color: white;
-        width: 3em;
-        height: 3em;
-      }
+    svg {
+      color: white;
+      width: 3em;
+      height: 3em;
     }
   }
 }
 
 .nft-gift-active {
   &:hover {
-    .div-nft-gift-hover-1 {
+    .div-nft-gift-hover-1,
+    .div-nft-gift-hover-2  {
       transform: scale(0);
-    }
-    .div-nft-gift-hover-2 {
-      @extend .div-nft-gift-hover-1;
     }
   }
 
   &:focus {
-    .div-nft-gift-hover-1 {
+    .div-nft-gift-hover-1,
+    .div-nft-gift-hover-2  {
       transform: scale(0);
-    }
-    .div-nft-gift-hover-2 {
-      @extend .div-nft-gift-hover-1;
     }
   }
 }

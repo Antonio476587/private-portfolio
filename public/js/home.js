@@ -3,12 +3,12 @@ const bgComplementContainer = document.querySelector(
     ".bg-complement-container"
 );
 
-const menu = document.querySelector(".menu");
-const btnMenuHome = document.querySelectorAll("div.btn.btn-secondary")[1];
+// const menu = document.querySelector(".menu");
+// const btnMenuHome = document.querySelectorAll("div.btn.btn-secondary")[1];
 
-btnMenuHome.addEventListener("click", () => {
-    menu.toggleAttribute("hidden");
-});
+// btnMenuHome.addEventListener("click", () => {
+//     menu.toggleAttribute("hidden");
+// });
 
 let gradosX = 50;
 let gradosY = 33;

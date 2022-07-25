@@ -1,72 +1,49 @@
 import React from "react";
 
-import { aboutSvg, workSvg, xSquareSvg, houseSvg, envelope } from "./Svg";
+import { xSquareSvg, houseSvg, aboutSvg, workSvg, briefcase } from "./Svg";
 
-function Item({ svg, h3, link = null }) {
-    function activeMenu(e) {
-        e.currentTarget.classList.toggle("active");
-        const menu = document.querySelector(".menu");
-        if (link !== null) {
-            setTimeout(() => {
-                location.assign(link);
-            }, 800);
-            return;
-        }
-        setTimeout(() => {
-            menu.toggleAttribute("hidden");
-        }, 800);
-    }
+interface Menu {
+    changeVisibilityMenu: () => void;
+}
+
+export default function Menu({ changeVisibilityMenu }: Menu) {
 
     return (
-        <div className="item" onClick={activeMenu} role="menuitem" tabIndex="0">
-            <div style={{ "--i": 5 }}>
-                <div style={{ "--i": 4 }}>
-                    <div style={{ "--i": 3 }}>
-                        <div style={{ "--i": 2 }}>
-                            <div style={{ "--i": 1 }} className="cinema-menu-div">
-                                <span className="span-cinema">
-                                    <span>
-                                        <h3>{h3}</h3>
-                                        {svg}
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
+        <div className="menu" id="menu" hidden={true}>
+            <div className="menu-base-body">
+                <div className="menu-button-div">
+                    <button onClick={() => changeVisibilityMenu()}>
+                        {xSquareSvg}
+                    </button>
+                </div>
+                <div className="menu-items-parent">
+                    <div className="menu-item">
+                        <a href="#Home" onClick={() => changeVisibilityMenu()}>
+                            <div><img src="img/hommies1.jpg" alt="" /></div>
+                        </a>
+                        <h3>{houseSvg} Home</h3>
+                    </div>
+                    <div className="menu-item">
+                        <a href="/about" onClick={() => changeVisibilityMenu()}>
+                            <div><img src="img/hommies4.jpg" alt="" /></div>
+                        </a>
+                        <h3>{aboutSvg} About</h3>
+                    </div>
+                    <div className="menu-item">
+                        <a href="/works" onClick={() => changeVisibilityMenu()}>
+                            <div><img src="img/bg-works.jpg" alt="" /></div>
+                        </a>
+                        <h3>{workSvg} Works</h3>
+                    </div>
+                    <div className="menu-item">
+                        <a href="#Contact" onClick={() => changeVisibilityMenu()}>
+                            <div><img src="img/NFT1.jpeg" alt="" /></div>
+                        </a>
+                        <h3>{briefcase} Contact</h3>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
-
-export default function Menu({ changeVisibilityMenu }) {
-    return (
-        <div className="menu" hidden={true}>
-            <div className="div-menu-btn">
-                <button
-                    type="button"
-                    className="menu-btn"
-                    aria-label="Menu Button"
-                    onClick={changeVisibilityMenu}
-                >
-                    {xSquareSvg}
-                </button>
-            </div>
-            <div className="items">
-                <a href="#Home">
-                    <Item h3="Home" svg={houseSvg} />
-                </a>
-                <a href="#main">
-                    <Item h3="About" svg={aboutSvg} link="about" />
-                </a>
-                <a href="#main">
-                    <Item h3="Works" svg={workSvg} link="/works" />
-                </a>
-                <a href="#Contact">
-                    <Item h3="Contact" svg={envelope} />
-                </a>
-            </div>
-            <div className="nav-menu" />
+            <div className="menu-base-footer" />
         </div>
     );
 }

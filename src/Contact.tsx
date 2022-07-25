@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { briefcase, twitter, textRight, linkedin, github } from "./Svg";
 import FormContact from "./FormContact";
@@ -17,7 +17,7 @@ interface BlockquouteDateProps {
 }
 
 interface ContactProps {
-    changeVisibilityMenu: MouseEventHandler;
+    changeVisibilityMenu: () => void;
 }
 
 function ContactLink({ title, svg, link }: ContactLink) {
@@ -83,7 +83,7 @@ const Contact = React.forwardRef(function Contact({ changeVisibilityMenu }: Cont
                         className="btn btn-secondary"
                         aria-roledescription="button"
                         tabIndex={0}
-                        onClick={changeVisibilityMenu}
+                        onClick={() => changeVisibilityMenu()}
                     >
                         {textRight}
                     </button>

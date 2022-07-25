@@ -2,9 +2,13 @@ import React, { useRef, useEffect } from "react";
 
 import Contact from "./Contact";
 import MainMenuItem from "./MainMenuItem";
-// import Menu from "./Menu";
+import Menu from "./Menu";
 
-function aboutLinkTween(main: HTMLElement | false, aboutLink: HTMLElement, e?: Event): void {
+function aboutLinkTween(
+    main: HTMLElement | false,
+    aboutLink: HTMLElement,
+    e?: Event
+): void {
     e?.preventDefault();
     if (main) scrollTo(0, main.offsetTop);
     const q = gsap.utils.selector(aboutLink);
@@ -18,12 +22,17 @@ function aboutLinkTween(main: HTMLElement | false, aboutLink: HTMLElement, e?: E
         height: "100vh",
         perspectiveOrigin: "center",
         duration: 1,
-        onComplete: () =>
-        {if (aboutLink.dataset.link) location.assign(aboutLink.dataset.link);},
+        onComplete: () => {
+            if (aboutLink.dataset.link) location.assign(aboutLink.dataset.link);
+        },
     });
 }
 
-function workLinkTween(main: HTMLElement | false, worksLink: HTMLElement, e?: Event): void {
+function workLinkTween(
+    main: HTMLElement | false,
+    worksLink: HTMLElement,
+    e?: Event
+): void {
     e?.preventDefault();
     if (main) scrollTo(0, main.offsetTop);
     const q = gsap.utils.selector(worksLink);
@@ -37,22 +46,23 @@ function workLinkTween(main: HTMLElement | false, worksLink: HTMLElement, e?: Ev
         height: "100vh",
         perspectiveOrigin: "center",
         duration: 1,
-        onComplete: () =>
-        {if(worksLink.dataset.link) location.assign(worksLink.dataset.link);},
+        onComplete: () => {
+            if (worksLink.dataset.link) location.assign(worksLink.dataset.link);
+        },
     });
 }
 
 export default function MainPage() {
-    const mainRef: React.RefObject<HTMLElement>  = useRef(null);
+    const mainRef: React.RefObject<HTMLElement> = useRef(null);
     const contactRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const aboutLinkRef: React.RefObject<HTMLAnchorElement>= useRef(null);
+    const aboutLinkRef: React.RefObject<HTMLAnchorElement> = useRef(null);
     const worksLinkRef: React.RefObject<HTMLAnchorElement> = useRef(null);
     const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
 
     useEffect(() => {
         let animation1: gsap.core.Tween;
-        const contact: HTMLElement | boolean = contactRef.current?? false;
-        const main: HTMLElement | boolean = mainRef.current?? false;
+        const contact: HTMLElement | boolean = contactRef.current ?? false;
+        const main: HTMLElement | boolean = mainRef.current ?? false;
         let { current: tlCurrent } = tl;
 
         if (tlCurrent == null) {
@@ -100,25 +110,66 @@ export default function MainPage() {
     }, []);
 
     useEffect(() => {
-        const main: HTMLElement | boolean = mainRef.current?? false;
-        const aboutLink: HTMLElement | boolean = aboutLinkRef.current?? false;
-        const worksLink: HTMLElement | boolean = worksLinkRef.current?? false;
+        const main: HTMLElement | boolean = mainRef.current ?? false;
+        const aboutLink: HTMLElement | boolean = aboutLinkRef.current ?? false;
+        const worksLink: HTMLElement | boolean = worksLinkRef.current ?? false;
 
         if (aboutLink && worksLink) {
-            aboutLink.addEventListener("click", (e) => {aboutLinkTween(main, aboutLink, e);}, false);
-            worksLink.addEventListener("click", (e) => {workLinkTween(main, worksLink, e);}, false);
+            aboutLink.addEventListener(
+                "click",
+                (e) => {
+                    aboutLinkTween(main, aboutLink, e);
+                },
+                false
+            );
+            worksLink.addEventListener(
+                "click",
+                (e) => {
+                    workLinkTween(main, worksLink, e);
+                },
+                false
+            );
         }
         return () => {
-            if (aboutLink && worksLink) {   
-                aboutLink.removeEventListener("click", (e) => {aboutLinkTween(main, aboutLink, e);}, false);
-                worksLink.removeEventListener("click", (e) => {workLinkTween(main, worksLink, e);}, false);
+            if (aboutLink && worksLink) {
+                aboutLink.removeEventListener(
+                    "click",
+                    (e) => {
+                        aboutLinkTween(main, aboutLink, e);
+                    },
+                    false
+                );
+                worksLink.removeEventListener(
+                    "click",
+                    (e) => {
+                        workLinkTween(main, worksLink, e);
+                    },
+                    false
+                );
             }
         };
     }, []);
 
     const changeVisibilityMenu = () => {
         const menu: HTMLElement | null = document.querySelector(".menu");
-        menu ? menu.toggleAttribute("hidden") : null;
+
+        if (menu) {
+            menu.toggleAttribute("hidden");
+            if (!menu.hasAttribute("hidden")) {
+                gsap.to(".menu-base-footer", {
+                    duration: 1,
+                    height: "25%",
+                    marginTop: 0,
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 0)"
+                });
+            } else {
+                gsap.set(".menu-base-footer", {
+                    height: 0,
+                    marginTop: "25%",
+                    clipPath: "polygon(100% 35%, 100% 100%, 0 100%, 0 0, 50% 60%)",
+                });
+            }
+        }
     };
 
     return (
@@ -134,7 +185,7 @@ export default function MainPage() {
                     </a>
                 </div>
             </main>
-            {/* <Menu changeVisibilityMenu={changeVisibilityMenu} /> */}
+            <Menu changeVisibilityMenu={changeVisibilityMenu} />
         </>
     );
 }

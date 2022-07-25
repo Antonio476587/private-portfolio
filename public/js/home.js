@@ -3,12 +3,28 @@ const bgComplementContainer = document.querySelector(
     ".bg-complement-container"
 );
 
-// const menu = document.querySelector(".menu");
-// const btnMenuHome = document.querySelectorAll("div.btn.btn-secondary")[1];
+const menu = document.querySelector(".menu");
+const btnMenuHome = document.querySelector(".btn.btn-secondary.btn-home");
 
-// btnMenuHome.addEventListener("click", () => {
-//     menu.toggleAttribute("hidden");
-// });
+btnMenuHome.addEventListener("click", () => {
+    if (menu) {
+        menu.toggleAttribute("hidden");
+        if (!menu.hasAttribute("hidden")) {
+            gsap.to(".menu-base-footer", {
+                duration: 1,
+                height: "25%",
+                marginTop: 0,
+                clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 0)"
+            });
+        } else {
+            gsap.set(".menu-base-footer", {
+                height: 0,
+                marginTop: "25%",
+                clipPath: "polygon(100% 35%, 100% 100%, 0 100%, 0 0, 50% 60%)",
+            });
+        }
+    }
+});
 
 let gradosX = 50;
 let gradosY = 33;

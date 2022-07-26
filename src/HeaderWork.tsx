@@ -62,14 +62,14 @@ export default function HeaderWork() {
         clientHeight = typeof clientHeight === "string" ? globalThis.parseInt(clientHeight, 10) : clientHeight;
         clientWidth = typeof clientWidth === "string" ? globalThis.parseInt(clientWidth, 10) : clientWidth;
         left = typeof left === "string" ? globalThis.parseInt(left, 10) : left;
-
-        target.classList.toggle("active");
-
+        
         if (aLinksRef.current) {
             aLinksRef.current.forEach((aLink) => {
                 if (aLink.className.includes("active")) aLink.classList.remove("active");
             });
         }
+
+        target.classList.add("active");
 
         if (bookmarkRef.current) {
             if (bookmarkRef.current.childNodes[0]) {

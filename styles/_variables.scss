@@ -17,6 +17,18 @@ $polygon-complement: polygon(
 
 /* About */
 
+@mixin antonioAndSimonImages ($url) {
+  background: url($url);
+  position: absolute;
+}
+
+@mixin displayFlexCenterCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 $airscooter-color: #f1e7db;
 $airscooter-color-2: #ccf4f3;
 $airscooter-air: #f1eee7;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import { briefcase, twitter, textRight, linkedin, github } from "./Svg";
+import { briefcaseSvg, twitter, textRight, linkedin, github } from "./Svg";
 import FormContact from "./FormContact";
 import MenuNFT from "./MenuNFT";
 
@@ -94,7 +94,7 @@ const Contact = React.forwardRef(function Contact({ changeVisibilityMenu }: Cont
                 <div className="row contact-row gx-0">
                     <ContactLink
                         title="Freelancer"
-                        svg={briefcase}
+                        svg={briefcaseSvg}
                         link="https://www.freelancer.com/u/AntonioServicio"
                     />
                     <ContactLink

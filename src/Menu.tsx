@@ -1,6 +1,6 @@
 import React from "react";
 
-import { xSquareSvg, houseSvg, aboutSvg, workSvg, briefcase } from "./Svg";
+import { xSquareSvg, houseSvg, pencilWorkspaceSvg, pencilSvg, briefcaseSvg } from "./Svg";
 
 interface Menu {
     changeVisibilityMenu: () => void;
@@ -19,27 +19,27 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
                 <div className="menu-items-parent">
                     <div className="menu-item">
                         <a href="#Home" onClick={() => changeVisibilityMenu()}>
-                            <div><img src="img/hommies1.jpg" alt="" /></div>
+                            <div><img src="img/home.jpg" alt="" /></div>
                         </a>
                         <h3>{houseSvg} Home</h3>
                     </div>
                     <div className="menu-item">
                         <a href="/about" onClick={() => changeVisibilityMenu()}>
-                            <div><img src="img/hommies4.jpg" alt="" /></div>
+                            <div><img src="img/about.jpg" alt="" /></div>
                         </a>
-                        <h3>{aboutSvg} About</h3>
+                        <h3>{pencilWorkspaceSvg} About</h3>
                     </div>
                     <div className="menu-item">
                         <a href="/works" onClick={() => changeVisibilityMenu()}>
-                            <div><img src="img/bg-works.jpg" alt="" /></div>
+                            <div><img src="img/works.jpg" alt="" /></div>
                         </a>
-                        <h3>{workSvg} Works</h3>
+                        <h3>{pencilSvg} Works</h3>
                     </div>
                     <div className="menu-item">
                         <a href="#Contact" onClick={() => changeVisibilityMenu()}>
-                            <div><img src="img/NFT1.jpeg" alt="" /></div>
+                            <div><img src="img/contact.jpg" alt="" /></div>
                         </a>
-                        <h3>{briefcase} Contact</h3>
+                        <h3>{briefcaseSvg} Contact</h3>
                     </div>
                 </div>
             </div>

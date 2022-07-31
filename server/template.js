@@ -41,7 +41,7 @@ export default function template(body) {
     <!-- Common Style -->
     <link rel="stylesheet" href="/css/index.css" type="text/css">
     <!-- Icon link -->
-    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
     <!-- AnimeJS-->
     <script src="/js/anime.min.js"></script>
   

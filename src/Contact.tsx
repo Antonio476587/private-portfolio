@@ -75,7 +75,7 @@ const Contact = React.forwardRef(function Contact({ changeVisibilityMenu }: Cont
             <MenuNFT />
             <div className="d-flex flex-shrink-0 bg-light align-items-center">
                 <span className="container nav-contact-icon-span py-1 border-bottom">
-                    <img src="./img/icon.png" alt="fantonix" />
+                    <img src="./img/icon.png" alt="fantonix"  />
                 </span>
 
                 <div className="container-sm py-3 abrir text-end">

@@ -44,7 +44,7 @@ export default function template(body) {
       <!-- Common Style -->
       <link rel="stylesheet" href="/css/index.css" type="text/css" />
       <!-- Icon link -->
-      <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
       <!-- GSAP -->
       <script src="/js/gsap.min.js"></script>
       <!-- GSAP Scroll Trigger -->
@@ -219,7 +219,7 @@ export default function template(body) {
     
           <nav class="navbar navbar-light bg-transparent nav-home">
             <span class="container py-1 mx-3 border-right " style="width: 4em">
-              <img src="/img/icon.png">
+              <img src="/img/icon.png" alt="fantonix" >
             </span>
     
             <div class="container-sm py-1 mx-3 abrir" style="width: 4em">

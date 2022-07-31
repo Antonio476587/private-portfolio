@@ -222,7 +222,7 @@ export default function template(body) {
             </span>
     
             <div class="container-sm py-1 mx-3 abrir" style="width: 4em">
-              <button class="btn btn-secondary btn-home" type="button" role="button" aria-roledescription="button" tabindex="0">
+              <button class="btn btn-secondary btn-home" aria-label="Click here to open the menu" type="button" role="button" aria-roledescription="button" tabindex="0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"

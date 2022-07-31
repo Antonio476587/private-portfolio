@@ -81,6 +81,7 @@ const Contact = React.forwardRef(function Contact({ changeVisibilityMenu }: Cont
                 <div className="container-sm py-3 abrir text-end">
                     <button
                         className="btn btn-secondary"
+                        aria-label="Click here to open the menu"
                         aria-roledescription="button"
                         tabIndex={0}
                         onClick={() => changeVisibilityMenu()}

@@ -12,7 +12,7 @@ function render(req, res) {
             <Page />
         </StaticRouter>
     );
-    const body = ReactDOMServer.renderToString(element);
+    const body = ReactDOMServer.renderToStaticNodeStream(element);
 
     if (req.url === "/" || req.url === "/?P=false") {
         res.send(templateHome(body));

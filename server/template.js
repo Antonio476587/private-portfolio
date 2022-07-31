@@ -31,6 +31,7 @@ export default function template(body) {
     <meta name="keywords" content="Fantoniox">
     <meta name="keywords" content="Future">
     <title>elix Antonio Cabello Portfolio/CVonline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Josefin Sans Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
     <!-- Normalize -->

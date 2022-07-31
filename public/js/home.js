@@ -46,20 +46,22 @@ const scaleSet = (val) => {
 
 const transformer = gsap.utils.pipe(gsap.utils.clamp(0, 200));
 
+function animateComplement() {
+    if (gradosY === 393 || gradosY > 393) gradosY = 33;
+    if (gradosX === 410 || gradosX > 410) gradosX = 50;
+    scaleSet(scale);
+    ySet(gradosY);
+    xSet(gradosX);
+    gradosY += 1;
+    gradosX += 0.2;
+}
+
 const animateHome = () => {
-    bgAnimation = setInterval(() => {
-        if (gradosY === 393 || gradosY > 393) gradosY = 33;
-        if (gradosX === 410 || gradosX > 410) gradosX = 50;
-        ySet(gradosY);
-        xSet(gradosX);
-        scaleSet(scale);
-        gradosY += 1;
-        gradosX += 0.2;
-    }, 10);
+    bgAnimation = gsap.timeline({ repeat: -1, onUpdate: animateComplement, delay: 1 });
 };
 
 const desAnimateHome = () => {
-    clearInterval(bgAnimation);
+    bgAnimation.kill();
 };
 
 animateHome();

@@ -1,7 +1,5 @@
 node_modules
 
-robots.txt
-
 dist
 
 ca_bundle.crt

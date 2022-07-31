@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import spdy from "spdy";
 import express from "express";
+import compression from "compression";
 import fs from "fs";
 import path from "path";
 
@@ -26,6 +27,19 @@ const domain = process.env.URI || "fantonix.space";
 
 app.use(express.raw());
 app.use(express.json());
+
+app.use(compression({ filter: shouldCompress }));
+
+function shouldCompress (req, res) {
+    if (req.headers["x-no-compression"]) {
+    // don't compress responses with this request header
+        return false;
+    }
+
+    // fallback to standard filter function
+    return compression.filter(req, res);
+}
+
 app.use(express.static("public"));
 
 app.post("/messages", async (req, res) => {

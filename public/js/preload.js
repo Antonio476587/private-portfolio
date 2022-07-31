@@ -53,6 +53,8 @@ function preloadFinished() {
 window.addEventListener("load", () => {
     windowLoaded = true;
     window.scrollTo(0, document.querySelector(".home").offsetTop);
+    if (window.scrollMaxY) return;
+    else window.scrollMaxY = window.scrollY;
 });
 
 function preloadCharged() {

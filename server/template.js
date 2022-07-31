@@ -1,6 +1,6 @@
 export default function template(body) {
-  return `<!DOCTYPE html>
-  <html lang="es">
+    return `<!DOCTYPE html>
+  <html lang="en">
   
   <head>
     <meta charset="UTF-8">
@@ -17,9 +17,9 @@ export default function template(body) {
     <link rel="stylesheet" href="/css/animate.min.css"
       type="text/css" />
     <!-- Preload CSS -->
-    <link rel="stylesheet" href="/css/preload.css" type="text/css">
+    <link rel="stylesheet" href="/css/preload.css"/>
     <meta name="description"
-      content="Have a great day watching my portfolio, there are my skills, a brief summary of me and my future vision. I really want to help to everyone need it, contact me in every moment you want, i will response you in no moment">
+      content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future">
     <meta name="keywords" content="Portfolio">
     <meta name="keywords" content="CVOnline">
     <meta name="keywords" content="USA">
@@ -31,6 +31,7 @@ export default function template(body) {
     <meta name="keywords" content="Fantoniox">
     <meta name="keywords" content="Future">
     <title>elix Antonio Cabello Portfolio/CVonline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Josefin Sans Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
     <!-- Normalize -->
@@ -40,18 +41,7 @@ export default function template(body) {
     <!-- Common Style -->
     <link rel="stylesheet" href="/css/index.css" type="text/css">
     <!-- Icon link -->
-    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
-    <!-- GSAP -->
-    <script src="/js/gsap.min.js"></script>
-    <!-- GSAP Scroll Trigger -->
-    <script src="/js/ScrollToPlugin.min.js"></script>
-    <!-- GSAP Scroll To -->
-    <script src="/js/ScrollTrigger.min.js"></script>
-    <!-- GSAP Register global plugin -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.registerPlugin(ScrollToPlugin);
-    </script>
+    <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
     <!-- AnimeJS-->
     <script src="/js/anime.min.js"></script>
   
@@ -67,12 +57,13 @@ export default function template(body) {
           ${body}
       </div>
       
+      <script src="/js/polyfill.bundle.min.js" type="application/javascript"></script>
       <!-- app -->
-      <script src="/js/app.bundle.js" type="application/javascript"></script>
+      <script src="/js/app.bundle.min.js" type="application/javascript"></script>
       <!-- Vendor -->
-      <script src="/js/vendor.bundle.js" type="application/javascript"></script>
+      <script src="/js/vendor.bundle.min.js" type="application/javascript"></script>
       <!-- Home -->
-      <script src="/js/home.js" type="application/javascript"></script>
+      <!-- <script src="/js/home.js" type="application/javascript"></script> -->
     </body>
     
     </html>`;

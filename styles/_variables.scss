@@ -1,0 +1,35 @@
+
+$color-shadow: #000;
+$animate-duration: 1400ms;
+
+/* Home */
+
+$polygon-complement: polygon(
+  0% 5%,
+  5% 0%,
+  95% 0%,
+  100% 5%,
+  100% 95%,
+  95% 100%,
+  5% 100%,
+  0% 95%
+);
+
+/* About */
+
+@mixin antonioAndSimonImages ($url) {
+  background: url($url);
+  position: absolute;
+}
+
+@mixin displayFlexCenterCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+$airscooter-color: #f1e7db;
+$airscooter-color-2: #ccf4f3;
+$airscooter-air: #f1eee7;
+$airscooter-air-2: rgba(0, 0, 0, 0);

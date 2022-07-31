@@ -300,14 +300,14 @@ let oS = [];
 
 // Winners combinations
 const comb = [
-  [0, 4, 8],
-  [2, 4, 6],
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
 ];
 
 // Casillas deshabilitadas
@@ -327,41 +327,41 @@ let ratio = 0;
 let options = [];
 
 for (let i = 0; i < squares.length; i++) {
-  options.push(i);
+    options.push(i);
 }
 
 // Regar un arreglo
 const regar = (array) => {
-  let j, x, i;
+    let j, x, i;
 
-  for (i = array.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = array[i];
-    array[i] = array[j];
-    array[j] = x;
-  }
-  // Devuelve el primer elemento del array regado
-  return array[0];
+    for (i = array.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = array[i];
+        array[i] = array[j];
+        array[j] = x;
+    }
+    // Devuelve el primer elemento del array regado
+    return array[0];
 };
 
 const IA = () => {
-  if (IAP) {
-    if (!playerTurn) capa.style.left = "0%";
-    setTimeout(() => {
-      if (playerTurn == false) {
-        for (let i = 0; i < casillasDeshabilitadas.length; i++) {
-          const casillaD = casillasDeshabilitadas[i];
-          if (options.includes(casillaD))
-            options.splice(options.indexOf(casillaD), 1);
-        }
-        let options1 = regar(options);
-        marcar(squares[options1], options1);
-        capa.style.left = "-150%";
-        return;
-      }
-      return;
-    }, 1500);
-  } else return;
+    if (IAP) {
+        if (!playerTurn) capa.style.left = "0%";
+        setTimeout(() => {
+            if (playerTurn == false) {
+                for (let i = 0; i < casillasDeshabilitadas.length; i++) {
+                    const casillaD = casillasDeshabilitadas[i];
+                    if (options.includes(casillaD))
+                        options.splice(options.indexOf(casillaD), 1);
+                }
+                let options1 = regar(options);
+                marcar(squares[options1], options1);
+                capa.style.left = "-150%";
+                return;
+            }
+            return;
+        }, 1500);
+    } else return;
 };
 
 // Desactivar IA
@@ -370,105 +370,105 @@ btnChangePlayer.onclick = () => (IAP = !IAP);
 btnReboot.addEventListener("click", reboot);
 // Reinicia la partida y cambia los turnos
 function reboot(e) {
-  e.preventDefault();
-  end = false;
-  turn = false;
-  playerTurn = !playerTurn;
-  xS = [];
-  oS = [];
-  casillasDeshabilitadas = [];
-  for (let i = 0; i < squares.length; i++) {
-    options[i] = i;
-    squares[i].classList.remove("square-win");
-    squares[i].innerHTML = " ";
-  }
+    e.preventDefault();
+    end = false;
+    turn = false;
+    playerTurn = !playerTurn;
+    xS = [];
+    oS = [];
+    casillasDeshabilitadas = [];
+    for (let i = 0; i < squares.length; i++) {
+        options[i] = i;
+        squares[i].classList.remove("square-win");
+        squares[i].innerHTML = " ";
+    }
 
-  IA();
+    IA();
 }
 
 // Desahibilita la casilla una vez marcada
 function inhibir(i) {
-  casillasDeshabilitadas.push(i);
+    casillasDeshabilitadas.push(i);
 }
 
 // Crea la marca
 function crearFigura(e, i) {
-  // Crea la O
-  if (turn) {
-    e.innerHTML += o;
-    turn = false;
-    playerTurn = !playerTurn;
-    oS.push(i);
-    IA();
-  } // Crea la X
-  else {
-    e.innerHTML += x;
-    turn = true;
-    playerTurn = !playerTurn;
-    xS.push(i);
-    IA();
-  }
+    // Crea la O
+    if (turn) {
+        e.innerHTML += o;
+        turn = false;
+        playerTurn = !playerTurn;
+        oS.push(i);
+        IA();
+    } // Crea la X
+    else {
+        e.innerHTML += x;
+        turn = true;
+        playerTurn = !playerTurn;
+        xS.push(i);
+        IA();
+    }
 }
 
 //loop
 function loop(com, arr, ht) {
-  for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
     // Ciclando por el arreglo
-    if (com.includes(arr[i])) {
-      ht.push(arr[i]);
-      ratio++;
-      if (ratio == 3) {
-        for (let a = 0; a < ht.length; a++) {
-          squares[ht[a]].classList.add("square-win");
+        if (com.includes(arr[i])) {
+            ht.push(arr[i]);
+            ratio++;
+            if (ratio == 3) {
+                for (let a = 0; a < ht.length; a++) {
+                    squares[ht[a]].classList.add("square-win");
+                }
+                // Fin del juego
+                playerTurn = !playerTurn;
+                alert("Hay un ganador!!");
+                end = true;
+            }
         }
-        // Fin del juego
-        playerTurn = !playerTurn;
-        alert("Hay un ganador!!");
-        end = true;
-      }
     }
-  }
 
-  // Si no una combinacion no es verdadera, se reinicia para comprobar la siguiente
-  ratio = 0;
-  highlightX = [];
-  highlightO = [];
+    // Si no una combinacion no es verdadera, se reinicia para comprobar la siguiente
+    ratio = 0;
+    highlightX = [];
+    highlightO = [];
 }
 
 // Result
 function result() {
-  // Cicla las combinaciones ganadoras
-  for (const com of comb) {
+    // Cicla las combinaciones ganadoras
+    for (const com of comb) {
     // Encuentra las coincidencias de la X con las combinaciones
-    loop(com, xS, highlightX);
-    // Encuentra las coincidencias de la O con las combinaciones
-    loop(com, oS, highlightO);
-  }
+        loop(com, xS, highlightX);
+        // Encuentra las coincidencias de la O con las combinaciones
+        loop(com, oS, highlightO);
+    }
   
-  // Si hay un empate, se cancela todo y devuelve el empate
-  if (casillasDeshabilitadas.length == squares.length && !end) {
-    end = true;
-    return alert("Empate!!");
-  }
+    // Si hay un empate, se cancela todo y devuelve el empate
+    if (casillasDeshabilitadas.length == squares.length && !end) {
+        end = true;
+        return alert("Empate!!");
+    }
 }
 
 // Pasa los valores sin alterar su estructura para marcar
 const marcar = (e, i) => {
-  if (end) return;
-  if (
-    casillasDeshabilitadas.length == squares.length ||
+    if (end) return;
+    if (
+        casillasDeshabilitadas.length == squares.length ||
     casillasDeshabilitadas.includes(i)
-  )
-    return;
-  if (casillasDeshabilitadas.includes(i)) options.splice(options.indexOf(i), 1);
-  crearFigura(e, i);
-  inhibir(i);
-  counter++;
-  if (counter > 4) result();
+    )
+        return;
+    if (casillasDeshabilitadas.includes(i)) options.splice(options.indexOf(i), 1);
+    crearFigura(e, i);
+    inhibir(i);
+    counter++;
+    if (counter > 4) result();
 };
 
 // Inicia la función principal al agregarles eventos
 for (let i = 0; i < squares.length; i++) {
-  const square = squares[i];
-  square.addEventListener("click", (e) => marcar(square, i));
+    const square = squares[i];
+    square.addEventListener("click", (e) => marcar(square, i));
 }

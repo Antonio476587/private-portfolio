@@ -1,61 +1,64 @@
 export default function template(body) {
-  return `<!DOCTYPE html>
-  <html lang="es">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Felix Antonio Cabello Garmendia">
-    <meta name="googlebot" content="index">
-    <meta name="googlebot" content="follow">
-    <meta name="slurp" content="index">
-    <meta name="slurp" content="follow">
-    <meta name="robots">
-    <meta name="user-scalable" content="no">
-    <!-- animate.css -->
-    <link rel="stylesheet" href="/css/animate.min.css"
-      type="text/css" />
-    <!-- Preload CSS -->
-    <link rel="stylesheet" href="/css/preload.css" type="text/css">
-    <meta name="description"
-      content="Have a great day watching my portfolio, there are my skills, a brief summary of me and my future vision. I really want to help to everyone need it, contact me in every moment you want, i will response you in no moment">
-    <meta name="keywords" content="Portfolio">
-    <meta name="keywords" content="CVOnline">
-    <meta name="keywords" content="USA">
-    <meta name="keywords" content="EEUU">
-    <meta name="keywords" content="United States">
-    <meta name="keywords" content="Venezuela">
-    <meta name="keywords" content="Latam">
-    <meta name="keywords" content="Latinoamerica">
-    <meta name="keywords" content="Fantoniox">
-    <meta name="keywords" content="Future">
-    <title>elix Antonio Cabello Portfolio/CVonline</title>
-    <!-- Josefin Sans Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
-    <!-- Normalize -->
-    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-    <!-- Boopstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- Common Style -->
-    <link rel="stylesheet" href="/css/index.css" type="text/css">
-    <!-- Icon link -->
-    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
-    <!-- GSAP -->
-    <script src="/js/gsap.min.js"></script>
-    <!-- GSAP Scroll Trigger -->
-    <script src="/js/ScrollToPlugin.min.js"></script>
-    <!-- GSAP Scroll To -->
-    <script src="/js/ScrollTrigger.min.js"></script>
-    <!-- GSAP Register global plugin -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.registerPlugin(ScrollToPlugin);
-    </script>
-    <!-- AnimeJS-->
-    <script src="/js/anime.min.js"></script>
-  
-  </head>
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Felix Antonio Cabello Garmendia" />
+      <meta name="googlebot" content="index" />
+      <meta name="googlebot" content="follow" />
+      <meta name="slurp" content="index" />
+      <meta name="slurp" content="follow" />
+      <meta name="robots" />
+      <meta name="user-scalable" content="no" />
+      <!-- animate.css -->
+      <link rel="stylesheet" href="/css/animate.min.css" type="text/css" />
+      <!-- Preload CSS -->
+      <link rel="stylesheet" href="/css/preload.css" />
+      <meta
+        name="description"
+        content="This is my portfolio, I'll be getting it better. Each day, each moment I can, because this is going to demonstrate my abilities, this is my way to demonstrate to myself what I'm able to do. Towards the future"
+      />
+      <meta name="keywords" content="Portfolio" />
+      <meta name="keywords" content="CVOnline" />
+      <meta name="keywords" content="USA" />
+      <meta name="keywords" content="EEUU" />
+      <meta name="keywords" content="United States" />
+      <meta name="keywords" content="Venezuela" />
+      <meta name="keywords" content="Latam" />
+      <meta name="keywords" content="Latinoamerica" />
+      <meta name="keywords" content="Fantoniox" />
+      <meta name="keywords" content="Future" />
+      <title>elix Antonio Cabello Portfolio/CVonline</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <!-- Josefin Sans Google Fonts -->
+      <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap"
+        rel="stylesheet"
+      />
+      <!-- Normalize -->
+      <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+      <!-- Boopstrap -->
+      <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <!-- Common Style -->
+      <link rel="stylesheet" href="/css/index.css" type="text/css" />
+      <!-- Icon link -->
+      <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
+      <!-- GSAP -->
+      <script src="/js/gsap.min.js"></script>
+      <!-- GSAP Scroll Trigger -->
+      <script src="/js/ScrollToPlugin.min.js"></script>
+      <!-- GSAP Scroll To -->
+      <script src="/js/ScrollTrigger.min.js"></script>
+      <!-- GSAP Register global plugin -->
+      <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollToPlugin);
+      </script>
+      <!-- AnimeJS-->
+      <script src="/js/anime.min.js"></script>
+    </head>
   
   <body allow="fullscreen *">
   
@@ -159,8 +162,8 @@ export default function template(body) {
       </div>
   
       <!-- Preload -->
-      <script src="/js/preload.js" type="application/javascript"></script>
-  
+      <script src="/js/preload.js"></script>
+
       <!-- Contact page -->
       <!-- Main -->
       <div id="page">
@@ -216,17 +219,17 @@ export default function template(body) {
     
           <nav class="navbar navbar-light bg-transparent nav-home">
             <span class="container py-1 mx-3 border-right " style="width: 4em">
-              <img src="/img/icon.png">
+              <img src="/img/icon.png" alt="fantonix" >
             </span>
     
             <div class="container-sm py-1 mx-3 abrir" style="width: 4em">
-              <div class="btn btn-secondary" type="button" role="button" aria-roledescription="button" tabindex="0">
+              <button class="btn btn-secondary btn-home" aria-label="Click here to open the menu" type="button" role="button" aria-roledescription="button" tabindex="0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
                     d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                 </svg>
-              </div>
+              </button>
             </div>
           </nav>
     
@@ -234,10 +237,11 @@ export default function template(body) {
     
       </div>
     
+      <script src="/js/polyfill.bundle.min.js" type="application/javascript"></script>
       <!-- app -->
-      <script src="/js/app.bundle.js" type="application/javascript"></script>
+      <script src="/js/app.bundle.min.js" type="application/javascript"></script>
       <!-- Vendor -->
-      <script src="/js/vendor.bundle.js" type="application/javascript"></script>
+      <script src="/js/vendor.bundle.min.js" type="application/javascript"></script>
       <!-- Home -->
       <script src="/js/home.js" type="application/javascript"></script>
     </body>

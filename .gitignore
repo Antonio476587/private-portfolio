@@ -2,4 +2,36 @@ node_modules
 
 dist
 
-826D3D9D61D439104AE4F0631C2A3E48.txt
+ca_bundle.crt
+
+certificate.crt
+
+private.key
+
+.env
+
+dev.env
+
+*.well-known
+
+package-lock.json
+
+**/*.css.map
+
+**/*.bundle.css
+
+**/*.js.map
+
+**/*.bundle.js
+
+**/*.bundle.min.js
+
+**/vendor*
+
+**/*LICENSE.txt
+
+**/db.json
+
+assets
+
+**/index.css

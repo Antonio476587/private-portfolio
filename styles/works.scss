@@ -1,0 +1,115 @@
+@import "variables.scss";
+@import "work.scss";
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+/* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+
+.carousel-inner {
+  transform-style: preserve-3d;
+
+  .carousel-item {
+    transform-style: preserve-3d;
+    transform: rotateY(90deg) skewX(-15deg);
+    transition: 1s;
+
+    .bd-placeholder-img {
+      background: url(Images/tracker2.jpg);
+      width: 70%;
+      height: 55%;
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      margin: auto;
+      /*     background-position: 50% 145%; */
+      background-position: center !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+
+    &:nth-child(2) .bd-placeholder-img {
+      background: url(Images/NFT1.jpeg);
+    }
+
+    &:nth-child(3) .bd-placeholder-img {
+      background: url(Images/three1.jpg);
+    }
+
+    &:nth-child(4) .bd-placeholder-img {
+      background: url(Images/three4.png);
+    }
+
+    &:nth-child(5) .bd-placeholder-img {
+      background: url(Images/barba2.jpg);
+    }
+
+    &:nth-child(6) .bd-placeholder-img {
+      background: url(Images/bonsai1.jpg);
+    }
+
+    &:nth-child(7) .bd-placeholder-img {
+      background: url(Images/bgcomplement.jpg);
+    }
+
+    &:last-child .bd-placeholder-img {
+      background: url(Images/hommies1.jpg);
+    }
+
+    &.active {
+      transform-style: preserve-3d;
+      transform: rotateY(0deg) skewX(0deg);
+    }
+
+    &.active.carousel-item-start {
+      transform: rotateY(-90deg) skewX(15deg);
+      opacity: 0;
+    }
+
+    &.active.carousel-item-end {
+      transform: rotateY(-90deg) skewX(15deg);
+      opacity: 0;
+    }
+
+    p {
+      font-weight: bolder;
+    }
+  }
+}
+
+.carousel-control-prev {
+  width: 8%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0% 10% 10% 0%;
+}
+
+.carousel-control-next {
+  @extend .carousel-control-prev;
+  border-radius: 10% 0% 0% 10%;
+}
+
+/* Carousel base class */
+.carousel {
+  height: 100vh;
+  background: url(Images/bg-works.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5vh 0;
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 90vh;
+  }
+}

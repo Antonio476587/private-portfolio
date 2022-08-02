@@ -7,7 +7,7 @@ import path from "path";
 await connectToDB(path.resolve(__root_dirname, "db/db.json"));
 
 test("Adapter should exits", () => {
-    expect(getDB()).toBeDefined();
+    return expect(getDB()).toBeDefined();
 });
 
 test("If the database doesn't exist we create it", async () => {
@@ -31,7 +31,7 @@ test("Database should be deleted", async () => {
         console.log(error);
     }
     await db.read();
-    expect(db.data).toBeNull();
+    return expect(db.data).toBeNull();
 });
 
 test("Database should be created", async () => {
@@ -39,7 +39,7 @@ test("Database should be created", async () => {
     await generatedb();
     await db.read();
     const { messages } = db.data;
-    expect(messages).toEqual([{ title: "hello world" }]);
+    return expect(messages).toEqual([{ title: "hello world" }]);
 });
 
 test("Writing on the database", async () => {
@@ -48,7 +48,7 @@ test("Writing on the database", async () => {
     const message = messages.push({ naruto: "uzumaki" });
     await db.write();
 
-    expect(messages).toEqual([{ title: "hello world" }, { naruto: "uzumaki" }]);
+    return expect(messages).toEqual([{ title: "hello world" }, { naruto: "uzumaki" }]);
 });
 
 test("Deleting on the database", async () => {
@@ -57,7 +57,7 @@ test("Deleting on the database", async () => {
     messages.pop();
     await db.write();
 
-    expect(messages).toEqual([{ title: "hello world" }]);
+    return expect(messages).toEqual([{ title: "hello world" }]);
 });
 
 test("Altering the data on the database", async () => {
@@ -67,7 +67,7 @@ test("Altering the data on the database", async () => {
     messages[messageIndex].title = "uzumaki naruto";
     await db.write();
 
-    expect(messages).toEqual([{ title: "uzumaki naruto" }]);
+    return expect(messages).toEqual([{ title: "uzumaki naruto" }]);
 });
 
 test("Deleting the data on the database", async () => {
@@ -75,7 +75,7 @@ test("Deleting the data on the database", async () => {
     db.data = {};
     await db.write();
 
-    expect(db.data).toEqual({});
+    return expect(db.data).toEqual({});
 });
 
 test("Droping the database", async () => {
@@ -86,5 +86,5 @@ test("Droping the database", async () => {
         console.log(error);
     }
     await db.read();
-    expect(db.data).toBeNull();
+    return expect(db.data).toBeNull();
 });

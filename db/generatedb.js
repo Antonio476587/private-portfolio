@@ -1,8 +1,9 @@
 import { join, dirname } from "path";
 import { Low, JSONFile } from "lowdb";
-import { fileURLToPath } from "url";
+import path from "path";
+import { __dirname as __rootDirname } from "../pathEMS.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.resolve(__rootDirname, "db");
 
 export default async function generatedb() {
     // Use JSON file for storage

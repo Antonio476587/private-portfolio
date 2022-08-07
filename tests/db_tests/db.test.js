@@ -1,10 +1,12 @@
 import { getDB, connectToDB } from "../../db/db.js";
 import deleteFile from "../../utils/deleteFile.js";
 import generatedb from "../../db/generatedb.js";
-import { __dirname as __root_dirname } from "../../pathEMS.js";
+import { __dirname as __rootDirname } from "../../pathEMS.js";
 import path from "path";
 
-await connectToDB(path.resolve(__root_dirname, "db/db.json"));
+beforeAll(async () => {
+    await connectToDB(path.resolve(__rootDirname, "db/db.json"));
+});
 
 test("Adapter should exits", () => {
     return expect(getDB()).toBeDefined();
@@ -26,7 +28,7 @@ test("If the database doesn't exist we create it", async () => {
 test("Database should be deleted", async () => {
     let db = getDB();
     try {
-        await deleteFile(path.resolve(__root_dirname, "db/db.json"));
+        await deleteFile(path.resolve(__rootDirname, "db/db.json"));
     } catch (error) {
         console.log(error);
     }
@@ -81,7 +83,7 @@ test("Deleting the data on the database", async () => {
 test("Droping the database", async () => {
     let db = getDB();
     try {
-        await deleteFile(path.resolve(__root_dirname, "db/db.json"));
+        await deleteFile(path.resolve(__rootDirname, "db/db.json"));
     } catch (error) {
         console.log(error);
     }

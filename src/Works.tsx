@@ -90,7 +90,7 @@ export default function Works() {
         >
             <div className="carousel-inner">
                 {contents.map((con, index) => (
-                    index === 0 ? <CarouselItem content={con} classActive="active" /> : <CarouselItem content={con} />
+                    index === 0 ? <CarouselItem content={con} classActive="active" key={index} /> : <CarouselItem content={con} key={index} />
                 ))}
             </div>
             <button

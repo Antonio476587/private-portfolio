@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import worksPresentation, { WorkPresentation } from "./worksPresentation";
 
@@ -32,14 +32,12 @@ function CarouselItem({ content, classActive = "" }: CarouselItemProps) {
 }
 
 export default function Works() {
-    const worksRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     return (
         <div
             id="myCarousel"
             className="carousel slide"
             data-bs-ride="carousel"
-            ref={worksRef}
         >
             <div className="carousel-inner">
                 {worksPresentation.map((con, index) => (

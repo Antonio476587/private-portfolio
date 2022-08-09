@@ -12,7 +12,7 @@ function render(req, res) {
             <Page />
         </StaticRouter>
     );
-    const body = ReactDOMServer.renderToStaticNodeStream(element);
+    const body = ReactDOMServer.renderToPipeableStream(element);
 
     if (req.url === "/" || req.url === "/?P=false") {
         res.send(templateHome(body));

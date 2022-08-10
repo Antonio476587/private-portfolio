@@ -37,3 +37,5 @@ assets
 **/index.css
 
 coverage
+
+**/*.log

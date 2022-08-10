@@ -3,14 +3,14 @@
  */
 
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 // This is for carousel functionality
 import bootstrap from "bootstrap";
 
-import Works from "../../src/Works";
+import Works from "../../../src/Works";
 
-jest.mock("../../src/worksPresentation", () => {
+jest.mock("../../../src/Works/worksPresentation", () => {
     const contents = [
         {
             h1: "ALTAGAMMA",
@@ -32,14 +32,16 @@ jest.mock("../../src/worksPresentation", () => {
 });
 
 let container = null;
+let root = null;
 beforeEach(() => {
     container = document.createElement("div");
     document.body.appendChild(container);
+    root = createRoot(container);
     jest.useFakeTimers();
 });
 
 afterEach(() => {
-    unmountComponentAtNode(container);
+    root.unmount();
     container.remove();
     container = null;
     jest.useRealTimers();
@@ -47,7 +49,7 @@ afterEach(() => {
 
 it("should just have 3 children", () => {
     act(() => {
-        render(<Works />, container);
+        root.render(<Works />);
     });
 
     expect(container.querySelector(".carousel-inner").children.length).toBe(3);
@@ -55,7 +57,7 @@ it("should just have 3 children", () => {
 
 it("will active next carousel item", () => {
     act(() => {
-        render(<Works />, container);
+        root.render(<Works />);
     });
 
     const nextButton = container.querySelector(".carousel-control-next");
@@ -73,7 +75,7 @@ it("will active next carousel item", () => {
 
 it("will active prev carousel item", () => {
     act(() => {
-        render(<Works />, container);
+        root.render(<Works />);
     });
 
     const prevButton = document.querySelector(".carousel-control-prev");
@@ -102,7 +104,7 @@ it("will active prev carousel item", () => {
 
 test("Work presentation structure should be equal to the interface", () => {
     act(() => {
-        render(<Works />, container);
+        root.render(<Works />);
     });
 
     const carouselCaption = document.querySelector(".carousel-caption");

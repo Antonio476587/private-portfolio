@@ -1,28 +1,31 @@
 /**
  * @jest-environment jsdom
  */
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 
-import NotFound from "../../src/NotFound";
+import { NotFound } from "../../../src/Errors";
 
 let container = null;
+let root = null;
 beforeEach(() => {
     container = document.createElement("div");
     document.body.appendChild(container);
+    root = createRoot(container);
 });
 
 afterEach(() => {
-    unmountComponentAtNode(container);
+    root.unmount();
     container.remove();
     container = null;
 });
 
 test("H2 Content", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     expect(container.querySelector("h2").textContent).toEqual("Hmmm... Page not found");
@@ -30,7 +33,7 @@ test("H2 Content", () => {
 
 test("H3 not found content", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     expect(container.querySelector(".not-found-content > h3").textContent).toEqual("This page don't exits or the link is incorrect. Try:");
@@ -38,7 +41,7 @@ test("H3 not found content", () => {
 
 test("List elements in not found content", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     const liElements = container.querySelectorAll(".not-found-content li");
@@ -52,7 +55,7 @@ test("List elements in not found content", () => {
 
 test("H4 a href element event", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     const LaunchGameLink = container.querySelector("h4 a");
@@ -61,7 +64,7 @@ test("H4 a href element event", () => {
 
 test("First H3 in not found link", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     expect(container.querySelectorAll(".not-found-link h3")[0].textContent).toEqual("Maybe you would like to play a game ->");
@@ -69,7 +72,7 @@ test("First H3 in not found link", () => {
 
 test("BUTTON a href element event in not found link", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     const LaunchGameLink = container.querySelector(".not-found-link button");
@@ -78,7 +81,7 @@ test("BUTTON a href element event in not found link", () => {
 
 test("Second H3 in not found link", () => {
     act(() => {
-        render(<NotFound />, container);
+        root.render(<NotFound />);
     });
 
     expect(container.querySelectorAll(".not-found-link h3")[1].textContent).toEqual(":( == :)¯¹");

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import HeaderAbout from "./HeaderAbout";
 import Illustration from "./Illustration";
-import { personSvg, arrowLeftSquare, workSvg } from "./Svg";
+import { personSvg, arrowLeftSquare, workSvg } from "../Utils/Svg";
 
 gsap.registerPlugin(ScrollTrigger);
 

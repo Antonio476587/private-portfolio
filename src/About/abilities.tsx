@@ -1,5 +1,5 @@
 import React from "react";
-import { starSvg, starHalfSvg, starBlackSvg } from "./Svg";
+import { starSvg, starHalfSvg, starBlackSvg } from "../Utils/Svg";
 
 const stars = (num: number, booleanHalfStar = false) => {
     let starsQuantity: number = num;

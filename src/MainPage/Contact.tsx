@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import { briefcaseSvg, twitter, textRight, linkedin, github } from "./Svg";
+import { briefcaseSvg, twitter, textRight, linkedin, github } from "../Utils/Svg";
 import FormContact from "./FormContact";
 import MenuNFT from "./MenuNFT";
 

@@ -4,8 +4,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import HeaderWork from "./HeaderWork";
-import { arrow, arrowCaret } from "./Svg";
-import NotFound from "./NotFound";
+import { arrow, arrowCaret } from "../Utils/Svg";
+import NotFound from "../Errors/NotFound";
 
 import workContents from "./workContents";
 

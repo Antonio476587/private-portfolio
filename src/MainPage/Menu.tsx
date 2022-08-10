@@ -1,6 +1,6 @@
 import React from "react";
 
-import { xSquareSvg, houseSvg, pencilWorkspaceSvg, pencilSvg, briefcaseSvg } from "./Svg";
+import { xSquareSvg, houseSvg, pencilWorkspaceSvg, pencilSvg, briefcaseSvg } from "../Utils/Svg";
 
 interface Menu {
     changeVisibilityMenu: () => void;

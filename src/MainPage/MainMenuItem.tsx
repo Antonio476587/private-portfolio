@@ -1,5 +1,5 @@
 import React from "react";
-import { aboutSvg, workSvg } from "./Svg";
+import { aboutSvg, workSvg } from "../Utils/Svg";
 
 interface MainMenuItemProps {
     name: "About" | "Works";

@@ -1,6 +1,6 @@
-import abilities, { ability } from "abilities";
+import abilities, { ability } from "./abilities";
 import React, { useState } from "react";
-import { arrow90DD } from "./Svg";
+import { arrow90DD } from "../Utils/Svg";
 
 interface AbilitiesRowProps {
     ab: ability

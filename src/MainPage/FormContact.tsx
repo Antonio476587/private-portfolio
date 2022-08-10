@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from "react";
 
-import { envelope, cloudArrowD, send, envelopeOpen } from "./Svg";
-import TextInput from "./TextInput";
+import { envelope, cloudArrowD, send, envelopeOpen } from "../Utils/Svg";
+import TextInput from "../Utils/TextInput";
 
 interface ContactFormProps {
     active: boolean;

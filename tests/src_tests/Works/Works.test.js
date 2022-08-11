@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -91,11 +92,11 @@ it("will active prev carousel item", () => {
     });
     expect(document.querySelector(".carousel-item.active")).toBe(lastCarouselItem);
 
-    
+
     prevButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     expect(lastCarouselItem.previousSibling.classList).toContain("carousel-item-prev", "carousel-item-end");
-    
-    
+
+
     act(() => {
         jest.advanceTimersByTime(500);
     });

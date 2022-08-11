@@ -13,7 +13,6 @@ const Nav = React.forwardRef(function Nav({ typeLink }: NavProps, ref: React.Ref
                     <Link
                         className="nav-link active"
                         to="/works"
-                        aria-current="page"
                         ref={ref}
                     >
             Works
@@ -32,7 +31,7 @@ const Nav = React.forwardRef(function Nav({ typeLink }: NavProps, ref: React.Ref
     return (
         <div className="first-nav">
             <li className="nav-item">
-                <a className="nav-link" href="/?P=false" ref={ref}>
+                <a className="nav-link" href="/?P=false" ref={ref} aria-current="location">
           Home
                 </a>
             </li>

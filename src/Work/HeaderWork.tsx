@@ -41,7 +41,6 @@ export default function HeaderWork() {
         if (bookmarkRef.current?.childNodes[0]) bookmarkRef.current.childNodes[0].style.height = "0px";
     }
 
-    // Refactor [93]
     useEffect(() => {
         const aLinks = aLinksRef.current;
 

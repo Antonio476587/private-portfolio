@@ -376,8 +376,8 @@ function WorkWrapper() {
 
     if (typeof id === "string") {
         const workID = parseInt(id);
-        if (!isNaN(workID)) {
-            return <Work work={workContents[workID]} index={workID}/>;
+        if (!isNaN(workID) && workContents[workID - 1]) {
+            return <Work work={workContents[workID - 1]} index={workID}/>;
         }
     }
     return <NotFound />;

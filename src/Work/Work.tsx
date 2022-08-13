@@ -137,8 +137,8 @@ function Work({ work, index }: WorkProps): JSX.Element {
             animation1.kill();
             animation2.kill();
             animation3.kill();
-            animation4.kill();
-            animation5.kill();
+            animation4?.kill();
+            animation5?.kill();
             animation6.kill();
         };
     }, [qRunes, q, likeRunesRef, sectionRef1]);

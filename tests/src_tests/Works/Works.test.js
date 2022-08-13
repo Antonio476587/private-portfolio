@@ -64,7 +64,9 @@ it("will active next carousel item", () => {
     const nextButton = container.querySelector(".carousel-control-next");
     const firstActiveCarouselItem = container.querySelector(".carousel-item.active");
 
-    nextButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    act(() => {
+        nextButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
     expect(firstActiveCarouselItem.nextElementSibling.classList).toContain("carousel-item-next", "carousel-item-start");
 
 
@@ -83,7 +85,9 @@ it("will active prev carousel item", () => {
     const carouselItemsParent = document.querySelector(".carousel-inner");
     const lastCarouselItem = carouselItemsParent.lastChild;
 
-    prevButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    act(() => {
+        prevButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
     expect(lastCarouselItem.classList).toContain("carousel-item-prev", "carousel-item-end");
 
 
@@ -93,7 +97,9 @@ it("will active prev carousel item", () => {
     expect(document.querySelector(".carousel-item.active")).toBe(lastCarouselItem);
 
 
-    prevButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    act(() => {
+        prevButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
     expect(lastCarouselItem.previousSibling.classList).toContain("carousel-item-prev", "carousel-item-end");
 
 

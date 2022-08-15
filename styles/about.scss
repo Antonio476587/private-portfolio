@@ -107,7 +107,7 @@ a.go-work {
 
 .bbtn {
   position: absolute;
-  background: url(Svgs/arrow-clockwise.svg);
+  background: url(resolveUrl("svgs/arrow-clockwise.svg"));
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -211,20 +211,20 @@ a.go-work {
 
 .simon-antonio div {
   &:first-child {
-    @include antonioAndSimonImages("Images/le-simon-antonio.jpg");
+    @include antonioAndSimonImages("img/le-simon-antonio.jpg");
   }
 
   &:last-child {
-    @include antonioAndSimonImages("Images/le-simon.jpg");
+    @include antonioAndSimonImages("img/le-simon.jpg");
   }
 }
 .antonio-simon div {
   &:first-child {
-    @include antonioAndSimonImages("Images/le-antonio-simon.jpg");
+    @include antonioAndSimonImages("img/le-antonio-simon.jpg");
   }
 
   &:last-child {
-    @include antonioAndSimonImages("Images/le-antonio.jpg");
+    @include antonioAndSimonImages("img/le-antonio.jpg");
   }
 }
 
@@ -331,7 +331,7 @@ a.go-work {
       }
 
       &.note-active {
-        background: url(Images/8.png);
+        background: url(resolveUrl("img/8.png"));
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;

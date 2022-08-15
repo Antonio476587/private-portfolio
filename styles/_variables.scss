@@ -2,6 +2,10 @@
 $color-shadow: #000;
 $animate-duration: 1400ms;
 
+@function resolveUrl ($fileUrl: string) {
+  @return "../public/" + $fileUrl;
+}
+
 /* Home */
 
 $polygon-complement: polygon(
@@ -18,7 +22,7 @@ $polygon-complement: polygon(
 /* About */
 
 @mixin antonioAndSimonImages ($url) {
-  background: url($url);
+  background: url(resolveUrl($url));
   position: absolute;
 }
 

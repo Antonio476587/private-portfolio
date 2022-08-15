@@ -28,11 +28,6 @@ const browserConfig = {
     },
     resolve: {
         extensions: [".tsx", ".jsx", ".ts", ".js", ".css", ".scss", ".sass"],
-        alias: {
-            Images: path.resolve(__dirname, "public/img/"),
-            Svgs: path.resolve(__dirname, "public/svgs"),
-            Fonts: path.resolve(__dirname, "public/fonts"),
-        },
     },
     module: {
         rules: [

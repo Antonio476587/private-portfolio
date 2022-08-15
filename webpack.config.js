@@ -4,7 +4,7 @@ import path from "path";
 import { __dirname } from "./pathEMS.js";
 import TerserPlugin from "terser-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 import { createRequire } from "module";
 
@@ -99,7 +99,7 @@ const browserConfig = {
         minimize: true,
         minimizer: [
             new TerserPlugin(),
-            new OptimizeCssAssetsPlugin(),
+            new CssMinimizerPlugin(),
         ],
     },
     devtool: mode === "development" ? "source-map" : false,

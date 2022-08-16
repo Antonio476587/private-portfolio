@@ -63,7 +63,9 @@ it("should toggle the active class of the anchorActive and anchorHome", () => {
     const anchorActive = document.querySelector("a.active");
     const anchorHome = document.querySelector("a[href='/?P=false']");
 
-    anchorHome.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    act(() => {
+        anchorHome.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    });
 
     expect(anchorActive.classList.contains("active")).toBeFalsy();
     expect(anchorHome.classList.contains("active")).toBeTruthy();
@@ -76,7 +78,9 @@ it("should remove the active class", () => {
 
     const anchorActive = document.querySelector("a.active");
 
-    anchorActive.dispatchEvent(new MouseEvent("mouseleave", { bubbles: true }));
+    act(() => {
+        anchorActive.dispatchEvent(new MouseEvent("mouseleave", { bubbles: true }));
+    });
 
     expect(anchorActive.classList.contains("active")).toBeFalsy();
 });

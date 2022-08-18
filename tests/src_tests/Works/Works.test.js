@@ -53,7 +53,7 @@ it("should just have 3 children", () => {
         root.render(<Works />);
     });
 
-    expect(container.querySelector(".carousel-inner").children.length).toBe(3);
+    expect(document.querySelector(".carousel-inner").children.length).toBe(3);
 });
 
 it("will active next carousel item", () => {
@@ -61,8 +61,8 @@ it("will active next carousel item", () => {
         root.render(<Works />);
     });
 
-    const nextButton = container.querySelector(".carousel-control-next");
-    const firstActiveCarouselItem = container.querySelector(".carousel-item.active");
+    const nextButton = document.querySelector(".carousel-control-next");
+    const firstActiveCarouselItem = document.querySelector(".carousel-item.active");
 
     act(() => {
         nextButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
@@ -73,7 +73,7 @@ it("will active next carousel item", () => {
     act(() => {
         jest.advanceTimersByTime(500);
     });
-    expect(container.querySelector(".carousel-item.active")).toBe(firstActiveCarouselItem.nextElementSibling);
+    expect(document.querySelector(".carousel-item.active")).toBe(firstActiveCarouselItem.nextElementSibling);
 });
 
 it("will active prev carousel item", () => {

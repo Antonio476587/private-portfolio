@@ -63,13 +63,13 @@ it("should have just 2 or 4 nav-links", () => {
         root.render(<BrowserRouterWrapper />);
     });
 
-    expect(container.querySelectorAll(".nav-link").length).toEqual(2);
+    expect(document.querySelectorAll(".nav-link").length).toEqual(2);
 
     act(() => {
         root.render(<BrowserRouterWrapper navChilds={2} />);
     });
 
-    expect(container.querySelectorAll(".nav-link").length).toEqual(4);
+    expect(document.querySelectorAll(".nav-link").length).toEqual(4);
 });
 
 it("should be the first kind of link", () => {
@@ -78,7 +78,7 @@ it("should be the first kind of link", () => {
         root.render(<BrowserRouterWrapper typeLink={true} />);
     });
 
-    expect(container.querySelector(".nav-link.active")).toBeDefined();
+    expect(document.querySelector(".nav-link.active")).toBeDefined();
 });
 
 it("should not be the first kind of link", () => {
@@ -86,7 +86,7 @@ it("should not be the first kind of link", () => {
         root.render(<BrowserRouterWrapper />);
     });
 
-    expect(container.querySelector(".nav-link.active")).toBeNull();
+    expect(document.querySelector(".nav-link.active")).toBeNull();
 });
 
 it("should have aria-current=location", () => {
@@ -94,6 +94,6 @@ it("should have aria-current=location", () => {
         root.render(<BrowserRouterWrapper />);
     });
 
-    expect(container.querySelector("a[href='/?P=false']").hasAttribute("aria-current")).toBeTruthy();
-    expect(container.querySelector("a[href='/?P=false']").getAttribute("aria-current")).toBe("location");
+    expect(document.querySelector("a[href='/?P=false']").hasAttribute("aria-current")).toBeTruthy();
+    expect(document.querySelector("a[href='/?P=false']").getAttribute("aria-current")).toBe("location");
 });

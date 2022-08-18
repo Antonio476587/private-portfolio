@@ -28,7 +28,7 @@ test("H2 Content", () => {
         root.render(<NotFound />);
     });
 
-    expect(container.querySelector("h2").textContent).toEqual("Hmmm... Page not found");
+    expect(document.querySelector("h2").textContent).toEqual("Hmmm... Page not found");
 });
 
 test("H3 not found content", () => {
@@ -36,7 +36,7 @@ test("H3 not found content", () => {
         root.render(<NotFound />);
     });
 
-    expect(container.querySelector(".not-found-content > h3").textContent).toEqual("This page don't exits or the link is incorrect. Try:");
+    expect(document.querySelector(".not-found-content > h3").textContent).toEqual("This page don't exits or the link is incorrect. Try:");
 });
 
 test("List elements in not found content", () => {
@@ -44,7 +44,7 @@ test("List elements in not found content", () => {
         root.render(<NotFound />);
     });
 
-    const liElements = container.querySelectorAll(".not-found-content li");
+    const liElements = document.querySelectorAll(".not-found-content li");
     for (let i = 0; i < liElements.length; i++) {
         expect(liElements[i].nodeName).toEqual("LI");
         expect(liElements[i].parentNode.nodeName).toEqual("UL");
@@ -58,7 +58,7 @@ test("H4 a href element event", () => {
         root.render(<NotFound />);
     });
 
-    const LaunchGameLink = container.querySelector("h4 a");
+    const LaunchGameLink = document.querySelector("h4 a");
     expect(LaunchGameLink.dispatchEvent(new MouseEvent("click", { bubbles: true }))).toBeTruthy();
 });
 
@@ -67,7 +67,7 @@ test("First H3 in not found link", () => {
         root.render(<NotFound />);
     });
 
-    expect(container.querySelectorAll(".not-found-link h3")[0].textContent).toEqual("Maybe you would like to play a game ->");
+    expect(document.querySelectorAll(".not-found-link h3")[0].textContent).toEqual("Maybe you would like to play a game ->");
 });
 
 test("BUTTON a href element event in not found link", () => {
@@ -75,7 +75,7 @@ test("BUTTON a href element event in not found link", () => {
         root.render(<NotFound />);
     });
 
-    const LaunchGameLink = container.querySelector(".not-found-link button");
+    const LaunchGameLink = document.querySelector(".not-found-link button");
     expect(LaunchGameLink.dispatchEvent(new MouseEvent("click", { bubbles: true }))).toBeTruthy();
 });
 
@@ -84,5 +84,5 @@ test("Second H3 in not found link", () => {
         root.render(<NotFound />);
     });
 
-    expect(container.querySelectorAll(".not-found-link h3")[1].textContent).toEqual(":( == :)¯¹");
+    expect(document.querySelectorAll(".not-found-link h3")[1].textContent).toEqual(":( == :)¯¹");
 });

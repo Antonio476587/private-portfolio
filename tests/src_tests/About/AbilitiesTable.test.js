@@ -3,7 +3,6 @@
  */
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
-import { doc } from "prettier";
 import React from "react";
 import { createRoot } from "react-dom/client";
 // This is for button functionality

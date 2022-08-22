@@ -5,7 +5,6 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React from "react";
 import { createRoot } from "react-dom/client";
-// This is for button functionality
 import { act } from "react-dom/test-utils";
 
 import ContainerImgMe from "../../../src/About/ContainerImgMe";

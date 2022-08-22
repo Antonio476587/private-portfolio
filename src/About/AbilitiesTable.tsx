@@ -71,4 +71,5 @@ const AbilitiesTable = React.forwardRef(function AbilitiesTable({ id, ability, a
     );
 });
 
+export { AbilitiesRow };
 export default AbilitiesTable;

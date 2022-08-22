@@ -1,8 +1,11 @@
 import dotenv from "dotenv";
 import webpack from "webpack";
 import nodeExternals from "webpack-node-externals"; 
+import { fileURLToPath } from "url";
 import path from "path";
-import { __dirname } from "./pathEMS.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 

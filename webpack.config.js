@@ -1,12 +1,15 @@
 import dotenv from "dotenv";
 import webpack from "webpack";
 import path from "path";
-import { __dirname } from "./pathEMS.js";
+import { fileURLToPath } from "url";
 import TerserPlugin from "terser-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 import { createRequire } from "module";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const require = createRequire(import.meta.url);
 

@@ -39,7 +39,7 @@ afterEach(() => {
     container = null;
 });
 
-it("totona", () => {
+it("should give the nameContainer props", () => {
     act(() => {
         root.render(<HeaderAboutWrapper />);
     });

@@ -155,7 +155,7 @@ export default function About(): JSX.Element  {
         return () => {
             tl.current?.kill();
             animation1.kill();
-            animation2.kill();
+            animation2?.kill();
         };
     }, [illustrationRef, illustrationRef.current, headerAboutRef, headerAboutRef.current]);
 

@@ -28,7 +28,7 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
     const { upperChange } = props;
 
     useEffect(() => {
-        setValue("");
+        if (props.clear == true) setValue("");
     }, [props.clear]);
 
     function onBlur(e: MouseEvent) {

@@ -17,7 +17,10 @@ const sand = "rgb(106, 90, 205)";
 let colorBox;
 let colorBox2;
 
-const InfoAbout = React.forwardRef(function InfoAbout (_props, ref: React.RefObject<HTMLDivElement>): JSX.Element {
+const InfoAbout = React.forwardRef(function InfoAbout(
+    _props,
+    ref: React.RefObject<HTMLDivElement>
+): JSX.Element {
     return (
         <div className="container mb-5 about-me cajita" ref={ref}>
             <div className="container title-me d-flex">
@@ -29,23 +32,23 @@ const InfoAbout = React.forwardRef(function InfoAbout (_props, ref: React.RefObj
 
             <div className="container text-container">
                 <p className="text m-1 pr p-about-me">
-        I always want to give my best, help who need it and grow as a person. I
-        would like to provide a great programming experience by working with
-        you, I don’t consider any project too big or small. I always try to be
-        updated and consider me responsible and constant, and if I got errors, I
-        try to learn from them as much as I can, ¡Thanks for visit me!
+          I always want to give my best, help who need it and grow as a person.
+          I would like to provide a great programming experience by working with
+          you, I don’t consider any project too big or small. I always try to be
+          updated and consider me responsible and constant, and if I got errors,
+          I try to learn from them as much as I can, ¡Thanks for visit me!
                 </p>
             </div>
         </div>
     );
 });
 
-export default function About(): JSX.Element  {
-    const box: React.RefObject<HTMLDivElement>  = useRef(null);
+export default function About(): JSX.Element {
+    const box: React.RefObject<HTMLDivElement> = useRef(null);
     const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const headerAboutRef: React.RefObject<HTMLDivElement>  = useRef(null);
+    const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
     const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const tl: React.MutableRefObject<gsap.core.Timeline | null>  = useRef(null);
+    const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
     const q: gsap.utils.SelectorFunc = gsap.utils.selector(box);
 
     const boxes: JSX.Element[] = [];
@@ -92,7 +95,7 @@ export default function About(): JSX.Element  {
             });
         }
 
-        if (location.pathname =="/about") randomValues();
+        if (location.pathname == "/about") randomValues();
     }, [q, box]);
 
     useEffect(() => {
@@ -157,7 +160,12 @@ export default function About(): JSX.Element  {
             animation1.kill();
             animation2?.kill();
         };
-    }, [illustrationRef, illustrationRef.current, headerAboutRef, headerAboutRef.current]);
+    }, [
+        illustrationRef,
+        illustrationRef.current,
+        headerAboutRef,
+        headerAboutRef.current,
+    ]);
 
     return (
         <div className="about" id="About" role="main" aria-roledescription="about">

@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 
-interface MenuNFTItemProps {
+interface MenuNFTItem {
     price: string;
     img: string;
     name: string;
     children: React.ReactNode;
 }
 
-function MenuNFTItem({ price, img, name, children }: MenuNFTItemProps) {
+function MenuNFTItem({ price, img, name, children }: MenuNFTItem) {
     const nftDetailRef: React.RefObject<HTMLDivElement>  = useRef(null);
     const nftPriceRef: React.RefObject<HTMLDivElement>  = useRef(null);
 

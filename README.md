@@ -55,4 +55,4 @@ npm run compile
 npm run server
 ```
 
-It must be listening to the port 80, you can access it by `localhost:80` in the browser, it will throw a error if the port is already in use by another program or server like `XAMPP`
+> It must be listening to the port 80, you can access it by `localhost:80` in the browser, it will throw a error if the port is already in use by another program or server like `XAMPP`

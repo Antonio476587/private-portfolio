@@ -6,7 +6,7 @@ If you would like to know how it works, or adapt it to your needs, you can. I wo
 
 ### Steps to be able to use it
 
-- First clone the repository and paste the code below, it will create a folder with the bruce-lee-portfolio name unless you have changed or deleted the default name.
+- First clone the repository and paste the code below, it will create a folder with the **bruce-lee-portfolio** name unless you have changed or deleted the default name.
 
 ``` bash
 git clone https://github.com/Antonio476587/portfolio.git bruce-lee-portfolio

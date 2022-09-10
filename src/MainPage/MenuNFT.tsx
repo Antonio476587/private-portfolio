@@ -93,3 +93,5 @@ export default function MenuNFT() {
         </div>
     );
 }
+
+export { MenuNFTItem };

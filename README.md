@@ -41,7 +41,7 @@ The first is the easier to get ride, you just have to call this command in the c
 npm run hmr
 ```
 
-And webpack should open the page in your default browser. Be aware that this is not ambiented enviroment and can bring with it unexpected behaviors.
+And webpack should open the page in your default browser. Be aware that this is not an ambiented enviroment and can bring with it unexpected behaviors.
 
 #
 

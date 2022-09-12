@@ -3,7 +3,7 @@ import React, { useState, FormEvent } from "react";
 import { envelope, cloudArrowD, send, envelopeOpen } from "../Utils/Svg";
 import TextInput from "../Utils/TextInput";
 
-interface ContactFormProps {
+interface ContactForm {
     active: boolean;
 }
 
@@ -14,7 +14,7 @@ interface Message {
     date: Date,
 }
 
-function ContactForm({ active }: ContactFormProps) {
+function ContactForm({ active }: ContactForm) {
     const [nameMessage, setNameMessage] = useState("");
     const [email, setEmail]: [email, React.Dispatch<React.SetStateAction<email>>]= useState("mibebitofiufiu@fantonix.space");
     const [message, setMessage] = useState("");

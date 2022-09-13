@@ -262,3 +262,5 @@ export default function FormContact() {
         </div>
     );
 }
+
+export { ContactForm };

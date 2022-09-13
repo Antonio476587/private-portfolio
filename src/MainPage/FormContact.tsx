@@ -4,19 +4,22 @@ import { envelope, cloudArrowD, send, envelopeOpen } from "../Utils/Svg";
 import TextInput from "../Utils/TextInput";
 
 interface ContactForm {
-    active: boolean;
+  active: boolean;
 }
 
 interface Message {
-    nameMessage: string,
-    email: email,
-    message: string,
-    date: Date,
+  nameMessage: string;
+  email: email;
+  message: string;
+  date: Date;
 }
 
 function ContactForm({ active }: ContactForm) {
     const [nameMessage, setNameMessage] = useState("");
-    const [email, setEmail]: [email, React.Dispatch<React.SetStateAction<email>>]= useState("mibebitofiufiu@fantonix.space");
+    const [email, setEmail]: [
+    email,
+    React.Dispatch<React.SetStateAction<email>>
+  ] = useState("mibebitofiufiu@fantonix.space");
     const [message, setMessage] = useState("");
     const [toastTitle, setToastTitle] = useState("Error");
     const [toastContent, setToastContent] = useState("Si");
@@ -58,21 +61,30 @@ function ContactForm({ active }: ContactForm) {
         _showValidation(data);
     }
 
-    function isEmail(email: string | number |null | email): email is email {
-        return (email as email).match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== undefined;
+    function isEmail(email: string | number | null | email): email is email {
+        return (
+            (email as email).match(
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            ) !== undefined
+        );
     }
 
-    function upperChange(e: MouseEvent, naturalValue: null | string | email): void {
+    function upperChange(
+        e: MouseEvent,
+        naturalValue: null | string | email
+    ): void {
         if (e.target) {
             const { name, value: textValue } = e.target;
             const value = naturalValue === undefined ? textValue : naturalValue;
-    
-            if (name == "name" && typeof value == "string") setNameMessage(value?? "");
-            if (name == "email" && isEmail(value)) setEmail(value?? "mibebitofiufiu@fantonix.space");
-            if (name == "message" && typeof value == "string") setMessage(value?? "");
+
+            if (name == "name" && typeof value == "string")
+                setNameMessage(value ?? "");
+            if (name == "email" && isEmail(value))
+                setEmail(value ?? "mibebitofiufiu@fantonix.space");
+            if (name == "message" && typeof value == "string")
+                setMessage(value ?? "");
         }
     }
-
 
     async function fetchMessage(data: Message) {
         try {
@@ -104,18 +116,18 @@ function ContactForm({ active }: ContactForm) {
             } else if (message.length <= 3) {
                 throw new Error("You must fill all the fields to send the message.");
             }
-    
+
             const created: Date = new Date();
-    
+
             const newMessage: Message = {
                 nameMessage,
                 email,
                 message,
                 date: created,
             };
-    
+
             data = await fetchMessage(newMessage);
-    
+
             if (data) {
                 showValidation(data);
                 setClear(true);
@@ -208,7 +220,12 @@ Note: It's not the original NFT."
                             />
                         </div>
                         <div className="contact-button-submit-div">
-                            <button type="submit" title="send-form" aria-disabled={active} aria-label="Send Form">
+                            <button
+                                type="submit"
+                                title="send-form"
+                                aria-disabled={active}
+                                aria-label="Send Form"
+                            >
                                 {send}
                             </button>
                         </div>

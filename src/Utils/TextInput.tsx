@@ -8,7 +8,7 @@ function unformat(text: string | null) {
     return text?.trim().length === 0 ? null : text;
 }
 
-interface TextInputProps {
+interface inputProps {
     type?: string;
     name: string;
     id: string;
@@ -17,14 +17,18 @@ interface TextInputProps {
     tag?: string;
     rows?: string;
     columns?: string;
-    upperChange(e: MouseEvent, value: null | string | email): void;
     value: string | null | email;
+}
+
+interface TextInputProps {
+    inputProps: inputProps;
+    upperChange(e: MouseEvent, value: null | string | email): void;
     clear: boolean;
 }
 
 export default function TextInput(props: TextInputProps): React.ReactElement {
 
-    const [value, setValue] = useState(format(props.value));
+    const [value, setValue] = useState(format(props.inputProps.value));
     const { upperChange } = props;
 
     useEffect(() => {
@@ -39,10 +43,10 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
         e.target.value !== null && typeof e.target.value !== "number" ? setValue(e.target.value) : setValue("");
     }
 
-    const { tag = "input" } = props;
+    const { tag = "input" } = props.inputProps;
 
     return React.createElement(tag, {
-        ...props,
+        ...props.inputProps,
         value,
         onBlur,
         onChange,

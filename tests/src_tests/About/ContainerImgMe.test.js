@@ -25,7 +25,7 @@ afterEach(() => {
 
 it("should not render the nameContainer prop", () => {
     act(() => {
-        root.render(<ContainerImgMe/>);
+        root.render(<ContainerImgMe />);
     });
 
     expect(document.querySelector(".container.over-img").classList.contains("conCojones")).toBeFalsy();
@@ -41,7 +41,7 @@ it("should render the nameContainer prop", () => {
 
 test("the first div is active and the second one is desactive by default", () => {
     act(() => {
-        root.render(<ContainerImgMe nameContainer="conCojones"/>);
+        root.render(<ContainerImgMe nameContainer="conCojones" />);
     });
 
     expect(document.querySelectorAll(".conCojones div")[0].classList.contains("active-me")).toBeTruthy();
@@ -72,4 +72,13 @@ test("the classes active-me and desactive-me switch between them", () => {
     expect(desactiveDiv.classList.contains("active-me")).toBeTruthy();
     expect(desactiveDiv.classList.contains("desactive-me")).toBeFalsy();
 
+    act(() => {
+        document.querySelector("button.bbtn").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    expect(activeDiv.classList.contains("active-me")).toBeTruthy();
+    expect(activeDiv.classList.contains("desactive-me")).toBeFalsy();
+
+    expect(desactiveDiv.classList.contains("desactive-me")).toBeTruthy();
+    expect(desactiveDiv.classList.contains("active-me")).toBeFalsy();
 });

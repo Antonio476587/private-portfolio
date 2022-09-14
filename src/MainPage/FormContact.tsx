@@ -183,38 +183,45 @@ function ContactForm({ active }: ContactForm) {
                     <form action="" className="contact-form" onSubmit={handleSubmit}>
                         <div className="contact-input-name-div">
                             <TextInput
-                                type="text"
-                                name="name"
-                                id="name"
-                                key="name"
-                                placeholder="Name or enterprise name"
+                                inputProps={{
+                                    type: "text",
+                                    name: "name",
+                                    id: "name",
+                                    key: "name",
+                                    placeholder: "Name or enterprise name",
+                                    value: nameMessage
+                                }}
                                 upperChange={upperChange}
-                                value={nameMessage}
                                 clear={clear}
                             />
                         </div>
                         <div className="contact-input-email-div">
                             <TextInput
-                                type="email"
-                                name="email"
-                                id="email"
-                                key="email"
-                                placeholder="Email"
-                                value={email}
+                                inputProps={{
+                                    type: "email",
+                                    name: "email",
+                                    id: "email",
+                                    key: "email",
+                                    placeholder: "Email",
+                                    value: email
+                                }}
                                 upperChange={upperChange}
                                 clear={clear}
                             />
                         </div>
                         <div className="contact-input-message-div">
                             <TextInput
-                                name="message"
-                                id="message"
-                                key="Message"
-                                placeholder="If you send me a message, I'll give you a NFT.
-Note: It's not the original NFT."
-                                tag="textarea"
-                                rows="5"
-                                value={message}
+                                inputProps={{
+                                    type: "message",
+                                    name: "message",
+                                    id: "message",
+                                    key: "message",
+                                    placeholder: "If you send me a message, I'll give you a NFT."
+                                    + "\nNote: It's not the original NFT.",
+                                    tag: "textarea",
+                                    rows: "5",
+                                    value: message
+                                }}
                                 upperChange={upperChange}
                                 clear={clear}
                             />

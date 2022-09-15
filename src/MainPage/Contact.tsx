@@ -10,7 +10,7 @@ interface ContactLink {
     link: URL["href"]
 }
 
-interface BlockquouteDateProps {
+interface BlockquouteDate {
     cite: string,
     content: string,
     autor: string,
@@ -51,7 +51,7 @@ function ContactLink({ title, svg, link }: ContactLink) {
     );
 }
 
-function BlockquouteDate({ cite, content, autor }: BlockquouteDateProps) {
+function BlockquouteDate({ cite, content, autor }: BlockquouteDate) {
     return (
         <blockquote
             aria-current="date"

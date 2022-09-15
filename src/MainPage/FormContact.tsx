@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 
 import { envelope, cloudArrowD, send, envelopeOpen } from "../Utils/Svg";
 import TextInput from "../Utils/TextInput";
@@ -25,21 +25,20 @@ function ContactForm({ active }: ContactForm) {
     const [toastContent, setToastContent] = useState("Si");
     const [showingValidation, setShowingValidation] = useState("");
     const [giveNFT, setGiveNFT] = useState("nft-gift-desactive");
-    const [clear, setClear] = useState(false);
+    const [clear, setClear] = useState(true);
 
-    function removeToast(clearInputs?: true): void {
+    function removeToast(): void {
         setTimeout(() => {
             setToastTitle("");
             setToastContent("");
             setShowingValidation("");
-            if (clearInputs) setClear(false);
         }, 2000);
     }
 
-    function showToast(title: string, content: string, clearInputs?: true): void {
+    function showToast(title: string, content: string): void {
         setToastTitle(title);
         setToastContent(content);
-        removeToast(clearInputs);
+        removeToast();
     }
 
     function _showError(e: string): void {
@@ -86,6 +85,13 @@ function ContactForm({ active }: ContactForm) {
         }
     }
 
+    function clearInputs() {
+        setClear(true);
+        setTimeout(() => {
+            setClear(false);
+        }, 1000);
+    }
+
     async function fetchMessage(data: Message) {
         try {
             const headers: Headers = new Headers({
@@ -130,7 +136,7 @@ function ContactForm({ active }: ContactForm) {
 
             if (data) {
                 showValidation(data);
-                setClear(true);
+                clearInputs();
                 setGiveNFT("nft-gift-active");
             }
         } catch (error) {
@@ -139,6 +145,10 @@ function ContactForm({ active }: ContactForm) {
         }
         return data;
     }
+
+    useEffect(() => {
+        setClear(false);
+    }, []);
 
     return (
         <div className="contact-body-div">

@@ -9,21 +9,21 @@ function unformat(text: string | null) {
 }
 
 interface inputProps {
-    type?: string;
-    name: string;
-    id: string;
-    key: string;
-    placeholder: string;
-    tag?: string;
-    rows?: string;
-    columns?: string;
-    value: string | null | email;
+  type?: string;
+  name: string;
+  id: string;
+  key: string;
+  placeholder: string;
+  tag?: string;
+  rows?: string;
+  columns?: string;
+  value: string | null | email;
 }
 
 interface TextInputProps {
-    inputProps: inputProps;
-    upperChange(e: MouseEvent, value: null | string | email): void;
-    clear: boolean;
+  inputProps: inputProps;
+  upperChange(e: MouseEvent, value: null | string | email): void;
+  clear: boolean;
 }
 
 export default function TextInput(props: TextInputProps): React.ReactElement {

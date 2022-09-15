@@ -137,7 +137,6 @@ function ContactForm({ active }: ContactForm) {
             if (data) {
                 showValidation(data);
                 clearInputs();
-                setGiveNFT("nft-gift-active");
             }
         } catch (error) {
             showError(error);

@@ -34,13 +34,13 @@ describe("FormContact", () => {
         const bodyButton = document.querySelector(".contact-body-button#envelope-button");
 
         expect(document.querySelector(".contact-body-div").classList.contains("contact-body-active")).toBeFalsy();
-        
+
         act(() => {
             bodyButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
         });
-        
+
         expect(document.querySelector(".contact-body-div").classList.contains("contact-body-active")).toBeTruthy();
-        
+
         act(() => {
             bodyButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
         });
@@ -56,18 +56,18 @@ describe("FormContact", () => {
         const bodyButton = document.querySelector(".contact-body-button#envelope-button");
         // IH is equal to inner html
         const firstBodyButtonIH = bodyButton.innerHTML;
-        
+
         act(() => {
             bodyButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
         });
-        
+
         const secondBodyButtonIH = bodyButton.innerHTML;
         expect(secondBodyButtonIH).not.toEqual(firstBodyButtonIH);
-        
+
         act(() => {
             bodyButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
         });
-        
+
         const thirdBodyButtonIH = bodyButton.innerHTML;
         expect(thirdBodyButtonIH).toEqual(firstBodyButtonIH);
     });

@@ -9,19 +9,6 @@ import { act } from "react-dom/test-utils";
 
 import TextInput from "../../../src/Utils/TextInput";
 
-function upperChange(e, naturalValue) {
-    if (e.target) {
-        const { name, value: textValue } = e.target;
-        console.log(naturalValue, textValue);
-        const value = naturalValue === undefined ? textValue : naturalValue;
-        console.log(value);
-
-        /*         if (name == "name" && typeof value == "string") setNameMessage(value?? "");
-                if (name == "email" && isEmail(value)) setEmail(value?? "mibebitofiufiu@fantonix.space");
-                if (name == "message" && typeof value == "string") setMessage(value?? ""); */
-    }
-}
-
 let container = null;
 let root = null;
 

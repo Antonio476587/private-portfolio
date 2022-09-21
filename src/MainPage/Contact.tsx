@@ -149,4 +149,4 @@ const Contact = React.forwardRef(function Contact({ changeVisibilityMenu }: Cont
 });
 
 export default Contact;
-export { BlockquouteDate };
+export { BlockquouteDate, ContactLink };

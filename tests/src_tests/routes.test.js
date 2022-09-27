@@ -66,6 +66,13 @@ afterEach(() => {
     container = null;
 });
 
+it("should have the correct structure", () => {
+    routes.forEach((element) => {
+        expect(element.path).toBeDefined();
+        expect(element.element).toBeDefined();
+    });
+});
+
 it("should have the textContent 'About'", () => {
     act(() => {
         delete globalThis.location;

@@ -106,8 +106,6 @@ function updateComplement() {
     yPositionSet(transformer(positionComplementContainer));
 }
 
-document.addEventListener("scroll", updateComplement);
-
 // Se activa cuando se está visualizando
 
 ScrollTrigger.create({

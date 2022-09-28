@@ -15,11 +15,11 @@ test("Inside of the div#body should render the default comments", () => {
 });
 
 test("Inside of the div#body > div.textContent shouldn't render 'nothing'", () => {
-    const elementalMiQueridoSherlock = document.createElement("div");
-    const contenidoParaElemental = document.createTextNode("nothing");
-    elementalMiQueridoSherlock.appendChild(contenidoParaElemental);
+    const divChild = document.createElement("div");
+    const divChildContent = document.createTextNode("nothing");
+    divChild.appendChild(divChildContent);
 
-    const newChildren = template(elementalMiQueridoSherlock.outerHTML);
+    const newChildren = template(divChild.outerHTML);
     document.querySelector("html").innerHTML = newChildren;
 
     expect(document.querySelector("div#body").firstElementChild.nodeName).toEqual("DIV");

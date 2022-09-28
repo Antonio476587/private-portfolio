@@ -14,7 +14,7 @@ function render(req, res) {
     );
     const body = ReactDOMServer.renderToPipeableStream(element);
 
-    if (req.url === "/" || req.url === "/?P=false") {
+    if (req.url.endsWith("/") || req.url.endsWith("/?P=false")) {
         res.send(templateHome(body));
     } else {
         res.send(template(body));

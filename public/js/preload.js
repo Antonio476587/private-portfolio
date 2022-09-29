@@ -4,7 +4,7 @@ const preload = document.querySelector(".preload");
 
 console.log("Cargando");
 
-const locatitation = window.location;
+const windowLocation = window.location;
 let animation1;
 let animation2;
 
@@ -85,7 +85,7 @@ function preloadCharged() {
 }
 
 // Inicio de animation preload
-if (locatitation.search === "?P=false" && locatitation.pathname === "/") {
+if (windowLocation.search === "?P=false" && windowLocation.pathname === "/") {
     preload.setAttribute("hidden", "");
     window.addEventListener("load", () => {
         document
@@ -96,7 +96,7 @@ if (locatitation.search === "?P=false" && locatitation.pathname === "/") {
                 "animate__slow"
             );
     });
-} else if (locatitation.search !== "?P=false" && locatitation.pathname === "/") {
+} else if (windowLocation.search !== "?P=false" && windowLocation.pathname === "/") {
     animation1 = anime({
         targets: paths,
         strokeDashoffset: [anime.setDashoffset, 0],

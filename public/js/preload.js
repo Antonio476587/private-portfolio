@@ -44,7 +44,10 @@ function preloadFinished() {
     preload.classList.add("animate__animated", "animate__fadeOut");
     document
         .querySelector(".con-welcome")
-        .classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
+        .classList.add("animate__animated",
+            "animate__fadeInDown",
+            "animate__slow"
+        );
     preload.addEventListener("animationend", handleAnimationEnd, {
         once: true,
     });

@@ -85,31 +85,33 @@ function preloadCharged() {
 }
 
 // Inicio de animation preload
-if (windowLocation.search === "?P=false" && windowLocation.pathname === "/") {
-    preload.setAttribute("hidden", "");
-    window.addEventListener("load", () => {
-        document
-            .querySelector(".con-welcome")
-            .classList.add(
-                "animate__animated",
-                "animate__fadeInDown",
-                "animate__slow"
-            );
-    });
-} else if (windowLocation.search !== "?P=false" && windowLocation.pathname === "/") {
-    animation1 = anime({
-        targets: paths,
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: "easeInOutSine",
-        duration: 2500,
-        delay: function (el, i) {
-            return i * 300;
-        },
-        direction: "alternate",
-        loop: false,
-    });
+if (windowLocation.pathname === "/") {
+    if (windowLocation.search === "?P=false") {
+        preload.setAttribute("hidden", "");
+        window.addEventListener("load", () => {
+            document
+                .querySelector(".con-welcome")
+                .classList.add(
+                    "animate__animated",
+                    "animate__fadeInDown",
+                    "animate__slow"
+                );
+        });
+    } else {
+        animation1 = anime({
+            targets: paths,
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: "easeInOutSine",
+            duration: 2500,
+            delay: function (el, i) {
+                return i * 300;
+            },
+            direction: "alternate",
+            loop: false,
+        });
 
-    randomValues();
+        randomValues();
 
-    animation1.finished.then(preloadCharged);
+        animation1.finished.then(preloadCharged);
+    }
 }

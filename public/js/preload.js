@@ -19,6 +19,13 @@ const colors = [
     "rgb(68, 36, 0)",
 ];
 
+window.addEventListener("load", () => {
+    windowLoaded = true;
+    window.scrollTo(0, document.querySelector(".home").offsetTop);
+    if (window.scrollMaxY) return;
+    else window.scrollMaxY = window.scrollY;
+});
+
 function randomValues() {
     if (windowLoaded) return;
     gsap.to(preload, {
@@ -52,13 +59,6 @@ function preloadFinished() {
         once: true,
     });
 }
-
-window.addEventListener("load", () => {
-    windowLoaded = true;
-    window.scrollTo(0, document.querySelector(".home").offsetTop);
-    if (window.scrollMaxY) return;
-    else window.scrollMaxY = window.scrollY;
-});
 
 function preloadCharged() {
     if (!windowLoaded) {

@@ -3,10 +3,11 @@ const bgComplementContainer = document.querySelector(
     ".bg-complement-container"
 );
 
-const menu = document.querySelector(".menu");
 const btnMenuHome = document.querySelector(".btn.btn-secondary.btn-home");
 
 btnMenuHome.addEventListener("click", () => {
+    const menu = document.querySelector(".menu");
+
     if (menu) {
         menu.toggleAttribute("hidden");
         if (!menu.hasAttribute("hidden")) {

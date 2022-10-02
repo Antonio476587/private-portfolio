@@ -11,7 +11,7 @@ export default function NotFound(): JSX.Element {
                         <h4>Make sure you the link is correctly typed.</h4>
                     </li>
                     <li>
-                        <h4>Go home and navigate from there.</h4>
+                        <h4><a href="/">Go home</a> and navigate from there.</h4>
                     </li>
                     <li>
                         <h4>Dance.</h4>

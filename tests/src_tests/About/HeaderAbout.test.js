@@ -12,7 +12,7 @@ import HeaderAbout from "../../../src/About/HeaderAbout";
 jest.mock("../../../src/About/ContainerImgMe", () => {
     return function dummyContainerImgMe(props) {
         return (
-            <button nameContainer={props.nameContainer} />
+            <button className={props.nameContainer} />
         );
     };
 });
@@ -46,6 +46,6 @@ it("should give the nameContainer props", () => {
         root.render(<HeaderAboutWrapper />);
     });
 
-    expect(document.querySelectorAll("button")[0].getAttribute("nameContainer")).toEqual("simon-antonio");
-    expect(document.querySelectorAll("button")[1].getAttribute("nameContainer")).toEqual("antonio-simon");
+    expect(document.querySelectorAll("button")[0].classList.toString()).toEqual("simon-antonio");
+    expect(document.querySelectorAll("button")[1].classList.toString()).toEqual("antonio-simon");
 });

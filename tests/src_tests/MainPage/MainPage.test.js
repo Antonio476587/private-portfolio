@@ -14,13 +14,18 @@ globalThis.gsap = gsap;
 import MainPage from "../../../src/MainPage";
 
 jest.mock("../../../src/MainPage/Contact", () => {
-    return function DummyContact({ changeVisibilityMenu }) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const React = require("react");
+
+
+    const DummyContact = React.forwardRef(function DummyContact({ changeVisibilityMenu }, ref) {
         return (
-            <button id="dummyContactButton" onClick={() => changeVisibilityMenu()}>
+            <button id="dummyContactButton" onClick={() => changeVisibilityMenu()} ref={ref} >
                 click_here
             </button>
         );
-    };
+    });
+    return DummyContact;
 });
 jest.mock("../../../src/MainPage/Menu", () => {
     return function DummyMenu({ changeVisibilityMenu }) {

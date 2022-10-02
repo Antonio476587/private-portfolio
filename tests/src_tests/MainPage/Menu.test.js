@@ -21,7 +21,9 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    root.unmount();
+    act(() => {
+        root.unmount();
+    });
     container.remove();
     container = null;
     changeVisibilityMenu = null;

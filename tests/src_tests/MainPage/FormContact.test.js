@@ -9,6 +9,31 @@ import { act } from "react-dom/test-utils";
 
 import FormContact, { ContactForm } from "../../../src/MainPage/FormContact";
 
+jest.mock("../../../src/Utils/TextInput", () => {
+
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const React = require("react");
+
+    return function DumbTextInput(props) {
+
+        const [value, setValue] = React.useState(props.inputProps.value);
+        const onBlurF = jest.fn();
+
+        // function onBlurF(e) {
+        //     props.upperChange(e, value);
+        // }
+        globalThis.onBlurF = onBlurF;
+
+        return (
+            <input
+                name={props.inputProps.name}
+                type={props.inputProps.type}
+                value={value}
+            />
+        );
+    };
+});
+
 let container = null;
 let root = null;
 
@@ -19,7 +44,9 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    root.unmount();
+    act(() => {
+        root.unmount();
+    });
     container.remove();
     container = null;
 });
@@ -74,4 +101,22 @@ describe("FormContact", () => {
 
 });
 
-// describe("ContactForm", () => {});
+describe("ContactForm", () => {
+
+    it("probando 123", () => {
+        act(() => {
+            root.render(<ContactForm active={true} />);
+        });
+
+        const inputName = document.querySelector("input[name='name']");
+
+        console.log(inputName.outerHTML);
+        
+        act(() => {
+            inputName.value = "totona";
+        });
+        
+        console.log(inputName.outerHTML);
+    });
+
+});

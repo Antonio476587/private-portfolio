@@ -55,7 +55,7 @@ jest.mock("../../../src/About/abilities", () => {
             ],
         },
         {
-            id: "info",
+            id: "infoTwo",
             ability: "Information",
             abs: [
                 {
@@ -98,7 +98,7 @@ jest.mock("../../../src/About/abilities", () => {
             ],
         },
         {
-            id: "info",
+            id: "infoThree",
             ability: "Information",
             abs: [
                 {

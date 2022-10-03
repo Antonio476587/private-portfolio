@@ -234,7 +234,6 @@ describe("HTML structure", () => {
 
                 document.querySelectorAll("ul.notes li").forEach((liElement, index) => {
                     const expectedTitleValue = globalThis.dummyAbilities[index].id;
-                    console.log(expectedTitleValue, "? == ?", liElement.getAttribute("title"));
                     expect(liElement.getAttribute("title")).toEqual(expectedTitleValue);
                 });
             });

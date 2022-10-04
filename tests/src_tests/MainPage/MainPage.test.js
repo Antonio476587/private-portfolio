@@ -22,6 +22,7 @@ jest.mock("../../../src/MainPage/Contact", () => {
         return (
             <button id="dummyContactButton" onClick={() => changeVisibilityMenu()} ref={ref} >
                 click_here
+                <div className="linkedIN" />
             </button>
         );
     });

@@ -23,8 +23,6 @@ const app = express();
 
 dotenv.config();
 
-const domain = process.env.URI || "fantonix.space";
-
 app.use(express.raw());
 app.use(express.json());
 

@@ -20,6 +20,13 @@ const colors = [
 // Shortcut functions
 const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
 const scrollToBeginOfThePage = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
+const removeAnimationsOfAnimate = htmlElement => {
+    const htmlElementClassListString = htmlElement.classList.toString();
+    const animatedClassesToBeRemoved = htmlElementClassListString.match(/(animate[\w]+)/g);
+    animatedClassesToBeRemoved.forEach((animatedClass) => {
+        htmlElement.classList.remove(animatedClass);
+    });
+};
 
 window.addEventListener("load", () => {
     windowLoaded = true;
@@ -41,7 +48,7 @@ function randomValues() {
 function handleAnimationEnd(event) {
     event.stopPropagation();
     const { target } = event;
-    target.classList.remove(target.classList[3], target.classList[4]);
+    removeAnimationsOfAnimate(target);
     preload.setAttribute("hidden", "");
     target.removeEventListener("animationend", handleAnimationEnd, {
         once: true,

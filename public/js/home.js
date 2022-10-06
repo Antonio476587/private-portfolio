@@ -65,6 +65,9 @@ const desAnimateHome = () => {
     bgAnimation.kill();
 };
 
+animateHome();
+desAnimateHome();
+
 const windowPosX = window.innerWidth / 2;
 const windowPosY = window.innerHeight / 2;
 

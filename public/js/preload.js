@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
     scrollToBeginOfThePage();
     if (window.scrollMaxY) return;
     else window.scrollMaxY = window.scrollY;
-});
+}, { once: true });
 
 function randomValues() {
     if (windowLoaded) return;
@@ -77,7 +77,7 @@ function preloadCharged() {
                     onCompleteParams: [animation2],
                 });
             });
-        });
+        }, { once: true });
     } else {
         paths.forEach((path, i) => {
             animation2 = gsap.to(path, {
@@ -97,7 +97,7 @@ if (windowLocation.pathname === "/") {
         preload.setAttribute("hidden", "");
         window.addEventListener("load", () => {
             animateConWelcome();
-        });
+        }, { once: true });
     } else {
         animation1 = anime({
             targets: paths,

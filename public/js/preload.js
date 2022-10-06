@@ -2,8 +2,6 @@
 const paths = document.querySelectorAll(".svg path");
 const preload = document.querySelector(".preload");
 
-console.log("Cargando");
-
 const windowLocation = window.location;
 let animation1;
 let animation2;

@@ -37,13 +37,15 @@ let bgAnimation;
 
 const xSet = gsap.quickSetter(bgComplement, "rotationX", "deg");
 const ySet = gsap.quickSetter(bgComplement, "rotationY", "deg");
-const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
+
 const setScaleX = gsap.quickSetter(bgComplementContainer, "scaleX");
 const setScaleY = gsap.quickSetter(bgComplementContainer, "scaleY");
 const scaleSet = (val) => {
     setScaleX(val);
     setScaleY(val);
 };
+
+const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
 
 const transformer = gsap.utils.pipe(gsap.utils.clamp(0, 200));
 

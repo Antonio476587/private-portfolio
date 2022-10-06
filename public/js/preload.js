@@ -17,9 +17,13 @@ const colors = [
     "rgb(68, 36, 0)",
 ];
 
+// Shortcut functions
+const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
+const scrollToBeginOfThePage = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
+
 window.addEventListener("load", () => {
     windowLoaded = true;
-    window.scrollTo(0, document.querySelector(".home").offsetTop);
+    scrollToBeginOfThePage();
     if (window.scrollMaxY) return;
     else window.scrollMaxY = window.scrollY;
 });
@@ -47,12 +51,7 @@ function handleAnimationEnd(event) {
 
 function preloadFinished() {
     preload.classList.add("animate__animated", "animate__fadeOut");
-    document
-        .querySelector(".con-welcome")
-        .classList.add("animate__animated",
-            "animate__fadeInDown",
-            "animate__slow"
-        );
+    animateConWelcome();
     preload.addEventListener("animationend", handleAnimationEnd, {
         once: true,
     });
@@ -61,7 +60,7 @@ function preloadFinished() {
 function preloadCharged() {
     if (!windowLoaded) {
         window.addEventListener("load", () => {
-            window.scrollTo(0, document.querySelector(".home").offsetTop);
+            scrollToBeginOfThePage();
             paths.forEach((path, i) => {
                 animation2 = gsap.to(path, {
                     strokeDashoffset: gsap.getProperty(path, "stroke-dasharray") + 0.5,
@@ -90,13 +89,7 @@ if (windowLocation.pathname === "/") {
     if (windowLocation.search === "?P=false") {
         preload.setAttribute("hidden", "");
         window.addEventListener("load", () => {
-            document
-                .querySelector(".con-welcome")
-                .classList.add(
-                    "animate__animated",
-                    "animate__fadeInDown",
-                    "animate__slow"
-                );
+            animateConWelcome();
         });
     } else {
         animation1 = anime({

@@ -65,9 +65,6 @@ const desAnimateHome = () => {
     bgAnimation.kill();
 };
 
-animateHome();
-desAnimateHome();
-
 const windowPosX = window.innerWidth / 2;
 const windowPosY = window.innerHeight / 2;
 
@@ -99,8 +96,6 @@ function onDocumentMouseMove(event) {
         if (scale > 2) growing = !growing;
     }
 }
-
-window.addEventListener("mousemove", onDocumentMouseMove);
 
 function updateComplement() {
     positionComplementContainer = (window.scrollY - window.scrollMaxY) * -0.7;

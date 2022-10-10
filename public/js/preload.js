@@ -20,7 +20,7 @@ const colors = [
 // Shortcut functions
 const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
 
-const scrollToBeginOfThePage = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
+const scrollToTheBeginOfTheElement = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
 
 const removeAnimationsOfAnimate = htmlElement => {
     const htmlElementClassListString = htmlElement.classList.toString();
@@ -34,7 +34,7 @@ const removeAnimationsOfAnimate = htmlElement => {
 
 window.addEventListener("load", () => {
     windowLoaded = true;
-    scrollToBeginOfThePage();
+    scrollToTheBeginOfTheElement();
     if (window.scrollMaxY) return;
     else window.scrollMaxY = window.scrollY;
 }, { once: true });
@@ -71,7 +71,7 @@ function preloadFinished() {
 function preloadCharged() {
     if (!windowLoaded) {
         window.addEventListener("load", () => {
-            scrollToBeginOfThePage();
+            scrollToTheBeginOfTheElement();
             paths.forEach((path, i) => {
                 animation2 = gsap.to(path, {
                     strokeDashoffset: gsap.getProperty(path, "stroke-dasharray") + 0.5,

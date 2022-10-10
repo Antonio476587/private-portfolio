@@ -20,7 +20,10 @@ const colors = [
 // Shortcut functions
 const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
 
-const scrollToTheBeginOfTheElement = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
+const scrollToTheBeginOfTheElement = () => {
+    if (location.hash) return;
+    window.scrollTo(0, document.querySelector(".home").offsetTop);
+};
 
 const removeAnimationsOfAnimate = htmlElement => {
     const htmlElementClassListString = htmlElement.classList.toString();

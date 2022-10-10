@@ -245,4 +245,33 @@ describe("When location.pathname is equal to /", () => {
 
     });
 
+    describe("when location.hash exist", () => {
+
+        let location = null;
+        let oldLocationTemp = globalThis.location;
+
+        beforeAll(() => {
+            delete globalThis.location;
+            location = new URL("http://test.fantonix.space/#Contact");
+            globalThis.location = location;
+        });
+
+        afterAll(() => {
+            delete globalThis.location;
+            globalThis.location = oldLocationTemp;
+            location = null;
+            oldLocationTemp = null;
+        });
+
+        test("when the load event is dispatched in the window", () => {
+            require("../../../public/js/preload");
+
+            window.dispatchEvent(new Event("load", { bubbles: true }));
+
+            expect(globalThis.scrollTo).not.toHaveBeenCalled();
+            expect(globalThis.scrollTo).not.toHaveBeenCalledWith(0, document.querySelector(".home").offsetTop);
+
+        });
+
+    });
 });

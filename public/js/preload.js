@@ -19,7 +19,9 @@ const colors = [
 
 // Shortcut functions
 const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
+
 const scrollToBeginOfThePage = () => window.scrollTo(0, document.querySelector(".home").offsetTop);
+
 const removeAnimationsOfAnimate = htmlElement => {
     const htmlElementClassListString = htmlElement.classList.toString();
     const animatedClassesToBeRemoved = htmlElementClassListString.match(/(animate[\w]+)/g);
@@ -27,6 +29,8 @@ const removeAnimationsOfAnimate = htmlElement => {
         htmlElement.classList.remove(animatedClass);
     });
 };
+
+// Principal Logic
 
 window.addEventListener("load", () => {
     windowLoaded = true;

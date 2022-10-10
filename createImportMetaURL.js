@@ -36,6 +36,6 @@ try {
         const newImportMetaURL = `import_meta_url_root=${import.meta.url}`;
 
         fs.writeFileSync(".env", newImportMetaURL);
-    };
+    }
     console.log(err);
 }

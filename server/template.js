@@ -14,7 +14,7 @@ export default function template(body) {
     <meta name="robots">
     <meta name="user-scalable" content="no">
     <!-- animate.css -->
-    <link rel="stylesheet" href="/css/animate.min.css"
+    <link rel="stylesheet" href="/css/animate/animate.min.css"
       type="text/css" />
     <!-- Preload CSS -->
     <link rel="stylesheet" href="/css/preload.css"/>
@@ -35,15 +35,15 @@ export default function template(body) {
     <!-- Josefin Sans Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
     <!-- Normalize -->
-    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/normalize/normalize.css" type="text/css">
     <!-- Boopstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Common Style -->
     <link rel="stylesheet" href="/css/index.css" type="text/css">
     <!-- Icon link -->
     <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
     <!-- AnimeJS-->
-    <script src="/js/anime.min.js"></script>
+    <script src="/js/animejs/anime.min.js"></script>
   
   </head>
   

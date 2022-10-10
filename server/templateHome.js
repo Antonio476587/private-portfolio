@@ -13,7 +13,7 @@ export default function template(body) {
       <meta name="robots" />
       <meta name="user-scalable" content="no" />
       <!-- animate.css -->
-      <link rel="stylesheet" href="/css/animate.min.css" type="text/css" />
+      <link rel="stylesheet" href="/css/animate/animate.min.css" type="text/css" />
       <!-- Preload CSS -->
       <link rel="stylesheet" href="/css/preload.css" />
       <meta
@@ -38,26 +38,26 @@ export default function template(body) {
         rel="stylesheet"
       />
       <!-- Normalize -->
-      <link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+      <link rel="stylesheet" href="/css/normalize/normalize.css" type="text/css" />
       <!-- Boopstrap -->
-      <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
       <!-- Common Style -->
       <link rel="stylesheet" href="/css/index.css" type="text/css" />
       <!-- Icon link -->
       <link rel="shortcut icon" href="/img/icon.png" alt="fantonix"  type="image/x-icon" />
       <!-- GSAP -->
-      <script src="/js/gsap.min.js"></script>
+      <script src="/js/gsap/gsap.min.js"></script>
       <!-- GSAP Scroll Trigger -->
-      <script src="/js/ScrollToPlugin.min.js"></script>
+      <script src="/js/gsap/ScrollToPlugin.min.js"></script>
       <!-- GSAP Scroll To -->
-      <script src="/js/ScrollTrigger.min.js"></script>
+      <script src="/js/gsap/ScrollTrigger.min.js"></script>
       <!-- GSAP Register global plugin -->
       <script>
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(ScrollToPlugin);
       </script>
       <!-- AnimeJS-->
-      <script src="/js/anime.min.js"></script>
+      <script src="/js/animejs/anime.min.js"></script>
     </head>
   
   <body allow="fullscreen *">

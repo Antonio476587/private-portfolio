@@ -166,9 +166,7 @@ export default function template(body) {
 
       <!-- Contact page -->
       <!-- Main -->
-      <div id="page">
-        ${body}
-        </div>
+      <div id="page">${body}</div>
 
         <!-- Home page or welcoming page -->
         <div class="home" id="Home">

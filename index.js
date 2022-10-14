@@ -4,7 +4,7 @@ import path from "path";
 
 import { __dirname as __root_dirname } from "./pathEMS.js";
 import { connectToDB } from "./db/db.js";
-import app, { cert, key } from "./server.js";
+import app, { cert, key } from "./app.js";
 
 const port = process.env.PORT || 80;
 const securePort = process.env.SECURE_PORT || 443;

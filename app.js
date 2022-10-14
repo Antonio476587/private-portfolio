@@ -41,7 +41,6 @@ app.post("/messages", async (req, res) => {
     try {
         const db = getDB();
         const { messages } = db.data;
-        console.log(db, db.data);
         const message = messages.push(req.body);
         await db.write();
         res.status(201).send("The message was succesfully recibed.");

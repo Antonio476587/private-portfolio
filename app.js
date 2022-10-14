@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import compression from "compression";
-import fs from "fs";
+import { readFileSync } from "fs";
 
 import { getDB } from "./db/db.js";
 import render from "./server/render.jsx";
@@ -10,8 +10,8 @@ let cert;
 let key;
 
 try {
-    cert = fs.readFileSync("./certificate.crt");
-    key = fs.readFileSync("./private.key");
+    cert = readFileSync("./certificate.crt");
+    key = readFileSync("./private.key");
 } catch (error) {
     console.log(error);
 }
@@ -51,6 +51,7 @@ app.post("/messages", async (req, res) => {
 });
 
 app.all("*", (req, res, next) => {
+    console.log(cert, "and", key);
     if (cert && key) if (!req.secure) res.redirect(302, `https://${req.headers.host}${req.url}`);
     // To implement
     // if (req.subdomains.includes("www")) res.redirect(301, `https://${domain}/${req.url}`);

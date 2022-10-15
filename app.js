@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
-import compression from "compression";
+import compression, { filter as compressionFilter } from "compression";
 import { readFileSync } from "fs";
 
 import { getDB } from "./db/db.js";
@@ -32,7 +32,7 @@ function shouldCompress(req, res) {
     }
 
     // fallback to standard filter function
-    return compression.filter(req, res);
+    return compressionFilter(req, res);
 }
 
 app.use(express.static("public"));

@@ -12,7 +12,7 @@
     "pretest": "node createImportMetaURL",
     "test": "jest",
     "server": "nodemon dist/server.cjs",
-    "lint": "eslint server src --ext js,jsx",
+    "lint": "eslint server src --ext jsx,ts,tsx",
     "hmr": "webpack serve",
     "watch": "webpack --watch",
     "prebuild": "node createImportMetaURL && rm -r -f dist",

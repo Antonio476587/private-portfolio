@@ -51,11 +51,18 @@ app.post("/messages", async (req, res) => {
 });
 
 app.all("*", (req, res, next) => {
-    console.log(cert, "and", key);
-    if (cert && key) if (!req.secure) res.redirect(302, `https://${req.headers.host}${req.url}`);
-    // To implement
-    // if (req.subdomains.includes("www")) res.redirect(301, `https://${domain}/${req.url}`);
-    next();
+    switch (true) {
+        case (cert && key) && !req.secure:
+            res.redirect(302, `https://${req.headers.host}${req.url}`);
+            break;
+        // To implement
+        // case req.subdomains.includes("www"):
+        //     res.redirect(301, `https://${domain}/${req.url}`);
+        //     break;
+        default:
+            next();
+
+    }
 });
 
 app.get("*", (req, res, next) => {

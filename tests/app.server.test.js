@@ -27,14 +27,14 @@ import app, { cert, key } from "../app";
 describe("testing the routes and created middleware", () => {
 
     describe("'/messages' route", () => {
-    
+
         beforeEach(() => {
             getDB.mockClear();
         });
-    
+
         it("should throw an error and a 400 status code", () => {
             getDB.mockReturnValueOnce(new Error("Mistaki"));
-    
+
             return request(app)
                 .post("/messages")
                 .set("Content-Type", "application/json")
@@ -43,18 +43,18 @@ describe("testing the routes and created middleware", () => {
                     expect(response.statusCode).toEqual(400);
                 });
         });
-    
+
         it("should send a 201 status code and a successful response", () => {
             const messages = ["hello world"];
             delete messages.push;
             messages.push = jest.fn();
-    
+
             const write = jest.fn();
-    
+
             const jsonToSend = [{ title: "hello world" }, { naruto: "uzumaki" }];
-    
+
             getDB.mockReturnValueOnce({ data: { messages }, write });
-    
+
             return request(app)
                 .post("/messages")
                 .set("Content-Type", "application/json")
@@ -62,17 +62,17 @@ describe("testing the routes and created middleware", () => {
                 .then(
                     response => {
                         expect(getDB).toHaveBeenCalledTimes(1);
-    
+
                         expect(messages.push).toHaveBeenCalledTimes(1);
                         expect(messages.push).toHaveBeenCalledWith(jsonToSend);
                         expect(write).toHaveBeenCalledTimes(1);
-    
+
                         expect(response.statusCode).toEqual(201);
                         expect(response.text).toEqual("The message was succesfully recibed.");
                     }
                 );
         });
-    
+
     });
 
     describe("'*' all middleware", () => {
@@ -102,7 +102,27 @@ describe("testing the routes and created middleware", () => {
 describe("testing the third party and framework middleware", () => {
 
     describe("express.raw middleware", () => {
-        // 
+
+        it("should receive application/octet-stream correctly", () => {
+
+            app.post("/testingRaw", (req, res) => {
+
+                expect(req.body).toEqual(Buffer.from("Waos"));
+                expect(new TextDecoder().decode(req.body)).toEqual("Waos");
+                
+                res.sendStatus(200);
+
+            });
+
+            return request(app)
+                .post("/testingRaw")
+                .set("content-type", "application/octet-stream")
+                .send(Buffer.from("Waos"))
+                .then(response => {
+                    expect(response.statusCode).toBe(200);
+                });
+        });
+
     });
 
     describe("express.json middleware", () => {

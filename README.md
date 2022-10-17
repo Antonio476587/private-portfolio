@@ -6,7 +6,7 @@ If you would like to know how it works, or adapt it to your needs, you can. I wo
 
 ### Steps to be able to use it
 
-- First clone the repository and paste the code below, it will create a folder with the bruce-lee-portfolio name unless you have changed or deleted the default name.
+- First clone the repository and paste the code below, it will create a folder with the **bruce-lee-portfolio** name unless you have changed or deleted the default name.
 
 ``` bash
 git clone https://github.com/Antonio476587/portfolio.git bruce-lee-portfolio
@@ -41,7 +41,7 @@ The first is the easier to get ride, you just have to call this command in the c
 npm run hmr
 ```
 
-And webpack should open the page in your default browser. Be aware that this is not ambiented enviroment and can bring with it unexpected behaviors.
+And webpack should open the page in your default browser. Be aware that this is not an ambiented enviroment and can bring with it unexpected behaviors.
 
 #
 
@@ -55,4 +55,4 @@ npm run compile
 npm run server
 ```
 
-It must be listening to the port 80, you can access it by `localhost:80` in the browser, it will throw a error if the port is already in use by another program or server like `XAMPP`
+> It must be listening to the port 80, you can access it by `localhost:80` in the browser, it will throw a error if the port is already in use by another program or server like `XAMPP`

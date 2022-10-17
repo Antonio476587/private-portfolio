@@ -3,10 +3,11 @@ const bgComplementContainer = document.querySelector(
     ".bg-complement-container"
 );
 
-const menu = document.querySelector(".menu");
 const btnMenuHome = document.querySelector(".btn.btn-secondary.btn-home");
 
 btnMenuHome.addEventListener("click", () => {
+    const menu = document.querySelector(".menu");
+
     if (menu) {
         menu.toggleAttribute("hidden");
         if (!menu.hasAttribute("hidden")) {
@@ -36,13 +37,15 @@ let bgAnimation;
 
 const xSet = gsap.quickSetter(bgComplement, "rotationX", "deg");
 const ySet = gsap.quickSetter(bgComplement, "rotationY", "deg");
-const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
+
 const setScaleX = gsap.quickSetter(bgComplementContainer, "scaleX");
 const setScaleY = gsap.quickSetter(bgComplementContainer, "scaleY");
 const scaleSet = (val) => {
     setScaleX(val);
     setScaleY(val);
 };
+
+const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
 
 const transformer = gsap.utils.pipe(gsap.utils.clamp(0, 200));
 
@@ -99,14 +102,10 @@ function onDocumentMouseMove(event) {
     }
 }
 
-window.addEventListener("mousemove", onDocumentMouseMove);
-
 function updateComplement() {
     positionComplementContainer = (window.scrollY - window.scrollMaxY) * -0.7;
     yPositionSet(transformer(positionComplementContainer));
 }
-
-document.addEventListener("scroll", updateComplement);
 
 // Se activa cuando se está visualizando
 

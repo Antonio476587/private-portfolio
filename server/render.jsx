@@ -7,14 +7,18 @@ import template from "./template.js";
 import templateHome from "./templateHome.js";
 
 function render(req, res) {
+
+    const context = {};
+    
     const element = (
-        <StaticRouter location={req.url} context={{}}>
+        <StaticRouter location={req.url} context={context}>
             <Page />
         </StaticRouter>
     );
-    const body = ReactDOMServer.renderToPipeableStream(element);
 
-    if (req.url === "/" || req.url === "/?P=false") {
+    const body = ReactDOMServer.renderToString(element);
+
+    if (req.url.endsWith("/") || req.url.endsWith("/?P=false")) {
         res.send(templateHome(body));
     } else {
         res.send(template(body));

@@ -33,7 +33,7 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
                         {subAbs.map((abs) => (
                             <li key={abs.name}>
                                 <div className="sub-ab d-flex">
-                                    <div><h4 className="h5 sub-ability">{abs.name}</h4></div>
+                                    <div><h5 className="h5 sub-ability">{abs.name}</h5></div>
                                     <div><div className="container sub-level">{abs.content}</div></div>
                                 </div>
                             </li>
@@ -71,4 +71,5 @@ const AbilitiesTable = React.forwardRef(function AbilitiesTable({ id, ability, a
     );
 });
 
+export { AbilitiesRow };
 export default AbilitiesTable;

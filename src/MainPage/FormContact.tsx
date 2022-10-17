@@ -1,42 +1,44 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 
 import { envelope, cloudArrowD, send, envelopeOpen } from "../Utils/Svg";
 import TextInput from "../Utils/TextInput";
 
-interface ContactFormProps {
-    active: boolean;
+interface ContactForm {
+  active: boolean;
 }
 
 interface Message {
-    nameMessage: string,
-    email: email,
-    message: string,
-    date: Date,
+  nameMessage: string;
+  email: email;
+  message: string;
+  date: Date;
 }
 
-function ContactForm({ active }: ContactFormProps) {
+function ContactForm({ active }: ContactForm) {
     const [nameMessage, setNameMessage] = useState("");
-    const [email, setEmail]: [email, React.Dispatch<React.SetStateAction<email>>]= useState("mibebitofiufiu@fantonix.space");
+    const [email, setEmail]: [
+    email,
+    React.Dispatch<React.SetStateAction<email>>
+  ] = useState("mibebitofiufiu@fantonix.space");
     const [message, setMessage] = useState("");
     const [toastTitle, setToastTitle] = useState("Error");
     const [toastContent, setToastContent] = useState("Si");
     const [showingValidation, setShowingValidation] = useState("");
     const [giveNFT, setGiveNFT] = useState("nft-gift-desactive");
-    const [clear, setClear] = useState(false);
+    const [clear, setClear] = useState(true);
 
-    function removeToast(clearInputs?: true): void {
+    function removeToast(): void {
         setTimeout(() => {
             setToastTitle("");
             setToastContent("");
             setShowingValidation("");
-            if (clearInputs) setClear(false);
         }, 2000);
     }
 
-    function showToast(title: string, content: string, clearInputs?: true): void {
+    function showToast(title: string, content: string): void {
         setToastTitle(title);
         setToastContent(content);
-        removeToast(clearInputs);
+        removeToast();
     }
 
     function _showError(e: string): void {
@@ -58,21 +60,37 @@ function ContactForm({ active }: ContactFormProps) {
         _showValidation(data);
     }
 
-    function isEmail(email: string | number |null | email): email is email {
-        return (email as email).match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== undefined;
+    function isEmail(email: string | number | null | email): email is email {
+        return (
+            (email as email).match(
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            ) !== undefined
+        );
     }
 
-    function upperChange(e: MouseEvent, naturalValue: null | string | email): void {
+    function upperChange(
+        e: MouseEvent,
+        naturalValue: null | string | email
+    ): void {
         if (e.target) {
             const { name, value: textValue } = e.target;
             const value = naturalValue === undefined ? textValue : naturalValue;
-    
-            if (name == "name" && typeof value == "string") setNameMessage(value?? "");
-            if (name == "email" && isEmail(value)) setEmail(value?? "mibebitofiufiu@fantonix.space");
-            if (name == "message" && typeof value == "string") setMessage(value?? "");
+
+            if (name == "name" && typeof value == "string")
+                setNameMessage(value ?? "");
+            if (name == "email" && isEmail(value))
+                setEmail(value ?? "mibebitofiufiu@fantonix.space");
+            if (name == "message" && typeof value == "string")
+                setMessage(value ?? "");
         }
     }
 
+    function clearInputs() {
+        setClear(true);
+        setTimeout(() => {
+            setClear(false);
+        }, 1000);
+    }
 
     async function fetchMessage(data: Message) {
         try {
@@ -104,22 +122,21 @@ function ContactForm({ active }: ContactFormProps) {
             } else if (message.length <= 3) {
                 throw new Error("You must fill all the fields to send the message.");
             }
-    
+
             const created: Date = new Date();
-    
+
             const newMessage: Message = {
                 nameMessage,
                 email,
                 message,
                 date: created,
             };
-    
+
             data = await fetchMessage(newMessage);
-    
+
             if (data) {
                 showValidation(data);
-                setClear(true);
-                setGiveNFT("nft-gift-active");
+                clearInputs();
             }
         } catch (error) {
             showError(error);
@@ -127,6 +144,10 @@ function ContactForm({ active }: ContactFormProps) {
         }
         return data;
     }
+
+    useEffect(() => {
+        setClear(false);
+    }, []);
 
     return (
         <div className="contact-body-div">
@@ -171,44 +192,56 @@ function ContactForm({ active }: ContactFormProps) {
                     <form action="" className="contact-form" onSubmit={handleSubmit}>
                         <div className="contact-input-name-div">
                             <TextInput
-                                type="text"
-                                name="name"
-                                id="name"
-                                key="name"
-                                placeholder="Name or enterprise name"
+                                inputProps={{
+                                    type: "text",
+                                    name: "name",
+                                    id: "name",
+                                    key: "name",
+                                    placeholder: "Name or enterprise name",
+                                    value: nameMessage
+                                }}
                                 upperChange={upperChange}
-                                value={nameMessage}
                                 clear={clear}
                             />
                         </div>
                         <div className="contact-input-email-div">
                             <TextInput
-                                type="email"
-                                name="email"
-                                id="email"
-                                key="email"
-                                placeholder="Email"
-                                value={email}
+                                inputProps={{
+                                    type: "email",
+                                    name: "email",
+                                    id: "email",
+                                    key: "email",
+                                    placeholder: "Email",
+                                    value: email
+                                }}
                                 upperChange={upperChange}
                                 clear={clear}
                             />
                         </div>
                         <div className="contact-input-message-div">
                             <TextInput
-                                name="message"
-                                id="message"
-                                key="Message"
-                                placeholder="If you send me a message, I'll give you a NFT.
-Note: It's not the original NFT."
-                                tag="textarea"
-                                rows="5"
-                                value={message}
+                                inputProps={{
+                                    type: "message",
+                                    name: "message",
+                                    id: "message",
+                                    key: "message",
+                                    placeholder: "If you send me a message, I'll give you a NFT."
+                                    + "\nNote: It's not the original NFT.",
+                                    tag: "textarea",
+                                    rows: "5",
+                                    value: message
+                                }}
                                 upperChange={upperChange}
                                 clear={clear}
                             />
                         </div>
                         <div className="contact-button-submit-div">
-                            <button type="submit" title="send-form" aria-disabled={active} aria-label="Send Form">
+                            <button
+                                type="submit"
+                                title="send-form"
+                                aria-disabled={active}
+                                aria-label="Send Form"
+                            >
                                 {send}
                             </button>
                         </div>
@@ -245,3 +278,5 @@ export default function FormContact() {
         </div>
     );
 }
+
+export { ContactForm };

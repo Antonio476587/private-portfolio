@@ -2,9 +2,7 @@
 const paths = document.querySelectorAll(".svg path");
 const preload = document.querySelector(".preload");
 
-console.log("Cargando");
-
-const locatitation = window.location;
+const windowLocation = window.location;
 let animation1;
 let animation2;
 
@@ -19,6 +17,31 @@ const colors = [
     "rgb(68, 36, 0)",
 ];
 
+// Shortcut functions
+const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
+
+const scrollToTheBeginOfTheElement = () => {
+    if (location.hash) return;
+    window.scrollTo(0, document.querySelector(".home").offsetTop);
+};
+
+const removeAnimationsOfAnimate = htmlElement => {
+    const htmlElementClassListString = htmlElement.classList.toString();
+    const animatedClassesToBeRemoved = htmlElementClassListString.match(/(animate[\w]+)/g);
+    animatedClassesToBeRemoved.forEach((animatedClass) => {
+        htmlElement.classList.remove(animatedClass);
+    });
+};
+
+// Principal Logic
+
+window.addEventListener("load", () => {
+    windowLoaded = true;
+    scrollToTheBeginOfTheElement();
+    if (window.scrollMaxY) return;
+    else window.scrollMaxY = window.scrollY;
+}, { once: true });
+
 function randomValues() {
     if (windowLoaded) return;
     gsap.to(preload, {
@@ -32,7 +55,7 @@ function randomValues() {
 function handleAnimationEnd(event) {
     event.stopPropagation();
     const { target } = event;
-    target.classList.remove(target.classList[3], target.classList[4]);
+    removeAnimationsOfAnimate(target);
     preload.setAttribute("hidden", "");
     target.removeEventListener("animationend", handleAnimationEnd, {
         once: true,
@@ -42,25 +65,16 @@ function handleAnimationEnd(event) {
 
 function preloadFinished() {
     preload.classList.add("animate__animated", "animate__fadeOut");
-    document
-        .querySelector(".con-welcome")
-        .classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
+    animateConWelcome();
     preload.addEventListener("animationend", handleAnimationEnd, {
         once: true,
     });
 }
 
-window.addEventListener("load", () => {
-    windowLoaded = true;
-    window.scrollTo(0, document.querySelector(".home").offsetTop);
-    if (window.scrollMaxY) return;
-    else window.scrollMaxY = window.scrollY;
-});
-
 function preloadCharged() {
     if (!windowLoaded) {
         window.addEventListener("load", () => {
-            window.scrollTo(0, document.querySelector(".home").offsetTop);
+            scrollToTheBeginOfTheElement();
             paths.forEach((path, i) => {
                 animation2 = gsap.to(path, {
                     strokeDashoffset: gsap.getProperty(path, "stroke-dasharray") + 0.5,
@@ -70,7 +84,7 @@ function preloadCharged() {
                     onCompleteParams: [animation2],
                 });
             });
-        });
+        }, { once: true });
     } else {
         paths.forEach((path, i) => {
             animation2 = gsap.to(path, {
@@ -85,31 +99,27 @@ function preloadCharged() {
 }
 
 // Inicio de animation preload
-if (locatitation.search === "?P=false" && locatitation.pathname === "/") {
-    preload.setAttribute("hidden", "");
-    window.addEventListener("load", () => {
-        document
-            .querySelector(".con-welcome")
-            .classList.add(
-                "animate__animated",
-                "animate__fadeInDown",
-                "animate__slow"
-            );
-    });
-} else if (locatitation.search !== "?P=false" && locatitation.pathname === "/") {
-    animation1 = anime({
-        targets: paths,
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: "easeInOutSine",
-        duration: 2500,
-        delay: function (el, i) {
-            return i * 300;
-        },
-        direction: "alternate",
-        loop: false,
-    });
+if (windowLocation.pathname === "/") {
+    if (windowLocation.search === "?P=false") {
+        preload.setAttribute("hidden", "");
+        window.addEventListener("load", () => {
+            animateConWelcome();
+        }, { once: true });
+    } else {
+        animation1 = anime({
+            targets: paths,
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: "easeInOutSine",
+            duration: 2500,
+            delay: function (el, i) {
+                return i * 300;
+            },
+            direction: "alternate",
+            loop: false,
+        });
 
-    randomValues();
+        randomValues();
 
-    animation1.finished.then(preloadCharged);
+        animation1.finished.then(preloadCharged);
+    }
 }

@@ -9,16 +9,16 @@ const stars = (num: number, booleanHalfStar = false) => {
 
     for (let i = 0; i < 5; i++) {
         switch (true) {
-        case starsQuantity <= 0 && halfStar:
-            totalStars.push(starHalfSvg);
-            halfStar = !halfStar;
-            break;
-        case starsQuantity <= 0:
-            totalStars.push(starBlackSvg);
-            break;
-        default:
-            totalStars.push(starSvg);
-            starsQuantity -= 1;
+            case starsQuantity <= 0 && halfStar:
+                totalStars.push(starHalfSvg);
+                halfStar = !halfStar;
+                break;
+            case starsQuantity <= 0:
+                totalStars.push(starBlackSvg);
+                break;
+            default:
+                totalStars.push(starSvg);
+                starsQuantity -= 1;
         }
     }
     return totalStars;

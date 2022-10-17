@@ -12,9 +12,7 @@ Object.defineProperty(globalThis, "matchMedia", {
     })),
 });
 
-import { ArrayBuffer, TextDecoder, TextEncoder, Uint8Array } from "util";
+import { TextDecoder, TextEncoder } from "util";
 
 if (!global.TextEncoder) global.TextEncoder = TextEncoder;
 if (!global.TextDecoder) global.TextDecoder = TextDecoder;
-if (!global.ArrayBuffer) global.ArrayBuffer = ArrayBuffer;
-if (!global.Uint8Array) global.Uint8Array = Uint8Array;

@@ -63,7 +63,7 @@ function ContactForm({ active }: ContactForm) {
     function isEmail(email: string | number | null | email): email is email {
         return (
             (email as email).match(
-                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
             ) !== undefined
         );
     }

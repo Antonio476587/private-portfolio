@@ -99,8 +99,11 @@ export default function About(): JSX.Element {
     }, [q, box]);
 
     useEffect(() => {
-        let animation2: gsap.core.Tween;
 
+        const infoAbout = infoAboutRef.current ?? false;
+        const headerAbout = headerAboutRef.current ?? false;
+        const illustration = illustrationRef.current ?? false;
+        
         tl.current = gsap.timeline({
             defaults: {
                 duration: 1,
@@ -109,55 +112,66 @@ export default function About(): JSX.Element {
             },
         });
 
-        const animation1 = gsap.from(infoAboutRef.current, {
-            delay: 0.5,
-            duration: 1,
-            autoAlpha: 0,
-            scale: 0.3,
-            rotation: 45,
-            onComplete: () => {
-                animation1.kill();
-                animation2 = gsap.to(infoAboutRef.current, {
-                    rotation: 45,
-                    autoAlpha: 0,
+        let animation1: gsap.core.Tween;
+        let animation2: gsap.core.Tween;
+
+        if (infoAbout) {
+            
+            animation1 = gsap.from(infoAbout, {
+                delay: 0.5,
+                duration: 1,
+                autoAlpha: 0,
+                scale: 0.3,
+                rotation: 45,
+                onComplete: () => {
+                    animation1.kill();
+                    animation2 = gsap.to(infoAbout, {
+                        rotation: 45,
+                        autoAlpha: 0,
+                        scrollTrigger: {
+                            id: "infoTrigger",
+                            trigger: infoAbout,
+                            start: "top top",
+                            end: "bottom top+=50",
+                            scrub: true,
+                            toggleActions: "play none none reverse",
+                        },
+                    });
+                },
+            });
+            
+        }
+
+        if (headerAbout && illustration) {
+
+            tl.current
+                .from(headerAbout, {
+                    xPercent: 3,
                     scrollTrigger: {
-                        id: "infoTrigger",
-                        trigger: infoAboutRef.current,
-                        start: "top top",
-                        end: "bottom top+=50",
+                        id: "section1",
+                        trigger: headerAbout,
+                        start: "top+=150 bottom",
+                        end: "center center",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    },
+                })
+                .from(illustration, {
+                    scrollTrigger: {
+                        id: "section3",
+                        trigger: illustration,
+                        start: "top bottom",
+                        end: "center bottom",
                         scrub: true,
                         toggleActions: "play none none reverse",
                     },
                 });
-            },
-        });
-
-        tl.current
-            .from(headerAboutRef.current, {
-                xPercent: 3,
-                scrollTrigger: {
-                    id: "section1",
-                    trigger: headerAboutRef.current,
-                    start: "top+=150 bottom",
-                    end: "center center",
-                    scrub: true,
-                    toggleActions: "play none none reverse",
-                },
-            })
-            .from(illustrationRef.current, {
-                scrollTrigger: {
-                    id: "section3",
-                    trigger: illustrationRef.current,
-                    start: "top bottom",
-                    end: "center bottom",
-                    scrub: true,
-                    toggleActions: "play none none reverse",
-                },
-            });
+                
+        }
 
         return () => {
             tl.current?.kill();
-            animation1.kill();
+            animation1?.kill();
             animation2?.kill();
         };
     }, [

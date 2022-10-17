@@ -196,7 +196,7 @@ describe("testing the third party and framework middleware", () => {
         it("should return a file with the type text/css", () => {
 
             return request(app)
-                .get("/css/animate/animate.css")
+                .get("/css/animate/animate.min.css")
                 .then(response => {
 
                     expect(response.statusCode).toEqual(200);

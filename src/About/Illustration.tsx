@@ -53,12 +53,12 @@ const Illustration = React.forwardRef(function Illustration(_props, ref: React.R
 
     function mixIndexOfTarget(value: string | number | null): number | null {
         switch(typeof value) {
-        case "number":
-            return value;
-        case "string":
-            return globalThis.parseInt(value, 10);
-        default:
-            return null;
+            case "number":
+                return value;
+            case "string":
+                return globalThis.parseInt(value, 10);
+            default:
+                return null;
         }
     }
 

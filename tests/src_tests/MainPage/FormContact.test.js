@@ -169,14 +169,6 @@ describe("ContactForm", () => {
         expect(document.querySelector(".div-nft-gift").children.length).toEqual(2);
     });
 
-    // test("Toast contact", () => {
-    //     act(() => {
-    //         root.render(<ContactForm active={true} />);
-    //     });
-
-    //     console.log(document.querySelector(".toast-contact").innerHTML);
-    // });
-
     describe("Form", () => {
 
         beforeAll(() => {

@@ -373,7 +373,7 @@ appear over all the elements */
 
   button.menu-nft-button {
     position: relative;
-    width: 3em;
+    width: 2.35em;
     height: 3em;
     display: flex;
     justify-content: center;
@@ -395,10 +395,10 @@ appear over all the elements */
     &::before {
       content: "";
       position: absolute;
-      width: 2em;
+      width: 3em;
       height: 2em;
-      left: -10px;
-      top: -30px;
+      left: -11.5px;
+      top: -35px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -415,12 +415,12 @@ appear over all the elements */
       width: 50%;
       height: 50%;
       left: 12px;
-      top: 32px;
+      top: 35px;
       display: flex;
       justify-content: center;
       align-items: center;
       border: none;
-      border-radius: 50%;
+      border-radius: 7px 17px;
       background: var(--bs-red);
       transition: 0.5s;
     }
@@ -439,7 +439,7 @@ appear over all the elements */
       }
 
       &::before {
-        left: -5px;
+        left: -14px;
         background: var(--bs-dark);
       }
 

@@ -19,7 +19,7 @@ afterAll(() => {
     document.body.innerHTML = " ";
 });
 
-it("should have the same structure as in the innerHTML", () => {
+it("should have the same structure as in the body.innerHTML", () => {
     expect(document.body.innerHTML).toEqual(compilerFunction({}));
 });
 

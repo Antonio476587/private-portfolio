@@ -8,7 +8,7 @@ import { __dirname as __root_dirname } from "../../../pathEMS";
 let compilerFunction = null;
 
 beforeAll(() => {
-    compilerFunction = pug.compileFile(path.resolve(__root_dirname, "templates/scripts/scripts.pug"), { pretty: "\t" });
+    compilerFunction = pug.compileFile(path.resolve(__root_dirname, "templates/scripts/scripts.pug"), { pretty: "\t", doctype: "html" });
     
     document.body.innerHTML = compilerFunction({});
 });

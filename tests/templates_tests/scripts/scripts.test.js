@@ -23,7 +23,7 @@ it("should have the same structure as in the innerHTML", () => {
     expect(document.body.innerHTML).toEqual(compilerFunction({}));
 });
 
-describe("it should include these scripts and their corresponding attributes", () => {
+describe("it should include these scripts tags and their corresponding attributes", () => {
 
     test("polyfill script", () => {
         const polyfillScriptHTMLElement = document.querySelector("script[src=\"/js/polyfill.bundle.min.js\"]");

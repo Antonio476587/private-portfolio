@@ -1,7 +1,8 @@
 import templateCompiler from "../utils/templateCompiler";
 
 export default function template(body) {
-    return `<!DOCTYPE html>
+    return `
+  <!DOCTYPE html>
   <html lang="en">
   
     ${templateCompiler("templates/head/head.pug")}
@@ -14,5 +15,5 @@ export default function template(body) {
 
     </body>
     
-    </html>`;
+  </html>`;
 }

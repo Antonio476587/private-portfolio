@@ -56,8 +56,7 @@ export default function template(body) {
       <script src="/js/app.bundle.min.js" type="application/javascript"></script>
       <!-- Vendor -->
       <script src="/js/vendor.bundle.min.js" type="application/javascript"></script>
-      <!-- Home -->
-      <!-- <script src="/js/home.js" type="application/javascript"></script> -->
+
     </body>
     
     </html>`;

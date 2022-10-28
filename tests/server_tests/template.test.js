@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 import template from "../../server/template";
+import templateCompiler from "../../utils/templateCompiler";
 
 test("Inside of the div#body should render the default comments", () => {
     const newChildren = template("");
@@ -24,4 +25,16 @@ test("Inside of the div#body > div.textContent shouldn't render 'nothing'", () =
 
     expect(document.querySelector("div#body").firstElementChild.nodeName).toEqual("DIV");
     expect(document.querySelector("div#body div").innerHTML).toEqual("nothing");
+});
+
+it("should content 'templates/head/head.pug' template inside of the template", () => {
+    const newChildren = template("");
+
+    expect(newChildren.includes(templateCompiler("templates/head/head.pug"))).toBeTruthy();
+});
+
+it("should content 'templates/scripts/scripts.pug' template inside of the template", () => {
+    const newChildren = template("");
+
+    expect(newChildren.includes(templateCompiler("templates/scripts/scripts.pug"))).toBeTruthy();
 });

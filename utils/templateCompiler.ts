@@ -1,6 +1,6 @@
 import path from "path";
 
-import pug, { Options, LocalsObject, compile } from "pug";
+import pug, { Options, LocalsObject } from "pug";
 
 import { __dirname as __root_dirname } from "../pathEMS";
 

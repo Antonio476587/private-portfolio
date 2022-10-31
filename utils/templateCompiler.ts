@@ -8,16 +8,16 @@ interface templateOptions extends Options {
   doctype: "html" | string
 }
 
-function convertToValidPugInsertion(htmlSyntaxToConvert: string): string {
-    if (!htmlSyntaxToConvert.match(/^<.+>$/s)) return "";
-    return(htmlSyntaxToConvert.trim().slice(1, htmlSyntaxToConvert.length - 1));
-}
-
 interface pugTemplateObject {
   content: string,
 }
 
 type pugTemplate = string | pugTemplateObject;
+
+function convertToValidPugInsertion(htmlSyntaxToConvert: string): string {
+    if (!htmlSyntaxToConvert.match(/^<.+>$/s)) return "";
+    return(htmlSyntaxToConvert.trim().slice(1, htmlSyntaxToConvert.length - 1));
+}
 
 function templateCompiler(pugTemplate: pugTemplate, localContent?: LocalsObject, options?: Options): string {
     const templateOptions: templateOptions = {

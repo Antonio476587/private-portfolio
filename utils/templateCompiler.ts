@@ -15,8 +15,9 @@ interface pugTemplateObject {
 type pugTemplate = string | pugTemplateObject;
 
 function convertToValidPugInsertion(htmlSyntaxToConvert: string): string {
-    if (!htmlSyntaxToConvert.match(/^<.+>$/s)) return "";
-    return(htmlSyntaxToConvert.trim().slice(1, htmlSyntaxToConvert.length - 1));
+    const trimedHTMLSyntaxToConvert = htmlSyntaxToConvert.trim();
+    if (!trimedHTMLSyntaxToConvert.match(/^<.+>$/s)) return "";
+    return(trimedHTMLSyntaxToConvert.slice(1, trimedHTMLSyntaxToConvert.length - 1));
 }
 
 function templateCompiler(pugTemplate: pugTemplate, localContent?: LocalsObject, options?: Options): string {

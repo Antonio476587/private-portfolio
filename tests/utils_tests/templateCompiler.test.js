@@ -74,6 +74,8 @@ describe("convertToValidPugInsertion function", () => {
 
         expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("aguacate>") })).toEqual("</>");
         expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("<aguacate>") })).toEqual("<aguacate/>");
+        expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("   <aguacate>") })).toEqual("<aguacate/>");
+        expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("<aguacate>   ") })).toEqual("<aguacate/>");
         // The syntax is expected to be <aguacate></aguacate/> because the pug template insert the last slash and it cannot be prevented
         // the browser will fix this mistake removing the misplaced slash
         expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("<aguacate></aguacate>") })).toEqual("<aguacate></aguacate/>");

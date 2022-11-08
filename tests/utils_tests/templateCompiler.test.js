@@ -1,9 +1,15 @@
 import path from "path";
+import fs from "fs";
+
 import pug from "pug";
 
+
 import { __dirname as __root_dirname } from "../../pathEMS";
+import deleteFileSync from "../../utils/deleteFile";
 
 import templateCompiler from "../../utils/templateCompiler";
+
+import htmlSyntax from "../../templates/head/gsapScriptsHTMLTemplate.js";
 
 describe("templateCompiler", () => {
 
@@ -79,6 +85,32 @@ describe("convertToValidPugInsertion function", () => {
         // The syntax is expected to be <aguacate></aguacate/> because the pug template insert the last slash and it cannot be prevented
         // the browser will fix this mistake removing the misplaced slash
         expect(templateCompiler(pugTemplate, { jumanyi: templateCompiler.convertToValidPugInsertion("<aguacate></aguacate>") })).toEqual("<aguacate></aguacate/>");
+    });
+
+});
+
+describe("createFileFromTemplate function", () => {
+
+    let fileCreatedToTest;
+    let completePathToFileCreatedToTest;
+    
+    beforeAll(() => {
+        fileCreatedToTest = "public/probando.html";
+        completePathToFileCreatedToTest = path.resolve(__root_dirname, fileCreatedToTest);
+    });
+
+    afterAll(() => {
+        fileCreatedToTest = null;
+        completePathToFileCreatedToTest = null;
+        if (fs.existsSync(completePathToFileCreatedToTest)) deleteFileSync(completePathToFileCreatedToTest);
+    });
+
+    it("should create a file", () => {
+        const indexPug = templateCompiler("templates/index.pug", { headTags: templateCompiler.convertToValidPugInsertion(htmlSyntax) }, { pretty: "\t" });
+
+        templateCompiler.createFileFromTemplate(fileCreatedToTest, indexPug);
+
+        expect(fs.readFileSync(completePathToFileCreatedToTest, { encoding: "utf8" })).toEqual(indexPug);
     });
 
 });

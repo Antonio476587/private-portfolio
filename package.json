@@ -13,7 +13,7 @@
     "test": "jest",
     "server": "nodemon dist/server.cjs",
     "lint": "eslint server src templates --ext jsx,ts,tsx,pug",
-    "hmr": "webpack serve",
+    "hmr": "npm run createIndexFile && webpack serve",
     "watch": "webpack --watch",
     "prebuild": "node createImportMetaURL && rm -r -f dist",
     "build": "npm run build-files && npm run build-server",

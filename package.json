@@ -26,7 +26,7 @@
     "build-server": "webpack --mode production --config webpack.serverconfig.js",
     "compile-server": "webpack --config webpack.serverconfig.js",
     "generate-db": "node db/createDB.js",
-    "createIndexFile": "ts-node utils/templateCompiler.ts -- templates/index.pug public/indexwebpack.html"
+    "createIndexFile": "ts-node utils/templateCompiler.ts templates/index.pug public/indexwebpack.html"
   },
   "repository": {
     "type": "git",

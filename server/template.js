@@ -1,4 +1,4 @@
-import templateCompiler from "../utils/templateCompiler";
+import templateCompiler from "../utils/templateCompiler.ts";
 
 export default function template(body) {
     return `

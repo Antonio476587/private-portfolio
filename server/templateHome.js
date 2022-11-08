@@ -1,5 +1,5 @@
-import templateCompiler from "../utils/templateCompiler";
-import gsapScripts from "../templates/head/gsapScriptsHTMLTemplate";
+import templateCompiler from "../utils/templateCompiler.ts";
+import gsapScripts from "../templates/head/gsapScriptsHTMLTemplate.js";
 
 export default function template(body) {
     return `<!DOCTYPE html>

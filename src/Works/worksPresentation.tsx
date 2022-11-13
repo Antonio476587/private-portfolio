@@ -15,7 +15,7 @@ const worksPresentation: worksPresentationObject[] = [
         urlId: "work/1",
     },
     {
-        img: "/img/NTFs.webp",
+        img: "/img/NFTs.webp",
         squaredImg: "/img/NFTs-squared.webp",
         alternativeText: "NFTs where appear Elon Musk, Lebron James, BonsAI...",
         urlId: "work/2",

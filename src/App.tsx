@@ -30,6 +30,8 @@ declare global {
         toggleAttribute(qualifiedName: string, force?: boolean): boolean;
     }
     type email = `${string}@${string}.${string}`;
+    // eslint-disable-next-line no-var
+    var scrollMaxY: number;
 }
 
 const element: JSX.Element = (

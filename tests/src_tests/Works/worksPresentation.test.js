@@ -28,7 +28,3 @@ it("should return undefined if the parameter passed through getWorksForWall is n
     expect(getWorksForWall({})).toEqual(undefined);
     expect(getWorksForWall("Bad Value")).toEqual(undefined);
 });
-
-test("A", () => {
-    console.log(getWorksForWall(1.8));
-});

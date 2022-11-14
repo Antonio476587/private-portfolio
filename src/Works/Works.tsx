@@ -1,69 +1,59 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
-import worksPresentation, { WorkPresentation } from "./worksPresentation";
-
-interface CarouselItemProps {
-    content: WorkPresentation;
-    classActive?: string;
-}
-
-function CarouselItem({ content, classActive = "" }: CarouselItemProps) {
-    return (
-        <div className={`carousel-item ${classActive}`}>
-            <div
-                className="bd-placeholder-img"
-                userselect="none"
-                aria-hidden="true"
-            />
-
-            <div className="container">
-                <div className="carousel-caption text-start">
-                    <h1>{content.h1}</h1>
-                    <p>{content.p}</p>
-                    <p>
-                        <a className="btn btn-lg btn-light" href={content.urlId}>
-                            See More
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
-}
+import Wall from "./Wall";
 
 export default function Works() {
+    const stateRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const cityRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const placeRef: React.RefObject<HTMLDivElement>  = useRef(null);
+
+
+    function scrollAnimator(ev: Event): void {
+        ev.preventDefault();
+        console.log("funcionando");
+        const pageScrollPercent = (scrollY * 100 ) / scrollMaxY;
+        const pageScrollPercentDividedByAnHundred = pageScrollPercent / 100;
+    
+        if (cityRef.current) cityRef.current.style.transform = `translateY(${scrollY}px)`;
+        if (placeRef.current) placeRef.current.style.scale = `${Math.min(pageScrollPercentDividedByAnHundred + 0.9, 1.8)}`;
+    }
+
+    useEffect(() => {
+
+
+        if (stateRef.current) {
+            
+            if (!globalThis.scrollMaxY) {
+                const scrollTop = document.lastElementChild?.scrollTop;
+                if (scrollTop) globalThis.scrollMaxY = scrollTop;
+            }
+
+            stateRef.current.addEventListener("scroll", scrollAnimator);
+            
+        }
+        
+        return () => {
+            if (stateRef.current) {
+                stateRef.current.removeEventListener("scroll", scrollAnimator);
+            }
+
+        };
+    }, []);
 
     return (
-        <div
-            id="myCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
-        >
-            <div className="carousel-inner">
-                {worksPresentation.map((con, index) => (
-                    index === 0 ? <CarouselItem content={con} classActive="active" key={index} /> : <CarouselItem content={con} key={index} />
-                ))}
+        <>
+            <link rel="stylesheet" href="/css/testingBuilding.css" />
+            <div id="state" ref={stateRef}>
+                <div id="city" ref={cityRef}>
+                    <div id="place" ref={placeRef}>
+                        <div id="building">
+                            <div id="roof"></div>
+                            {[1, 2, 3, 4].map(value => <Wall wallID={`${value}`} key={value} />)}
+                            <div id="foot"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target="#myCarousel"
-                data-bs-slide="prev"
-                aria-label="Previous Carousel Item"
-            >
-                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target="#myCarousel"
-                data-bs-slide="next"
-                aria-label="Next Carousel Item"
-            >
-                <span className="carousel-control-next-icon" aria-hidden="false" />
-                <span className="visually-hidden">Next</span>
-            </button>
-        </div>
+        </>
     );
 }

@@ -2,8 +2,6 @@
  * @jest-environment jsdom
  */
 
-import React from "react";
-
 import worksPresentation, { getWorksForWall } from "../../../src/Works/worksPresentation";
 
 it("should return the 8 first elements of workPresentation", () => {

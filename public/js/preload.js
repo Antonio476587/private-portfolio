@@ -93,8 +93,8 @@ if (windowLocation.pathname === "/") {
         }, { once: true });
     } else {
         gsap.to(document.getElementById("Capa_1"), {
-            width: "5rem",
-            height: "5rem",
+            width: "10%",
+            height: "10%",
             delay: 1.5,
             duration: 1,
         });
@@ -107,16 +107,6 @@ if (windowLocation.pathname === "/") {
             onComplete: preloadCharged,
         });
         
-        animation1 = anime({
-            targets: document.getElementById("Capa_1"),
-            width: "5rem",
-            height: "5rem",
-            easing: "easeInOutSine",
-            duration: 1000,
-            delay: 1500,
-            direction: "normal",
-        });
-
         // randomValues();
 
         // animation1.finished.then(preloadCharged);

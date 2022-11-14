@@ -29,6 +29,9 @@ declare global {
         style: CSSProperties;
         toggleAttribute(qualifiedName: string, force?: boolean): boolean;
     }
+    interface Element {
+        offsetHeight: string | number;
+    }
     type email = `${string}@${string}.${string}`;
     // eslint-disable-next-line no-var
     var scrollMaxY: number;

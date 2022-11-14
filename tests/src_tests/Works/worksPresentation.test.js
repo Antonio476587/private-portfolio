@@ -13,7 +13,7 @@ test("If there are no more projects to show up, it should append the NA worksPre
         img: "/img/NA.webp",
         squaredImg: "/img/NA-squared.webp",
         alternativeText: "It's a building's window, there's no work there already",
-        urlId: "/",
+        workUrlId: "/",
     };
 
     const NAArray = new Array(8).fill(NA, 0);

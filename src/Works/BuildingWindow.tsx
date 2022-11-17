@@ -12,7 +12,7 @@ function BuildingWindow({ defaultStatus, img, alternativeText, workUrlId }: Buil
 
     return (
         <div className={defaultStatus}>
-            <Link to={`work/${workUrlId}`}>
+            <Link to={`/work/${workUrlId}`}>
                 <img src={img} alt={alternativeText} />
             </Link>
         </div>

@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables.scss";
 /* About page */
 
 .about {
@@ -26,7 +26,7 @@ a.back-about {
 
 a.back-about span,
 a.go-work span {
-  @include displayFlexCenterCenter;
+  @include variables.displayFlexCenterCenter;
   width: 100%;
   height: 100%;
 }
@@ -107,7 +107,7 @@ a.go-work {
 
 .bbtn {
   position: absolute;
-  background: url(resolveUrl("svgs/arrow-clockwise.svg"));
+  background: url(variables.resolveUrl("svgs/arrow-clockwise.svg"));
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -211,27 +211,27 @@ a.go-work {
 
 .simon-antonio div {
   &:first-child {
-    @include antonioAndSimonImages("img/le-simon-antonio.jpg");
+    @include variables.antonioAndSimonImages("img/le-simon-antonio.jpg");
   }
 
   &:last-child {
-    @include antonioAndSimonImages("img/le-simon.jpg");
+    @include variables.antonioAndSimonImages("img/le-simon.jpg");
   }
 }
 .antonio-simon div {
   &:first-child {
-    @include antonioAndSimonImages("img/le-antonio-simon.jpg");
+    @include variables.antonioAndSimonImages("img/le-antonio-simon.jpg");
   }
 
   &:last-child {
-    @include antonioAndSimonImages("img/le-antonio.jpg");
+    @include variables.antonioAndSimonImages("img/le-antonio.jpg");
   }
 }
 
 /* Mini yo */
 
 .container-illustration {
-  @include displayFlexCenterCenter;
+  @include variables.displayFlexCenterCenter;
   position: relative;
   margin-top: 5em;
   max-width: max-content;
@@ -249,31 +249,31 @@ a.go-work {
     background: transparent;
     background: linear-gradient(
       90deg,
-      $airscooter-air-2 0%,
-      $airscooter-air-2 10%,
-      $airscooter-air 10%,
-      $airscooter-air 15%,
-      $airscooter-air-2 15%,
-      $airscooter-air-2 20%,
-      $airscooter-air 20%,
-      $airscooter-air 25%,
-      $airscooter-air-2 25%,
-      $airscooter-air-2 45%,
-      $airscooter-air 45%,
-      $airscooter-air 50%,
-      $airscooter-air-2 50%,
-      $airscooter-air-2 55%,
-      $airscooter-air 55%,
-      $airscooter-air 60%,
-      $airscooter-air-2 60%,
-      $airscooter-air-2 65%,
-      $airscooter-air 65%,
-      $airscooter-air 70%,
-      $airscooter-air-2 70%,
-      $airscooter-air-2 80%,
-      $airscooter-air 80%,
-      $airscooter-air 90%,
-      $airscooter-air-2 90%
+      variables.$airscooter-air-2 0%,
+      variables.$airscooter-air-2 10%,
+      variables.$airscooter-air 10%,
+      variables.$airscooter-air 15%,
+      variables.$airscooter-air-2 15%,
+      variables.$airscooter-air-2 20%,
+      variables.$airscooter-air 20%,
+      variables.$airscooter-air 25%,
+      variables.$airscooter-air-2 25%,
+      variables.$airscooter-air-2 45%,
+      variables.$airscooter-air 45%,
+      variables.$airscooter-air 50%,
+      variables.$airscooter-air-2 50%,
+      variables.$airscooter-air-2 55%,
+      variables.$airscooter-air 55%,
+      variables.$airscooter-air 60%,
+      variables.$airscooter-air-2 60%,
+      variables.$airscooter-air-2 65%,
+      variables.$airscooter-air 65%,
+      variables.$airscooter-air 70%,
+      variables.$airscooter-air-2 70%,
+      variables.$airscooter-air-2 80%,
+      variables.$airscooter-air 80%,
+      variables.$airscooter-air 90%,
+      variables.$airscooter-air-2 90%
     );
     border-radius: 50%;
     background-size: 15vh 15vh;
@@ -291,12 +291,12 @@ a.go-work {
     min-width: 40%;
     min-height: 40%;
     aspect-ratio: 1 / 1;
-    background: $airscooter-color;
+    background: variables.$airscooter-color;
     background: radial-gradient(
       circle,
-      $airscooter-color 0%,
-      $airscooter-color 35%,
-      $airscooter-color-2 55%
+      variables.$airscooter-color 0%,
+      variables.$airscooter-color 35%,
+      variables.$airscooter-color-2 55%
     );
     border-radius: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -331,7 +331,7 @@ a.go-work {
       }
 
       &.note-active {
-        background: url(resolveUrl("img/8.png"));
+        background: url(variables.resolveUrl("img/8.png"));
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -441,7 +441,7 @@ a.go-work {
       }
 
       .level {
-        @include displayFlexCenterCenter;
+        @include variables.displayFlexCenterCenter;
         padding: 0 !important;
         width: max-content;
         font-size: 105%;
@@ -490,7 +490,7 @@ a.go-work {
       }
 
       .sub-level {
-        @include displayFlexCenterCenter;
+        @include variables.displayFlexCenterCenter;
         padding: 0 !important;
         width: max-content;
 

@@ -1,5 +1,5 @@
+@use "variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
-@import "_variables.scss";
 
 .menu {
   top: 0;
@@ -51,7 +51,7 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px 2px $color-shadow;
+      box-shadow: 0 2px 5px 2px variables.$color-shadow;
 
       &:hover, &:focus {
         outline-offset: 2px;

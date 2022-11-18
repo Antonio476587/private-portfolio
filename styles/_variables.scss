@@ -3,7 +3,18 @@ $color-shadow: #000;
 $animate-duration: 1400ms;
 
 @function resolveUrl ($fileUrl: string) {
-  @return "../public/" + $fileUrl;
+  @return "../public/" + quote($string: $fileUrl);
+}
+
+@mixin displayFlexCenterCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin widthAndHeight ($width, $height) {
+  width: $width;
+  height: $height;
 }
 
 /* Home */
@@ -26,14 +37,13 @@ $polygon-complement: polygon(
   position: absolute;
 }
 
-@mixin displayFlexCenterCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 $airscooter-color: #f1e7db;
 $airscooter-color-2: #ccf4f3;
 $airscooter-air: #f1eee7;
 $airscooter-air-2: rgba(0, 0, 0, 0);
+
+// Works
+
+@function transformWall ($Zvalue: 25.5vw) {
+  @return rotateY(calc(90deg * var(--i))) translateZ($Zvalue);
+}

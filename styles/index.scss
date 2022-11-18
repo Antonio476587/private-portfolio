@@ -1,11 +1,11 @@
-@import "variables.scss";
-@import "home.scss";
-@import "main.scss";
-@import "menu.scss";
-@import "about.scss";
-@import "works.scss";
-@import "contact.scss";
-@import "notfound.scss";
+@use "variables.scss";
+@forward "home.scss";
+@forward "main.scss";
+@forward "menu.scss";
+@forward "about.scss";
+@forward "works.scss";
+@forward "contact.scss";
+@forward "notfound.scss";
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 /* Variables and GLOBAL STYLES */
@@ -40,8 +40,8 @@ button {
   .animate__animated {
     -webkit-animation-duration: 1s !important;
     animation-duration: 1s !important;
-    -webkit-transition-duration: $animate-duration !important;
-    transition-duration: $animate-duration !important;
+    -webkit-transition-duration: variables.$animate-duration !important;
+    transition-duration: variables.$animate-duration !important;
     -webkit-animation-iteration-count: unset;
     animation-iteration-count: unset;
   }

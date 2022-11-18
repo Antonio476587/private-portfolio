@@ -1,115 +1,113 @@
-@import "variables.scss";
-@import "work.scss";
+@use "variables.scss";
+@forward "work.scss";
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+// State
 
-/* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
+#state {
+  position: relative;
+  background: url(variables.resolveUrl("img/p1.webp")) 0 0 / 100% 100%;
+  height: 300vh;
 
-.carousel-inner {
-  transform-style: preserve-3d;
+  & img {
+    object-fit: fill;
+  }
+  
+  & #scroll-down-tip {
+    @include variables.displayFlexCenterCenter;
+    @include variables.widthAndHeight(90vw, 2.5rem);
+    background-color: rgba($color: #fffffa, $alpha: 0.9);
+    position: absolute;
+    top: 3%;
+    left: 5vw;
+    margin: auto;
+    z-index: 100000;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
 
-  .carousel-item {
-    transform-style: preserve-3d;
-    transform: rotateY(90deg) skewX(-15deg);
+// City
+
+#city {
+  @include variables.displayFlexCenterCenter;
+  @include variables.widthAndHeight(95vw, 100vh);
+  overflow: hidden;
+  margin: auto;
+
+  & #street {
+    opacity: 0;
+    @include variables.widthAndHeight(95vw, 95vw);
+    top: 1%;
+    position: absolute;
+    overflow: hidden;
     transition: 1s;
 
-    .bd-placeholder-img {
-      background: url(resolveUrl("img/tracker2.jpg"));
-      width: 70%;
-      height: 55%;
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-      margin: auto;
-      /*     background-position: 50% 145%; */
-      background-position: center !important;
-      background-size: contain !important;
-      background-repeat: no-repeat !important;
-    }
-
-    &:nth-child(2) .bd-placeholder-img {
-      background: url(resolveUrl("img/NFT1.jpeg"));
-    }
-
-    &:nth-child(3) .bd-placeholder-img {
-      background: url(resolveUrl("img/three1.jpg"));
-    }
-
-    &:nth-child(4) .bd-placeholder-img {
-      background: url(resolveUrl("img/three4.png"));
-    }
-
-    &:nth-child(5) .bd-placeholder-img {
-      background: url(resolveUrl("img/barba2.jpg"));
-    }
-
-    &:nth-child(6) .bd-placeholder-img {
-      background: url(resolveUrl("img/bonsai1.jpg"));
-    }
-
-    &:nth-child(7) .bd-placeholder-img {
-      background: url(resolveUrl("img/bgcomplement.jpg"));
-    }
-
-    &:last-child .bd-placeholder-img {
-      background: url(resolveUrl("img/hommies1.jpg"));
-    }
-
-    &.active {
-      transform-style: preserve-3d;
-      transform: rotateY(0deg) skewX(0deg);
-    }
-
-    &.active.carousel-item-start {
-      transform: rotateY(-90deg) skewX(15deg);
-      opacity: 0;
-    }
-
-    &.active.carousel-item-end {
-      transform: rotateY(-90deg) skewX(15deg);
-      opacity: 0;
-    }
-
-    p {
-      font-weight: bolder;
+    & #floor {
+      @include variables.widthAndHeight(100%, 100%);
+      background: url(variables.resolveUrl("img/moon.webp"));
+      background-size: cover;
     }
   }
 }
 
-.carousel-control-prev {
-  width: 8%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0% 10% 10% 0%;
+// Place
+
+#place {
+  position: relative;
+  z-index: 10000;
+  @include variables.widthAndHeight(50%, 95%);
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(235deg) scale(0.9);
 }
 
-.carousel-control-next {
-  @extend .carousel-control-prev;
-  border-radius: 10% 0% 0% 10%;
-}
+// Building
 
-/* Carousel base class */
-.carousel {
-  height: 100vh;
-  background: url(resolveUrl("img/bg-works.jpg"));
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5vh 0;
+#building {
+  @include variables.widthAndHeight(100%, 100%);
+  transform-style: preserve-3d;
 
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
+  & #roof {
+    position: absolute;
+    @include variables.widthAndHeight(60vw, 60vw);
+    background: url(variables.resolveUrl("img/wood.jpg"));
+    background-size: 10% 100%;
+    border: 10px outset lightseagreen;
+    transform: rotateX(90deg) translateZ(35vw);
   }
 
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 90vh;
+  & .wall {
+    position: absolute;
+    display: flex;
+    @include variables.widthAndHeight(100%, 100%);
+    flex-wrap: wrap;
+    gap: 10px;
+    transform: variables.transformWall() !important;
+
+    & div {
+      box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3);
+
+      &.img {
+        flex-basis: calc(65% - 5px);
+      }
+
+      &.img-squared {
+        flex-basis: calc(35% - 5px);
+      }
+
+      &:hover {
+        background-color: white !important;
+        box-shadow: 0 0 14px 0px rgba(0, 0, 0, 0.5);
+        filter: contrast(110%);
+      }
+    }
+  }
+
+  & #foundations {
+    position: absolute;
+    @include variables.widthAndHeight(60vw, 60vw);
+    background: #000;
+    transform: rotateX(90deg) translateZ(-85vh);
+    opacity: 0;
+    filter: blur(15px);
   }
 }

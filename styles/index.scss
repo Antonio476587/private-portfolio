@@ -217,9 +217,6 @@ img {
 
   /* Works */
 
-  .carousel-caption {
-    bottom: -1rem;
-  }
 }
 
 /* Tablets and anothers */
@@ -302,10 +299,6 @@ img {
 
   /* Works page */
 
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-
   /* conctact page */
 
   .contact {
@@ -339,9 +332,6 @@ img {
   }
   /* Works */
 
-  .carousel-caption {
-    bottom: 3rem;
-  }
 }
 
 /* Desktops */
@@ -463,10 +453,32 @@ img {
 
   /* Works page */
 
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
+  #city {
+    & #street {
+      opacity: 1;
+    }
+  }
+
+  #place {
+    @include variables.widthAndHeight(25%, 95%);
+  }
+
+  #building {
+
+    & #roof {
+      @include variables.widthAndHeight(28vw, 30vw);
+      transform: rotateX(90deg) translateZ(17vw);
+    }
+  
+    & .wall {
+      transform: variables.transformWall(12.5vw) !important;
+    }
+
+    & #foundations {
+      @include variables.widthAndHeight(28vw, 30vw);
+      transform: rotateX(90deg) translateZ(-70vh);
+      opacity: 0.5;
+    }
   }
 
   /* Work page */

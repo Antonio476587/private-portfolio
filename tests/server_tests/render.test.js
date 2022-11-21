@@ -25,6 +25,7 @@ jest.mock("../../server/template", () => {
 it("should render templateHome", () => {
     const responseToRender = {
         send: jest.fn(),
+        append: jest.fn(),
     };
 
     render({ url: "/" }, responseToRender);
@@ -37,6 +38,7 @@ it("should render templateHome", () => {
 it("should render template", () => {
     const responseToRender = {
         send: jest.fn(),
+        append: jest.fn(),
     };
 
     render({ url: "/about" }, responseToRender);
@@ -49,6 +51,7 @@ it("should render template", () => {
 it("should render templateHome and afterwards template", () => {
     const responseToRender = {
         send: jest.fn(),
+        append: jest.fn(),
     };
 
     render({ url: "/" }, responseToRender);
@@ -56,4 +59,23 @@ it("should render templateHome and afterwards template", () => {
     render({ url: "/about" }, responseToRender);
 
     expect(responseToRender.send.mock.calls[0][0]).not.toEqual(responseToRender.send.mock.lastCall[0]);
+});
+
+it("should send link headers when the url is '/'", () => {
+    const responseToRender = {
+        send: jest.fn(),
+        append: jest.fn(),
+    };
+
+    render({ url: "/about" }, responseToRender);
+
+    expect(responseToRender.append).not.toHaveBeenCalled();
+
+    render({ url: "/" }, responseToRender);
+
+    expect(responseToRender.append).toHaveBeenCalledTimes(7);
+    expect(responseToRender.append).toHaveBeenCalledWith("Link", "</css/preload.css>; rel=preload; as=style");
+    for (let i = 0; i < 6; i++) {
+        expect(responseToRender.append).toHaveBeenCalledWith("Link", `</img/Q${i + 1}.webp>; rel=preload; as=image`);
+    }
 });

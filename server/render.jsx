@@ -19,6 +19,10 @@ function render(req, res) {
     const body = ReactDOMServer.renderToString(element);
 
     if (req.url.endsWith("/") || req.url.endsWith("/?P=false")) {
+        res.append("Link", "</css/preload.css>; rel=preload; as=style");
+        for (let i = 0; i < 6; i++) {
+            res.append("Link", `</img/Q${i + 1}.webp>; rel=preload; as=image`);
+        }
         res.send(templateHome(body));
     } else {
         res.send(template(body));

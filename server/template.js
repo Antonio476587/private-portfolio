@@ -3,7 +3,7 @@ import templateCompiler from "../utils/templateCompiler.ts";
 export default function template(body) {
     return `
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" style="background-color: #010101;">
   
     ${templateCompiler("templates/head/head.pug")}
   

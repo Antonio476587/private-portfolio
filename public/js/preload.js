@@ -1,22 +1,26 @@
 // const and data
-const paths = document.querySelectorAll(".svg path");
 const preload = document.querySelector(".preload");
 
+const prequote = document.getElementById("prequote");
+const quote = document.getElementById("quote");
+const preloadLogoWrapper = document.getElementById("preload-logo-wrapper");
+
 const windowLocation = window.location;
-let animation1;
+
+// This will be the first qoute (image) to be rendered
+let firstQuoteToRender;
 
 let windowLoaded = false;
 
-// const colors = [
-//     "rgb(0, 94, 94)",
-//     "rgb(33, 34, 34))",
-//     "rgb(38, 0, 88)",
-//     "rgb(77, 3, 52)",
-//     "rgb(2, 53, 19)",
-//     "rgb(68, 36, 0)",
-// ];
+// These are the presets
+const imgPrefix = "Q";
+const imgSufix = ".webp";
+let quoteOffset = 6;
 
 // Shortcut functions
+const prequoteImageQuickSetter = gsap.quickSetter(prequote, "backgroundImage");
+const quoteImageQuickSetter = gsap.quickSetter(quote, "backgroundImage");
+
 const animateConWelcome = () => document.querySelector(".con-welcome").classList.add("animate__animated", "animate__fadeInDown", "animate__slow");
 
 const scrollToTheBeginOfTheElement = () => {
@@ -34,22 +38,14 @@ const removeAnimationsOfAnimate = htmlElement => {
 
 // Principal Logic
 
+// 
 window.addEventListener("load", () => {
     windowLoaded = true;
     scrollToTheBeginOfTheElement();
+    // scrollMaxY is a property required by home.js
     if (window.scrollMaxY) return;
     else window.scrollMaxY = window.scrollY;
 }, { once: true });
-
-// function randomValues() {
-//     if (windowLoaded) return;
-//     gsap.to(preload, {
-//         backgroundColor: gsap.utils.random(colors),
-//         duration: 3,
-//         power: "power1",
-//         onComplete: randomValues,
-//     });
-// }
 
 function handleAnimationEnd(event) {
     event.stopPropagation();
@@ -70,19 +66,43 @@ function preloadFinished() {
     });
 }
 
+function animatePreload() {
+    if (windowLoaded) {
+        scrollToTheBeginOfTheElement();
+        preloadFinished();
+        return;
+    }
+
+    // While the page is charging we are going to show further quotes, so we have to load them slowly 
+    prequoteImageQuickSetter(`url(/img/${imgPrefix}${quoteOffset + 1}${imgSufix})`);
+    quoteOffset++;
+
+    gsap.to(quote, {
+        opacity: 0,
+        duration: 2.5,
+        ease: "power2.out",
+        onComplete: () => {
+            quoteImageQuickSetter(`url(/img/${imgPrefix}${Math.floor(Math.random() * quoteOffset)}${imgSufix})`);
+            gsap.to(quote, {
+                opacity: 1,
+                duration: 2.5,
+                ease: "power2.out",
+                onComplete: animatePreload,
+            });
+        },
+    });
+}
+
+
 function preloadCharged() {
     if (!windowLoaded) {
-
-        window.addEventListener("load", () => {
-            scrollToTheBeginOfTheElement();
-            preloadFinished();
-        }, { once: true });
-
+        animatePreload();
     } else {
         scrollToTheBeginOfTheElement();
         preloadFinished();
     }
 }
+
 
 // Inicio de animation preload
 if (windowLocation.pathname === "/") {
@@ -92,23 +112,52 @@ if (windowLocation.pathname === "/") {
             animateConWelcome();
         }, { once: true });
     } else {
-        gsap.to(document.getElementById("Capa_1"), {
-            width: "10%",
-            height: "10%",
-            delay: 1.5,
-            duration: 1,
+        firstQuoteToRender = `url(/img/${imgPrefix}${Math.floor(Math.random() * quoteOffset)}${imgSufix})`;
+        quoteImageQuickSetter(firstQuoteToRender);
+
+        // Preset
+        anime.set(preloadLogoWrapper, {
+            width: "100%",
+            height: "0%",
+            opacity: 0,
         });
 
-        gsap.to(document.querySelector(".quote"), {
+        anime.timeline({
+            easing: "easeOutExpo",
+            duration: 2000,
+        })
+            .add({
+                targets: preloadLogoWrapper,
+                height: "100%",
+                opacity: 1,
+                delay: 1500,
+            })
+            .add({
+                targets: preloadLogoWrapper,
+                width: "10%",
+                height: "10%",
+            })
+            .add({
+                targets: "#fantonix-preload-logo path",
+                fill: "#CC000B",
+            })
+            .finished.then(function () { 
+                anime({
+                    targets: preloadLogoWrapper,
+                    opacity: 0,
+                    easing: "easeOutExpo",
+                    duration: 2000,
+                    direction: "alternate",
+                    loop: 10,
+                });});
+
+        gsap.to(quote, {
             opacity: 1,
             scale: 1,
-            delay: 2.15,
+            delay: 3.5,
             duration: 1.5,
+            ease: "power2.out",
             onComplete: preloadCharged,
         });
-        
-        // randomValues();
-
-        // animation1.finished.then(preloadCharged);
     }
 }

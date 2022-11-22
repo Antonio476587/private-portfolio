@@ -36,6 +36,19 @@ beforeEach(() => {
 
     globalThis.gsap.to = jest.fn();
 
+    globalThis.quickSetterReturnedValue = jest.fn();
+    globalThis.gsap.quickSetter = jest.fn().mockReturnValue(globalThis.quickSetterReturnedValue);
+
+    global.anime.set = jest.fn();
+
+    const mockedTlInstance = jest.fn();
+    mockedTlInstance.add = jest.fn().mockReturnValue(mockedTlInstance);
+    mockedTlInstance.finished =  new Promise((resolve, reject) => {
+        resolve();
+    }),
+
+    global.anime.timeline = jest.fn().mockReturnValue(mockedTlInstance);
+
     delete globalThis.scrollTo;
     globalThis.scrollTo = jest.fn();
 
@@ -45,22 +58,20 @@ beforeEach(() => {
     const preload = document.createElement("div");
     const containerWelcome = document.createElement("div");
     const home = document.createElement("div");
-    const pathsContainer = document.createElement("svg");
 
-    for (let i = 0; i < 3; i++) {
-        const path = document.createElement("path");
-        path.setAttribute("d", "M0,5 h-3 M0,7 h3 ,9 h-1");
-        path.setAttribute("stroke", "rgba(255,0,0,.5)");
-        path.setAttribute("stroke-dasharray", "3 1");
-        path.setAttribute("stroke-dashoffset", "1");
+    const prequote = document.createElement("div");
+    const quote = document.createElement("div");
+    const preloadLogoWrapper = document.createElement("div");
 
-        pathsContainer.appendChild(path);
-    }
+    const svg = document.createElement("svg");
 
     preload.classList.add("preload");
     containerWelcome.classList.add("con-welcome");
     home.classList.add("home");
-    pathsContainer.classList.add("svg");
+
+    prequote.setAttribute("id", "prequote");
+    quote.setAttribute("id", "quote");
+    preloadLogoWrapper.setAttribute("id", "preload-logo-wrapper");
 
     Object.defineProperty(home, "offsetTop", {
         writable: true,
@@ -69,10 +80,15 @@ beforeEach(() => {
 
     const documentFragment = document.createDocumentFragment();
 
+    preloadLogoWrapper.appendChild(svg);
+
+    preload.appendChild(prequote);
+    preload.appendChild(quote);
+    preload.appendChild(preloadLogoWrapper);
+
     documentFragment.append(preload);
     documentFragment.append(containerWelcome);
     documentFragment.append(home);
-    documentFragment.appendChild(pathsContainer);
 
     document.body.appendChild(documentFragment);
 });
@@ -101,32 +117,69 @@ describe("When location.pathname is equal to /", () => {
 
     });
 
-    test("randomValues function", () => {
+    describe("animatePrelaod function", () => {
 
-        expect(globalThis.gsap.to).not.toHaveBeenCalled();
+        test("When the window is loaded", () => {
 
-        require("../../../public/js/preload");
+            expect(globalThis.gsap.to).not.toHaveBeenCalled();
 
-        // This is a pointer to the randomValues function, it's recursive
-        globalThis.gsap.to.mock.calls[0][1].onComplete();
+            require("../../../public/js/preload");
 
-        // If the window is loaded, it shouldn't call the function anymore
-        window.dispatchEvent(new Event("load", { bubbles: true }));
-        globalThis.gsap.to.mock.calls[0][1].onComplete();
+        
+            // This is a pointer to the animatePreload function, it's recursive
+        
+            globalThis.gsap.to.mock.calls[0][1].onComplete();
+            globalThis.gsap.to.mock.calls[1][1].onComplete();
+            
+            // If the window is loaded, it shouldn't call the function anymore
+            window.dispatchEvent(new Event("load", { bubbles: true }));
 
-        expect(globalThis.gsap.to).toHaveBeenCalledTimes(2);
-        expect(globalThis.gsap.to.mock.calls[0][0]).toEqual(document.querySelector(".preload"));
+            globalThis.gsap.to.mock.calls[2][1].onComplete();
+    
+            expect(globalThis.gsap.to).toHaveBeenCalledTimes(3);
+            expect(globalThis.scrollTo).toHaveBeenCalledTimes(2);
+            expect(globalThis.quickSetterReturnedValue).toHaveBeenCalledTimes(3);
+            expect(globalThis.gsap.to.mock.calls[1][0]).toEqual(document.getElementById("quote"));
+            expect(globalThis.gsap.to.mock.calls[2][0]).toEqual(document.getElementById("quote"));
+
+        });
+
+        test("When the window is not loaded", () => {
+
+            expect(globalThis.gsap.to).not.toHaveBeenCalled();
+
+            require("../../../public/js/preload");
+
+        
+            // This is a pointer to the animatePreload function, it's recursive
+        
+            globalThis.gsap.to.mock.calls[0][1].onComplete();
+            globalThis.gsap.to.mock.calls[1][1].onComplete();
+            globalThis.gsap.to.mock.calls[2][1].onComplete();
+            
+    
+            expect(globalThis.gsap.to).toHaveBeenCalledTimes(4);
+            expect(globalThis.scrollTo).toHaveBeenCalledTimes(0);
+            expect(globalThis.quickSetterReturnedValue).toHaveBeenCalledTimes(4);
+            expect(globalThis.gsap.to.mock.calls[1][0]).toEqual(document.getElementById("quote"));
+            expect(globalThis.gsap.to.mock.calls[2][0]).toEqual(document.getElementById("quote"));
+            expect(globalThis.gsap.to.mock.calls[3][0]).toEqual(document.getElementById("quote"));
+
+        });
+
     });
+
 
     describe("preloadCharged function", () => {
 
         test("when the window is not loaded yet", done => {
 
-            require("../../../public/js/preload");
-
             // Reset 
             globalThis.gsap.to = jest.fn();
 
+            require("../../../public/js/preload");
+
+            gsap.to.mock.calls[0][1].onComplete();
 
             setTimeout(() => {
 
@@ -135,30 +188,33 @@ describe("When location.pathname is equal to /", () => {
                 expect(globalThis.scrollTo).toHaveBeenCalled();
                 expect(globalThis.scrollTo).toHaveBeenCalledWith(0, document.querySelector(".home").offsetTop);
 
+                expect(globalThis.gsap.to.mock.calls.length).toEqual(2);
+                globalThis.gsap.to.mock.calls[1][1].onComplete();
+
                 expect(globalThis.gsap.to.mock.calls.length).toEqual(3);
-                expect(globalThis.gsap.to.mock.calls[0][0]).toEqual(document.querySelectorAll(".svg path")[0]);
 
                 done();
-            }, 0);
+            }, 10);
 
         });
 
         test("when the window is loaded already", done => {
 
-            require("../../../public/js/preload");
-
             // Reset 
             globalThis.gsap.to = jest.fn();
 
+            require("../../../public/js/preload");
+
             window.dispatchEvent(new Event("load", { bubbles: true }));
+
+            gsap.to.mock.calls[0][1].onComplete();
 
             setTimeout(() => {
 
-                expect(globalThis.gsap.to.mock.calls.length).toEqual(3);
-                expect(globalThis.gsap.to.mock.calls[0][0]).toEqual(document.querySelectorAll(".svg path")[0]);
+                expect(globalThis.gsap.to.mock.calls.length).toEqual(1);
 
                 done();
-            }, 0);
+            }, 10);
 
         });
 

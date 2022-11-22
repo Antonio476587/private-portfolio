@@ -25,13 +25,18 @@ it("should have the same structure as in the body.innerHTML", () => {
 
 test("it should have the correct structure", () => {
     expect(document.querySelector(".preload")).not.toBeNull();
-    expect(document.querySelector(".preload").firstElementChild).toEqual(document.querySelector("svg"));
-
+    expect(document.querySelector(".preload").firstElementChild).toEqual(document.getElementById("prequote"));
+    expect(document.querySelector(".preload").firstElementChild.nextElementSibling).toEqual(document.getElementById("quote"));
+    expect(document.querySelector(".preload").lastElementChild).toEqual(document.getElementById("preload-logo-wrapper"));
+    expect(document.querySelector(".preload").lastElementChild.firstElementChild).toEqual(document.querySelector("svg"));
+    
     expect(document.querySelector(".preload").nextElementSibling).toEqual(document.querySelector("script"));
-
-    for (let i = 0; i < document.querySelector("svg").children.length; i++) {
-        expect(document.querySelector("svg").children[i].nodeName).toEqual("path");
-        expect(document.querySelector("svg").children[i].hasAttribute("d")).toBeTruthy();
+    
+    expect(document.querySelector("svg").firstElementChild).toEqual(document.querySelector("g"));
+    
+    for (let i = 0; i < document.querySelector("g").children.length; i++) {
+        expect(document.querySelector("g").children[i].nodeName).toEqual("path");
+        expect(document.querySelector("g").children[i].hasAttribute("d")).toBeTruthy();
     }
 }); 
 

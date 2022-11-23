@@ -10,6 +10,9 @@ function LikeRunes() {
             duration: 2,
             width: "50%",
             delay: 0.6,
+            onComplete: () => {
+                gsap.set(likeRunesRef.current, { zIndex: 0 });
+            },
         });
 
         return () => {

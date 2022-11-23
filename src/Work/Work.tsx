@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
+import LikeRunes from "./LikeRunes";
 import HeaderWork from "./HeaderWork";
 import { arrow, arrowCaret } from "../Utils/Svg";
 import NotFound from "../Errors/NotFound";
@@ -37,9 +38,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
     const sectionRef2: React.RefObject<HTMLElement> = useRef(null);
     const sectionRef3: React.RefObject<HTMLElement> = useRef(null);
     const sectionRef4: React.RefObject<HTMLElement> = useRef(null);
-    const likeRunesRef: React.RefObject<HTMLDivElement> = useRef(null);
     const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
-    const qRunes: gsap.utils.SelectorFunc = gsap.utils.selector(likeRunesRef);
     const q: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef1);
     const q2: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef2);
     const q3: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef3);
@@ -72,11 +71,6 @@ function Work({ work, index }: WorkProps): JSX.Element {
 
     useEffect(() => {
         let animation4: gsap.core.Tween, animation5: gsap.core.Tween;
-        const animation1: gsap.core.Tween = gsap.from(qRunes(".div"), {
-            duration: 2,
-            width: "50%",
-            delay: 0.6,
-        });
 
         const animation2: gsap.core.Tween = gsap.from(q(".banner-1-img"), {
             duration: 1,
@@ -134,14 +128,13 @@ function Work({ work, index }: WorkProps): JSX.Element {
             },
         });
         return () => {
-            animation1.kill();
             animation2.kill();
             animation3.kill();
             animation4?.kill();
             animation5?.kill();
             animation6.kill();
         };
-    }, [qRunes, q, likeRunesRef, sectionRef1]);
+    }, [q, sectionRef1]);
 
     useEffect(() => {
         const animation1: gsap.core.Tween = gsap.from(q2(".div-img"), {
@@ -263,10 +256,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
                     "--color-foreground-2": work.styles[2] ?? "#111",
                 }}
             >
-                <div className="like-runes" ref={likeRunesRef}>
-                    <div className="div" />
-                    <div className="div" />
-                </div>
+                <LikeRunes />
                 <HeaderWork />
 
                 <main className="main">

@@ -1,11 +1,9 @@
 @use "variables.scss";
-@forward "home.scss";
-@forward "main.scss";
-@forward "menu.scss";
-@forward "about.scss";
-@forward "works.sass";
-@forward "contact.scss";
-@forward "notfound.scss";
+@forward "mainPage/index.sass";
+@forward "about/index.sass";
+@forward "works/index.sass";
+@forward "work/index.sass";
+@forward "errors/index.sass";
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 /* Variables and GLOBAL STYLES */

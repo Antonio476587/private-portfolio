@@ -42,6 +42,7 @@ const workContents: Array<Work> = [
             "A lot of NFTs gathered.",
         ],
         styles: ["#EBEBFF", "#0C043E", "#111"],
+        type: "casestudy",
     },
     {
         h2: "NFTs",
@@ -84,6 +85,7 @@ const workContents: Array<Work> = [
             "A lot of NFTs gathered.",
         ],
         styles: ["#DEE2E6", "#6F42C1", "#023580"],
+        type: "casestudy",
     },
     {
         h2: "Three on a line",
@@ -125,6 +127,7 @@ const workContents: Array<Work> = [
             "X and O of three on a line.",
         ],
         styles: ["#FFE0E0", "#591C1C", "#000"],
+        type: "casestudy",
     },
     {
         h2: "BarbaJS transitions",
@@ -164,6 +167,7 @@ const workContents: Array<Work> = [
             "Barba and gsap in a really nice picture.",
         ],
         styles: ["#E1CCA4", "#1F6161", "#FFFFF0"],
+        type: "casestudy",
     },
     {
         h2: "My first static page.",
@@ -205,6 +209,7 @@ const workContents: Array<Work> = [
             "BonsAI my first loved page.",
         ],
         styles: ["#FFEDED", "#A51818", "#800202"],
+        type: "casestudy",
     },
     {
         h2: "My friends",
@@ -238,6 +243,7 @@ const workContents: Array<Work> = [
             "A collage of my friends.",
         ],
         styles: ["#fffff0", "#fd7e14", "#212529"],
+        type: "casestudy",
     },
 ];
 

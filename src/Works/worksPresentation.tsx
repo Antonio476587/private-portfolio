@@ -21,6 +21,12 @@ const worksPresentation: worksPresentationObject[] = [
         workUrlId: "2",
     },
     {
+        img: "/img/Games.webp",
+        squaredImg: "/img/Games-squared.webp",
+        alternativeText: "These are the games I've made, what are you waiting for watch them?",
+        workUrlId: "/3",
+    },
+    {
         img: "/img/BarbaJS.webp",
         squaredImg: "/img/BarbaJS-squared.webp",
         alternativeText: "Beatifuld and smooth transitions.",
@@ -39,22 +45,16 @@ const worksPresentation: worksPresentationObject[] = [
         workUrlId: "6",
     },
     {
-        img: "/img/Games.webp",
-        squaredImg: "/img/Games-squared.webp",
-        alternativeText: "These are the games I've made, what are you waiting for watch them?",
-        workUrlId: "/",
-    },
-    {
         img: "/img/Blog.webp",
         squaredImg: "/img/Blog-squared.webp",
         alternativeText: "This is my blog, I should make it interesting",
-        workUrlId: "/",
+        workUrlId: "/7",
     },
     {
         img: "/img/Projects.webp",
         squaredImg: "/img/Projects-squared.webp",
         alternativeText: "There are projects, but projects are ideas for more projects, so let's make more projects",
-        workUrlId: "/",
+        workUrlId: "/8",
     },
 ];
 

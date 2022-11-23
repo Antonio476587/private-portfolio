@@ -11,14 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface workToRender {
   h2: string,
-  p1: string,
   img1: string[],
   img2: string[],
+  img3: string[],
+  img4: string[],
+  p1: string,
   p2: string,
   p3: string,
-  img3: string[],
   p4: string,
-  img4: string[],
 }
 
 interface CaseStudy {

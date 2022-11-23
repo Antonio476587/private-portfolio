@@ -13,22 +13,22 @@ import workContents from "./workContents";
 gsap.registerPlugin(ScrollTrigger);
 
 interface Work {
-  h2: string;
-  p1: string;
-  img1: string[];
-  img2: string[];
-  p2: string;
-  p3: string;
-  img3: string[];
-  p4: string;
-  img4: string[];
-  styles: string[];
-  type: "casestudy" | "gallery" | "classic" ;
+  h2: string,
+  p1: string,
+  p2: string,
+  p3: string,
+  p4: string,
+  img1: string[],
+  img2: string[],
+  img3: string[],
+  img4: string[],
+  styles: string[],
+  type: "casestudy" | "gallery" | "classic" ,
 }
 
 interface WorkProps {
-  work: Work | undefined;
-  index: number;
+  work: Work | undefined,
+  index: number,
 }
 
 function Work({ work, index }: WorkProps): JSX.Element {
@@ -70,7 +70,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
                 <LikeRunes />
                 <HeaderWork />
                 {selectedPresentationOfWork}
-                
+
             </div>
         );
     }

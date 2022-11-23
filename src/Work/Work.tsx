@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LikeRunes from "./LikeRunes";
 import HeaderWork from "./HeaderWork";
 import CaseStudy from "./CaseStudy";
+import Gallery from "./Gallery";
 import NotFound from "../Errors/NotFound";
 
 import workContents from "./workContents";
@@ -54,7 +55,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
                 selectedPresentationOfWork = <div>a</div>;
                 break;
             case "gallery":
-                selectedPresentationOfWork = <div>b</div>;
+                selectedPresentationOfWork = <Gallery work={workToRender} changeSectionFunctions={[prevSection, nextSection]} />;
                 break;
         }
 

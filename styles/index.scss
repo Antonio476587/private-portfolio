@@ -214,7 +214,6 @@ img {
   }
 
   /* Works */
-
 }
 
 /* Tablets and anothers */
@@ -329,7 +328,6 @@ img {
     }
   }
   /* Works */
-
 }
 
 /* Desktops */
@@ -462,12 +460,11 @@ img {
   }
 
   #building {
-
     & #roof {
       @include variables.widthAndHeight(28vw, 30vw);
       transform: rotateX(90deg) translateZ(17vw);
     }
-  
+
     & .wall {
       transform: variables.transformWall(12.5vw) !important;
     }

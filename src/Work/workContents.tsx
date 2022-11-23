@@ -28,7 +28,7 @@ const workContents: Array<Work> = [
     I endeed the app in 11 days. I must say that I was pretty hard for me.`,
         p3: `I uploaded the code to GitHub when I finished the app. I am really grateful
     with Vasan and all his effort to make the book. I'm going to make a 
-    great use with those knowledge. after that I decided to
+    great use with that knowledge. afterwards, I decided to
     make my portfolio with React to apply all the learned.
       `,
         img3: [

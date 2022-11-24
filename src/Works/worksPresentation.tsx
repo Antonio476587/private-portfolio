@@ -24,7 +24,7 @@ const worksPresentation: worksPresentationObject[] = [
         img: "/img/Games.webp",
         squaredImg: "/img/Games-squared.webp",
         alternativeText: "These are the games I've made, what are you waiting for watch them?",
-        workUrlId: "/3",
+        workUrlId: "3",
     },
     {
         img: "/img/BarbaJS.webp",
@@ -48,13 +48,13 @@ const worksPresentation: worksPresentationObject[] = [
         img: "/img/Blog.webp",
         squaredImg: "/img/Blog-squared.webp",
         alternativeText: "This is my blog, I should make it interesting",
-        workUrlId: "/7",
+        workUrlId: "7",
     },
     {
         img: "/img/Projects.webp",
         squaredImg: "/img/Projects-squared.webp",
         alternativeText: "There are projects, but projects are ideas for more projects, so let's make more projects",
-        workUrlId: "/8",
+        workUrlId: "8",
     },
 ];
 

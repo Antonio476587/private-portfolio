@@ -2,24 +2,9 @@ import React from "react";
 
 import { arrowLeftSquare } from "../Utils/Svg";
 
-interface workToRender {
-  h2: string;
-  media1: string[];
-  media2: string[];
-  media3: string[];
-  media4: string[];
-  p1: string;
-  p2: string;
-  p3: string;
-  p4: string;
-}
+import WorkChild from "./WorkChild";
 
-interface Gallery {
-  work: workToRender;
-  changeSectionFunctions: [() => void, () => void];
-}
-
-function Gallery({ work, changeSectionFunctions }: Gallery) {
+function Gallery({ work, changeSectionFunctions }: WorkChild) {
 
     const [prevSection, nextSection] = changeSectionFunctions;
 

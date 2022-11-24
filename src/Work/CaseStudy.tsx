@@ -5,28 +5,13 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { arrow, arrowCaret } from "../Utils/Svg";
 
+import WorkChild from "./WorkChild";
+
 const regVideo = /mp4/;
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface workToRender {
-  h2: string,
-  media1: string[],
-  media2: string[],
-  media3: string[],
-  media4: string[],
-  p1: string,
-  p2: string,
-  p3: string,
-  p4: string,
-}
-
-interface CaseStudy {
-  work: workToRender,
-  changeSectionFunctions: [() => void, () => void]
-}
-
-function CaseStudy({ work, changeSectionFunctions }: CaseStudy): JSX.Element {
+function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
     const divitionRefs: React.RefObject<Array<HTMLDivElement>> = useRef([]);
     const sectionRef1: React.RefObject<HTMLElement> = useRef(null);
     const sectionRef2: React.RefObject<HTMLElement> = useRef(null);

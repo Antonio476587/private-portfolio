@@ -129,7 +129,7 @@ export default function Works() {
                 : parseInt(offsetHeight);
             }
 
-            globalThis.addEventListener("scroll", scrollAnimator, { once: true });
+            globalThis.addEventListener("scroll", scrollAnimator);
         }
 
         return () => {

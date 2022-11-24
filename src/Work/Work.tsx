@@ -57,6 +57,8 @@ function Work({ work, index }: WorkProps): JSX.Element {
             case "gallery":
                 selectedPresentationOfWork = <Gallery work={workToRender} changeSectionFunctions={[prevSection, nextSection]} />;
                 break;
+            default:
+                new Error("There's no type of work to select a template.");
         }
 
         return (

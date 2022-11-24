@@ -44,7 +44,7 @@ function Gallery({ work, changeSectionFunctions }: Gallery) {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={work.img2[0]} alt={work.img1[1]} width="100%" height="100%" />
+                        <img src={work.img2[0]} alt={work.img2[1]} width="100%" height="100%" />
 
                         <div className="container">
                             <div className="carousel-caption">

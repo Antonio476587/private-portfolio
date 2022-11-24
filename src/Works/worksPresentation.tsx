@@ -4,7 +4,7 @@ export interface worksPresentationObject {
     img: `/${string}/${string}.${string}`;
     squaredImg: `/${string}/${string}.${string}`;
     alternativeText: string;
-    workUrlId: `${number}`;
+    workUrlId: `${number}` | "/";
 }
 
 const worksPresentation: worksPresentationObject[] = [

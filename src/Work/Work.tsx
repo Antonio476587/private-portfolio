@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LikeRunes from "./LikeRunes";
 import HeaderWork from "./HeaderWork";
 import CaseStudy from "./CaseStudy";
+import Classic from "./Classic";
 import Gallery from "./Gallery";
 import NotFound from "../Errors/NotFound";
 
@@ -52,13 +53,13 @@ function Work({ work, index }: WorkProps): JSX.Element {
                 selectedPresentationOfWork = <CaseStudy work={workToRender} changeSectionFunctions={[prevSection, nextSection]} />;
                 break;
             case "classic":
-                selectedPresentationOfWork = <div>a</div>;
+                selectedPresentationOfWork = <Classic work={workToRender} changeSectionFunctions={[prevSection, nextSection]} />;
                 break;
             case "gallery":
                 selectedPresentationOfWork = <Gallery work={workToRender} changeSectionFunctions={[prevSection, nextSection]} />;
                 break;
             default:
-                new Error("There's no type of work to select a template.");
+                selectedPresentationOfWork = <h1 style={{ color: "red" }}>There&apos;s no type of work to select a template. Work ID = {index}</h1>;
         }
 
         return (

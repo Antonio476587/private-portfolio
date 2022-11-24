@@ -11,10 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface workToRender {
   h2: string,
-  img1: string[],
-  img2: string[],
-  img3: string[],
-  img4: string[],
+  media1: string[],
+  media2: string[],
+  media3: string[],
+  media4: string[],
   p1: string,
   p2: string,
   p3: string,
@@ -247,7 +247,7 @@ function CaseStudy({ work, changeSectionFunctions }: CaseStudy): JSX.Element {
                     </div>
 
                     <div className="banner-1-img">
-                        <img src={work.img1[0]} alt={work.img1[1]} />
+                        <img src={work.media1[0]} alt={work.media1[1]} />
                     </div>
                 </div>
 
@@ -262,10 +262,10 @@ function CaseStudy({ work, changeSectionFunctions }: CaseStudy): JSX.Element {
 
             <section className="section-2 section-main container" ref={sectionRef2}>
                 <div className="div-img">
-                    {work.img2[0]?.match(regVideo) ? (
-                        <video src={work.img2[0]} autoPlay loop controls />
+                    {work.media2[0]?.match(regVideo) ? (
+                        <video src={work.media2[0]} autoPlay loop controls />
                     ) : (
-                        <img src={work.img2[0]} alt={work.img2[1]} />
+                        <img src={work.media2[0]} alt={work.media2[1]} />
                     )}
                 </div>
 
@@ -282,10 +282,10 @@ function CaseStudy({ work, changeSectionFunctions }: CaseStudy): JSX.Element {
                 </div>
 
                 <div className="div-img">
-                    {work.img3[0]?.match(regVideo) ? (
-                        <video src={work.img3[0]} autoPlay loop controls />
+                    {work.media3[0]?.match(regVideo) ? (
+                        <video src={work.media3[0]} autoPlay loop controls />
                     ) : (
-                        <img src={work.img3[0]} alt={work.img3[1]} />
+                        <img src={work.media3[0]} alt={work.media3[1]} />
                     )}
                 </div>
             </section>
@@ -306,10 +306,10 @@ function CaseStudy({ work, changeSectionFunctions }: CaseStudy): JSX.Element {
                         {arrow}
                     </button>
                     <div>
-                        {work.img4[0]?.match(regVideo) ? (
-                            <video src={work.img4[0]} autoPlay loop controls />
+                        {work.media4[0]?.match(regVideo) ? (
+                            <video src={work.media4[0]} autoPlay loop controls />
                         ) : (
-                            <img src={work.img4[0]} alt={work.img4[1]} />
+                            <img src={work.media4[0]} alt={work.media4[1]} />
                         )}
                     </div>
                     <button

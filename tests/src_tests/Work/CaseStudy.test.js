@@ -41,10 +41,10 @@ const mockedWorkToRender = {
     p2: "p2",
     p3: "p3",
     p4: "p4",
-    img1: ["video1.mp4", "video1"],
-    img2: ["video2.mp4", "video2"],
-    img3: ["img3.jpg", "img3"],
-    img4: ["video4.mkv", "video4"],
+    media1: ["video1.mp4", "video1"],
+    media2: ["video2.mp4", "video2"],
+    media3: ["media3.jpg", "media3"],
+    media4: ["video4.mkv", "video4"],
 };
 
 describe("When the buttons in the footer are clicked, they should call a function to change the section (page)", () => {
@@ -108,9 +108,9 @@ describe("Testing the strucutre of the workToRender inside the CaseStudy compone
             root.render(<CaseStudy work={mockedWorkToRender} changeSectionFunctions={mockedChangeSectionFunctions} />);
         });
 
-        const { img1, img2, img3, img4 } = mockedWorkToRender;
+        const { media1, media2, media3, media4 } = mockedWorkToRender;
 
-        const mockedImgsToRender = [img1, img2, img3, img4];
+        const mockedImgsToRender = [media1, media2, media3, media4];
 
         expect(document.querySelectorAll("img")[0].src).toEqual("http://localhost/" + mockedImgsToRender[0][0]);
         expect(document.querySelectorAll("img")[0].alt).toEqual(mockedImgsToRender[0][1]);

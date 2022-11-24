@@ -12,11 +12,11 @@ const workContents: Array<Work> = [
     'The Clean Architecture' I actually realized that almost nothing has changed
     in the programming, and the principles are the same yet.
     `,
-        img1: [
+        media1: [
             "/img/tracker1.jpg",
             "How I create the NFTs.",
         ],
-        img2: [
+        media2: [
             "/img/tracker2.jpg",
             "Each NFT has unique things.",
         ],
@@ -31,13 +31,13 @@ const workContents: Array<Work> = [
     great use with that knowledge. afterwards, I decided to
     make my portfolio with React to apply all the learned.
       `,
-        img3: [
+        media3: [
             "/img/tracker3.jpg",
             "A img representing a NFT in the digital world.",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/tracker4.jpg",
             "A lot of NFTs gathered.",
         ],
@@ -55,11 +55,11 @@ const workContents: Array<Work> = [
     the iPhone of the Steve Jobs, there're a lot of the same, but only one was
     of Steve Jobs.
     `,
-        img1: [
+        media1: [
             "/img/NFT2.png",
             "How I create the NFTs.",
         ],
-        img2: [
+        media2: [
             "/img/NFT3.jpg",
             "Each NFT has unique things.",
         ],
@@ -74,13 +74,13 @@ const workContents: Array<Work> = [
     I have only showed 8, but I will show the other 2 soon. Their names are numbers,
     that go since 1 to 10, it's very simple to remember. If you want see every one
     I let them on the contact page, you will see my way to think and my creative on them.`,
-        img3: [
+        media3: [
             "/img/NFT1.jpeg",
             "A img representing a NFT in the digital world.",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/NFT4.jpg",
             "A lot of NFTs gathered.",
         ],
@@ -96,11 +96,11 @@ const workContents: Array<Work> = [
     of works to get better in that work. The most powerful is the deep learning, and it's 
     intended to work like a human brain. With neuronals connections and great results. 
     `,
-        img1: [
+        media1: [
             "/img/three1.jpg",
             "The game of three on a ray that I made.",
         ],
-        img2: [
+        media2: [
             "/img/three2.jpg",
             "The code of the AI and the HTML code with Pug template.",
         ],
@@ -116,13 +116,13 @@ const workContents: Array<Work> = [
     I had the simple AI working, I only have to make it look better, I tried to render the html 
     with Pug and use css to change the ui depends on the theme was light o dark. If you like you 
     can play with the AI clicking in the button in works page or see the code in my GitHub.`,
-        img3: [
+        media3: [
             "/img/three3.jpg",
             "The game of three on a ray that I made with different colors.",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/three4.png",
             "X and O of three on a line.",
         ],
@@ -137,11 +137,11 @@ const workContents: Array<Work> = [
     to that page barba join the two pages in one to make a transition between them,
     It give to you a lot of cool things that you can do to make the transitions beatiful. 
     `,
-        img1: [
+        media1: [
             "/img/barba1.jpg",
             "BarbaJS logo.",
         ],
-        img2: [
+        media2: [
             "/img/barbacss.mp4",
             "A video of barbacss",
         ],
@@ -156,13 +156,13 @@ const workContents: Array<Work> = [
     can make a simple app and make it look like a SPA. It's really useful, I
     can't use it with React in my portfolio because it was very dificult, but I'm going
     to keep trying join React and BarbaJS.`,
-        img3: [
+        media3: [
             "/img/barbagsap.mp4",
             "A video of barbagsap",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/barba2.jpg",
             "Barba and gsap in a really nice picture.",
         ],
@@ -180,11 +180,11 @@ const workContents: Array<Work> = [
     videos of programmers and the begin of a languague or program. Those things helped me 
     a lot. 
     `,
-        img1: [
+        media1: [
             "/img/bonsai1.jpg",
             "BonsAI my first loved page.",
         ],
-        img2: [
+        media2: [
             "/img/bonsai2.jpg",
             "BonsAI my first loved page.",
         ],
@@ -198,13 +198,13 @@ const workContents: Array<Work> = [
     I learned more about bussiness, I only couldn't start again without a plan. That was
     the purpose of my BonsAI page. I gave it all my dedication and knowledge in that time. 
     It showed me in that moment, that I gave my all, everything could be great.`,
-        img3: [
+        media3: [
             "/img/bonsai3.jpg",
             "BonsAI my first loved page.",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/bonsai4.jpg",
             "BonsAI my first loved page.",
         ],
@@ -218,10 +218,10 @@ const workContents: Array<Work> = [
     because they will be with me the rest of my life, there's no work that can do that.
     it's because they make my life better. It's because we are family.
     `,
-        img1: [
+        media1: [
             "/img/hommies1.jpg",
             "They are the best choice and achieve I have made",],
-        img2: [
+        media2: [
             "/img/hommies2.jpg",
             "We are pointing to coco mango's logo.",],
         p2: `We are not friends because we wanted, it happened by coincidence. 
@@ -233,12 +233,12 @@ const workContents: Array<Work> = [
     Each one of us is doing something to improve like a person, we're getting experiences 
     and great moments. We have a lot of stories and remembers that will be with us forever.
     It's awesome how your friends can improve your life, it seems false.`,
-        img3: [
+        media3: [
             "/img/hommies3.jpg",
             "We are family",],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        img4: [
+        media4: [
             "/img/hommies4.jpg",
             "A collage of my friends.",
         ],

@@ -41,10 +41,10 @@ const mockedWorkToRender = {
     p2: "p2",
     p3: "p3",
     p4: "p4",
-    img1: ["img1.jpg", "img1"],
-    img2: ["img2.jpg", "img2"],
-    img3: ["img3.jpg", "img3"],
-    img4: ["img4.jpg", "img4"],
+    media1: ["media1.jpg", "media1"],
+    media2: ["media2.jpg", "media2"],
+    media3: ["media3.jpg", "media3"],
+    media4: ["media4.jpg", "media4"],
 };
 
 
@@ -109,9 +109,9 @@ describe("Testing the strucutre of the workToRender inside the Gallery component
             root.render(<Gallery work={mockedWorkToRender} changeSectionFunctions={mockedChangeSectionFunctions} />);
         });
 
-        const { img1, img2, img3, img4 } = mockedWorkToRender;
+        const { media1, media2, media3, media4 } = mockedWorkToRender;
 
-        const mockedImgsToRender = [img1, img2, img3, img4];
+        const mockedImgsToRender = [media1, media2, media3, media4];
 
         document.querySelectorAll("img").forEach((el, index) => {
             expect(el.src).toEqual("http://localhost/" + mockedImgsToRender[index][0]);

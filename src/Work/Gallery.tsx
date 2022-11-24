@@ -4,10 +4,10 @@ import { arrowLeftSquare } from "../Utils/Svg";
 
 interface workToRender {
   h2: string;
-  img1: string[];
-  img2: string[];
-  img3: string[];
-  img4: string[];
+  media1: string[];
+  media2: string[];
+  media3: string[];
+  media4: string[];
   p1: string;
   p2: string;
   p3: string;
@@ -34,7 +34,7 @@ function Gallery({ work, changeSectionFunctions }: Gallery) {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={work.img1[0]} alt={work.img1[1]} width="100%" height="100%" />
+                        <img src={work.media1[0]} alt={work.media1[1]} width="100%" height="100%" />
     
                         <div className="container">
                             <div className="carousel-caption">
@@ -44,7 +44,7 @@ function Gallery({ work, changeSectionFunctions }: Gallery) {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={work.img2[0]} alt={work.img2[1]} width="100%" height="100%" />
+                        <img src={work.media2[0]} alt={work.media2[1]} width="100%" height="100%" />
 
                         <div className="container">
                             <div className="carousel-caption">
@@ -53,7 +53,7 @@ function Gallery({ work, changeSectionFunctions }: Gallery) {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={work.img3[0]} alt={work.img3[1]} width="100%" height="100%" />
+                        <img src={work.media3[0]} alt={work.media3[1]} width="100%" height="100%" />
     
                         <div className="container">
                             <div className="carousel-caption">
@@ -62,7 +62,7 @@ function Gallery({ work, changeSectionFunctions }: Gallery) {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={work.img4[0]} alt={work.img4[1]} width="100%" height="100%" />
+                        <img src={work.media4[0]} alt={work.media4[1]} width="100%" height="100%" />
     
                         <div className="container">
                             <div className="carousel-caption">

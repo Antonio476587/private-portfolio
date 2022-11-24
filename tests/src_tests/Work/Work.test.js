@@ -26,22 +26,22 @@ jest.mock("../../../src/Work/workContents", () => {
         {
             h2: "Tirale al rubio si es pa negociar",
             p1: "You will never know someone well enough to criticize them.",
-            img1: [
+            media1: [
                 "/imag/inate.mp4",
                 "Yo tengo hermanos, no tengo amigos",
             ],
-            img2: [
+            media2: [
                 "/imag/inate.mp4",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p2: "You will never know someone well enough to criticize them.",
             p3: "You will never know someone well enough to criticize them.",
-            img3: [
+            media3: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p4: "You will never know someone well enough to criticize them.",
-            img4: [
+            media4: [
                 "/imag/inate.mp4",
                 "Yo tengo hermanos, no tengo amigos",
             ],
@@ -50,22 +50,22 @@ jest.mock("../../../src/Work/workContents", () => {
         {
             h2: "Tirale al rubio si es pa negociar",
             p1: "You will never know someone well enough to criticize them.",
-            img1: [
+            media1: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
-            img2: [
+            media2: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p2: "You will never know someone well enough to criticize them.",
             p3: "You will never know someone well enough to criticize them.",
-            img3: [
+            media3: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p4: "You will never know someone well enough to criticize them.",
-            img4: [
+            media4: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
@@ -74,22 +74,22 @@ jest.mock("../../../src/Work/workContents", () => {
         {
             h2: "Tirale al rubio si es pa negociar",
             p1: "You will never know someone well enough to criticize them.",
-            img1: [
+            media1: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
-            img2: [
+            media2: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p2: "You will never know someone well enough to criticize them.",
             p3: "You will never know someone well enough to criticize them.",
-            img3: [
+            media3: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],
             p4: "You will never know someone well enough to criticize them.",
-            img4: [
+            media4: [
                 "/imag/inate.jpg",
                 "Yo tengo hermanos, no tengo amigos",
             ],

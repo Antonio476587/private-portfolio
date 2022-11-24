@@ -136,7 +136,7 @@ describe("When location.pathname is equal to /", () => {
 
             globalThis.gsap.to.mock.calls[2][1].onComplete();
     
-            expect(globalThis.gsap.to).toHaveBeenCalledTimes(3);
+            expect(globalThis.gsap.to).toHaveBeenCalledTimes(4);
             expect(globalThis.scrollTo).toHaveBeenCalledTimes(2);
             expect(globalThis.quickSetterReturnedValue).toHaveBeenCalledTimes(3);
             expect(globalThis.gsap.to.mock.calls[1][0]).toEqual(document.getElementById("quote"));
@@ -211,7 +211,7 @@ describe("When location.pathname is equal to /", () => {
 
             setTimeout(() => {
 
-                expect(globalThis.gsap.to.mock.calls.length).toEqual(1);
+                expect(globalThis.gsap.to.mock.calls.length).toEqual(2);
 
                 done();
             }, 10);
@@ -237,6 +237,7 @@ describe("When location.pathname is equal to /", () => {
 
         setTimeout(() => {
 
+            globalThis.gsap.to.mock.lastCall[1].onComplete();
             globalThis.gsap.to.mock.lastCall[1].onComplete();
 
             expect(preloadClassListString).not.toEqual(preload.classList.toString());

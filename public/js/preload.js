@@ -59,10 +59,17 @@ function handleAnimationEnd(event) {
 }
 
 function preloadFinished() {
-    preload.classList.add("animate__animated", "animate__fadeOut");
-    animateConWelcome();
-    preload.addEventListener("animationend", handleAnimationEnd, {
-        once: true,
+    gsap.to(quote, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+            preload.classList.add("animate__animated", "animate__fadeOut");
+            animateConWelcome();
+            preload.addEventListener("animationend", handleAnimationEnd, {
+                once: true,
+            });
+        }
     });
 }
 
@@ -93,7 +100,6 @@ function animatePreload() {
     });
 }
 
-
 function preloadCharged() {
     if (!windowLoaded) {
         animatePreload();
@@ -102,7 +108,6 @@ function preloadCharged() {
         preloadFinished();
     }
 }
-
 
 // Inicio de animation preload
 if (windowLocation.pathname === "/") {
@@ -154,7 +159,7 @@ if (windowLocation.pathname === "/") {
         gsap.to(quote, {
             opacity: 1,
             scale: 1,
-            delay: 3.5,
+            delay: 4,
             duration: 1.5,
             ease: "power2.out",
             onComplete: preloadCharged,

@@ -82,7 +82,7 @@ describe("When the buttons in the footer are clicked, they should call a functio
 
 describe("Testing the strucutre of the workToRender inside the Gallery component", () => {
 
-    test("The h2 element should be the unique h1 in the component", () => {
+    test("The h2 property should be the unique h1 element in the component", () => {
         act(() => {
             root.render(<Gallery work={mockedWorkToRender} changeSectionFunctions={mockedChangeSectionFunctions} />);
         });

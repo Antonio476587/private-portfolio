@@ -58,7 +58,7 @@ export default function Works() {
                 }, 0)
                 .add({
                     targets: buildingRef.current,
-                    tranlateY: "150px",
+                    translateY: 150,
                 }, 0)
                 .add({
                     targets: streetRef.current,

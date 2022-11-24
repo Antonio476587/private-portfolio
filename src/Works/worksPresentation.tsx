@@ -1,10 +1,10 @@
 const wallMaxLength = 8;
 
 export interface worksPresentationObject {
-    img: string;
-    squaredImg:string;
+    img: `/${string}/${string}.${string}`;
+    squaredImg: `/${string}/${string}.${string}`;
     alternativeText: string;
-    workUrlId: string;
+    workUrlId: `${number}`;
 }
 
 const worksPresentation: worksPresentationObject[] = [

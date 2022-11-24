@@ -192,7 +192,7 @@ describe("Events", () => {
             expect(getElById("place").getAttribute("style").includes("rotateX(0deg)")).toBeTruthy();
             expect(getElById("place").getAttribute("style").includes("rotateY(270deg)")).toBeTruthy();
             expect(getElById("building").getAttribute("style")).toEqual("transform: translateY(150px) ;");
-            expect(getElById("street").getAttribute("style")).toEqual("height: 0; top: 20%;");
+            expect(getElById("street").getAttribute("style")).toEqual("height: 0px; top: 20%;");
         });
 
     });

@@ -9,7 +9,7 @@ function LikeRunes() {
         const animation1: gsap.core.Tween = gsap.from(qRunes(".div"), {
             duration: 2,
             width: "50%",
-            delay: 0.6,
+            delay: 0.5,
             onComplete: () => {
                 gsap.set(likeRunesRef.current, { zIndex: 0 });
             },

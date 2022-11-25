@@ -1,11 +1,20 @@
 @use "../variables.scss"
   
 #gallery-footer
+  position: relative
 
   & > div
     @include variables.displayFlexCenterCenter
     justify-content: space-evenly
     padding: 2rem 0
+
+  & button
+    transition: 0.5s
+    &:hover
+      scale: 1.3
+
+      svg
+        color: var(--color-foreground-2)
 
   & svg
     width: 2rem

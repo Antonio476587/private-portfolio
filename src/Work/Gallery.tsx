@@ -68,8 +68,8 @@ function Gallery({ work, changeSectionFunctions }: WorkChild) {
 
             <div id="gallery-footer">
                 <div>
-                    <div><button onClick={prevSection}>{arrowLeftSquare}</button></div>
-                    <div style={{ "transform": "rotate(180deg)" }}><button onClick={nextSection}>{arrowLeftSquare}</button></div>
+                    <div><button aria-label="Previous Section" onClick={prevSection}>{arrowLeftSquare}</button></div>
+                    <div style={{ "transform": "rotate(180deg)" }}><button aria-label="Previous Section" onClick={nextSection}>{arrowLeftSquare}</button></div>
                 </div>
             </div>
         </>

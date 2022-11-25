@@ -82,7 +82,7 @@ export default function HeaderWork() {
     };
 
     return (
-        <header className="header-work">
+        <header id="header-work" className="header-work">
             <nav className="navbar navbar-expand-lg navbar-light" id="nav-work">
                 <div className="container-fluid">
                     <button

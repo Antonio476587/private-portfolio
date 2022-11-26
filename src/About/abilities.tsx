@@ -1,28 +1,6 @@
 import React from "react";
-import { starSvg, starHalfSvg, starBlackSvg } from "../Utils/Svg";
 
-const stars = (num: number, booleanHalfStar = false) => {
-    let starsQuantity: number = num;
-    let halfStar = booleanHalfStar;
-
-    const totalStars: React.ReactElement<SVGElement>[] = [];
-
-    for (let i = 0; i < 5; i++) {
-        switch (true) {
-            case starsQuantity <= 0 && halfStar:
-                totalStars.push(starHalfSvg);
-                halfStar = !halfStar;
-                break;
-            case starsQuantity <= 0:
-                totalStars.push(starBlackSvg);
-                break;
-            default:
-                totalStars.push(starSvg);
-                starsQuantity -= 1;
-        }
-    }
-    return totalStars;
-};
+const imgCreator = (src: string, alt: string) => <img src={"/img/" + src} alt={alt} />;
 
 export interface ability {
     name: string;
@@ -43,11 +21,11 @@ const abilities: abilities[] = [
         abs: [
             {
                 name: "Photoshop",
-                content: stars(4),
+                content: imgCreator("photoshop.webp", "Photoshop"),
             },
             {
                 name: "Illustrator",
-                content: stars(3),
+                content: imgCreator("illustrator.webp", "Illustrator"),
             },
         ],
     },
@@ -56,16 +34,16 @@ const abilities: abilities[] = [
         ability: "Languages",
         abs: [
             {
-                name: "Spanish",
+                name: "Spanish:",
                 content: "Native",
             },
             {
-                name: "English",
-                content: stars(3, true),
+                name: "English:",
+                content: "Intermediate",
             },
             {
-                name: "French",
-                content: stars(1, true),
+                name: "French:",
+                content: "Basic",
             },
         ],
     },
@@ -78,19 +56,15 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "HTML",
-                        content: stars(4),
+                        content: imgCreator("html.webp", "HyperText Markup Language"),
                     },
                     {
                         name: "JavaScript",
-                        content: stars(3, true),
+                        content: imgCreator("javascript.webp", "JavaScript"),
                     },
                     {
                         name: "CSS",
-                        content: stars(3, true),
-                    },
-                    {
-                        name: "Prototype",
-                        content: stars(2),
+                        content: imgCreator("css.webp", "Cascading Style Sheets"),
                     },
                 ],
             },
@@ -99,27 +73,27 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "NodeJS",
-                        content: stars(3, true),
+                        content: imgCreator("node.webp", "NodeJS"),
                     },
                     {
                         name: "React",
-                        content: stars(3),
+                        content: imgCreator("react.webp", "React"),
                     },
                     {
                         name: "Express",
-                        content: stars(3),
+                        content: imgCreator("express.webp", "ExpressJS"),
                     },
                     {
                         name: "GraphQL",
-                        content: stars(3),
+                        content: imgCreator("graphql.webp", "GraphQL"),
                     },
                     {
                         name: "TypeScript",
-                        content: stars(3),
+                        content: imgCreator("typescript.webp", "TypeScript"),
                     },
                     {
                         name: "JSDoc",
-                        content: stars(2),
+                        content: imgCreator("jsdoc.webp", "JSDoc"),
                     },
                 ],
             },
@@ -128,11 +102,11 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "React",
-                        content: stars(3),
+                        content: imgCreator("react.webp", "React"),
                     },
                     {
                         name: "Deno",
-                        content: stars(2, true),
+                        content: imgCreator("deno.webp", "Deno"),
                     },
                 ],
             },
@@ -141,23 +115,27 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "JavaScript",
-                        content: stars(3, true),
+                        content: imgCreator("javascript.webp", "JavaScript"),
                     },
                     {
                         name: "Python",
-                        content: stars(2),
+                        content: imgCreator("python.webp", "Python"),
                     },
                     {
                         name: "C",
-                        content: stars(2),
+                        content: imgCreator("c.webp", "C language"),
+                    },
+                    {
+                        name: "Java",
+                        content: imgCreator("java.webp", "Java"),
                     },
                     {
                         name: "Solidity",
-                        content: stars(1, true),
+                        content: imgCreator("solidity.webp", "Solidity"),
                     },
                     {
                         name: "Go",
-                        content: stars(0, true),
+                        content: imgCreator("go.webp", "GO"),
                     },
                 ],
             },
@@ -166,24 +144,24 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "Bootstrap",
-                        content: stars(4),
+                        content: imgCreator("bootstrap.webp", "Bootstrap"),
                     },
                     {
-                        name: "Webpack",
-                        content: stars(3),
+                        name: "Docker",
+                        content: imgCreator("docker.webp", "Docker"),
                     },
                     {
-                        name: "Git & GitHub",
-                        content: stars(2, true),
+                        name: "Git",
+                        content: imgCreator("git.webp", "Git"),
                     },
                     {
-                        name: "Eslint",
-                        content: stars(2, true),
+                        name: "GitHub",
+                        content: imgCreator("github.webp", "GitHub"),
                     },
                     {
-                        name: "Babel",
-                        content: stars(2, true),
-                    },
+                        name: "Sass",
+                        content: imgCreator("sass.webp", "Sass")
+                    }
                 ],
             },
             {
@@ -191,15 +169,15 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "LowDB",
-                        content: stars(4),
+                        content: imgCreator("lowdb.webp", "LowDB"),
                     },
                     {
                         name: "MongoDB",
-                        content: stars(3, true),
+                        content: imgCreator("mongodb.webp", "MongoDB"),
                     },
                     {
                         name: "MariaDB",
-                        content: stars(2),
+                        content: imgCreator("mariadb.webp", "MariaDB"),
                     },
                 ],
             },
@@ -208,11 +186,11 @@ const abilities: abilities[] = [
                 subAbs: [
                     {
                         name: "WordPress",
-                        content: stars(3, true),
+                        content: imgCreator("wordpress.webp", "WordPress"),
                     },
                     {
                         name: "Zyro",
-                        content: stars(1, true),
+                        content: imgCreator("zyro.webp", "Zyro"),
                     },
                 ],
             },

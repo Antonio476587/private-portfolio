@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useParams } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -15,11 +15,11 @@ import workContents from "./workContents";
 gsap.registerPlugin(ScrollTrigger);
 
 interface Work {
-  h2: string,
-  p1: string,
-  p2: string,
-  p3: string,
-  p4: string,
+  h2: string | ReactElement,
+  p1: string | ReactElement,
+  p2: string | ReactElement,
+  p3: string | ReactElement,
+  p4: string | ReactElement,
   media1: string[],
   media2: string[],
   media3: string[],

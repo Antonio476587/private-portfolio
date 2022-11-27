@@ -446,7 +446,6 @@ a.go-work {
         width: max-content;
         font-size: 105%;
         font-family: var(--bs-font-monospace);
-        max-width: 4em;
 
         svg {
           width: 1em;
@@ -462,7 +461,6 @@ a.go-work {
         }
 
         img {
-          min-width: min-content;
           width: 2em;
           height: 2em;
         }
@@ -500,7 +498,6 @@ a.go-work {
         @include variables.displayFlexCenterCenter;
         padding: 0 !important;
         width: max-content;
-        max-width: 4em;
 
         svg {
           width: 0.85em;
@@ -508,7 +505,6 @@ a.go-work {
         }
 
         img {
-          min-width: min-content;
           width: 1.75em;
           height: 1.75em;
         }

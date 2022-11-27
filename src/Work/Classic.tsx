@@ -75,9 +75,11 @@ function Classic({ work, changeSectionFunctions }: WorkChild) {
                         <p>
                             <em>&#35;</em>&nbsp;&#32;{work.p1}
                         </p>
+                        <hr />
                         <p>
                             <em>&#35;</em>&nbsp;&#32;{work.p2}
                         </p>
+                        <hr />
                         <p>
                             <em>&#35;</em>&nbsp;&#32;{work.p3}
                         </p>

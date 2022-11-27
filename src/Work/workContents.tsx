@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Work } from "./Work";
 
 const workContents: Array<Work> = [
@@ -12,14 +14,8 @@ const workContents: Array<Work> = [
     'The Clean Architecture' I actually realized that almost nothing has changed
     in the programming, and the principles are the same yet.
     `,
-        media1: [
-            "/img/tracker1.jpg",
-            "How I create the NFTs.",
-        ],
-        media2: [
-            "/img/tracker2.jpg",
-            "Each NFT has unique things.",
-        ],
+        media1: ["/img/tracker1.jpg", "How I create the NFTs."],
+        media2: ["/img/tracker2.jpg", "Each NFT has unique things."],
         p2: `When I started the book, I had a little idea about React,
     I knew Mongodb, Node and Express, but I didn't know nothing about
     GraphQL, ReactRouter, ESlint and a lot more of things that I learned.
@@ -37,97 +33,59 @@ const workContents: Array<Work> = [
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        media4: [
-            "/img/tracker4.jpg",
-            "A lot of NFTs gathered.",
-        ],
+        media4: ["/img/tracker4.jpg", "A lot of NFTs gathered."],
         styles: ["#EBEBFF", "#0C043E", "#111"],
         type: "casestudy",
     },
     {
         h2: "NFTs",
         p1: `NFTs, they have become well known fast, but, what are they exactly?
-    They are things like art, or whatever that is unique at the world, but inside
-    the technology world. Yes, they still being unique althought someone copy it
-    or have a similar one. If you ask to the best painter of the world to 
-    replicate the Salvador Mundi, it will be exactly the same. but it's no the 
-    Da Vinci's Salvador Mundi and it won't cost the same, another example can be
-    the iPhone of the Steve Jobs, there're a lot of the same, but only one was
-    of Steve Jobs.
+        They are things like art, or whatever that is unique at the world, but inside
+        the technology world.
     `,
-        media1: [
-            "/img/NFT2.png",
-            "How I create the NFTs.",
-        ],
-        media2: [
-            "/img/NFT3.jpg",
-            "Each NFT has unique things.",
-        ],
-        p2: `They have information, features and data that make them uniques.
-    With the new VR world, the NFT are taking more presence on the world,
-    someone can buy a NFT, and that NFT will be only of the person who bought it.
-    In the case of the NFTs, their features and data is archived in way of 
-    metadata. When you take a picture with your cellphone it keeps information about
-    the picture, like date, place and the cellphone that took it. That's metadata.`,
-        p3: `I made my own NFTs, they are not on sell yet, because I haven't decided to
-    sell them individually or by an auction. It's a collection of 10 NFTs. Until now
-    I have only showed 8, but I will show the other 2 soon. Their names are numbers,
-    that go since 1 to 10, it's very simple to remember. If you want see every one
-    I let them on the contact page, you will see my way to think and my creative on them.`,
+        media1: ["/img/NFT2.png", "How I create the NFTs."],
+        p2: `Yes, they still being unique althought someone copy it
+        or have a similar one. If you ask to the best painter of the world to 
+        replicate the Salvador Mundi, it will be exactly the same. but it's no the 
+        Da Vinci's Salvador Mundi, another example can be the Steve Jobs' iPhone, 
+        there're a lot of the same, but only one was Steve Jobs'. They have 
+        information, features and data that make them uniques.`,
+        media2: ["/img/NFT3.jpg", "Each NFT has unique things."],
+        p3: `I made my own NFTs, it's a collection of 10 NFTs. Until now
+        I have only showed 8, but I will show the other 2 soon. Their names are numbers,
+        that go since 1 to 10, it's very simple to remember.`,
         media3: [
             "/img/NFT1.jpeg",
             "A img representing a NFT in the digital world.",
         ],
-        p4: `I hope that you're enjoying my portfolio and don't forget, 
-    Towards the future!!!`,
-        media4: [
-            "/img/NFT4.jpg",
-            "A lot of NFTs gathered.",
-        ],
+        p4: ` If you want see every one. I let them on the contact page, 
+        you will see my way to think and my creative on them. 
+        I hope that you're enjoying my portfolio and don't forget, Towards the future!!!`,
+        media4: ["/img/NFT4.jpg", "A lot of NFTs gathered."],
         styles: ["#DEE2E6", "#6F42C1", "#023580"],
-        type: "casestudy",
+        type: "gallery",
     },
     {
-        h2: "Three on a line",
-        p1: `I was thinking how an AI have to work to be an AI, then I began to research about AI, I 
-    learned that there are three principals kinds of AIs. The first is the Artifitial 
-    Intelligent,  it's made to do things predefined, it's pretty common. Then, come machine 
-    learning, this AI is more powerful than a common AI, its principal function is the repetition 
-    of works to get better in that work. The most powerful is the deep learning, and it's 
-    intended to work like a human brain. With neuronals connections and great results. 
-    `,
-        media1: [
-            "/img/three1.jpg",
-            "The game of three on a ray that I made.",
-        ],
+        h2: "My games",
+        p1: `Through my life, I've really enjoyed playing videogames, so I thought
+        that it would be fine to create some videogames.`,
+        p2: `Nowadays, I've only created a game that in my country is called
+        'La vieja' or 'The old woman'.`,
+        p3: <>But I will be creating more games, maybe small, but I feel exactly the same when I&apos;m creating a game as I&apos;m playing a game. <a href="/tic-tac-toe.html">Click here if you would like to play it</a>.</>,
+        media1: ["/img/three1.jpg", "The game of three on a ray that I made"],
         media2: [
             "/img/three2.jpg",
             "The code of the AI and the HTML code with Pug template.",
         ],
-        p2: `I decided for make a simple AI, I thought in Deep Blue of IBM and what kind of
-    AI it is. I assumed that it is a simple AI too, with instructions to reach the victory
-    ever finding the correct combinations of movements. But I didn't know how to make my 
-    AI play with all the winners combinations without I give it to it. I realized
-    I didn't want to make combinations predefined, I wanted that it can play randomized and
-    response to the opponent movements.`,
-        p3: `Now, I knew how it should work. But I had to find a way to apply that AI. While I was 
-    playing with my cousin three on a line (In Venezuela we call it 'La vieja'), I wanted to try 
-    with that game, so I started with comments without code and pseudocode. Four days after that 
-    I had the simple AI working, I only have to make it look better, I tried to render the html 
-    with Pug and use css to change the ui depends on the theme was light o dark. If you like you 
-    can play with the AI clicking in the button in works page or see the code in my GitHub.`,
         media3: [
             "/img/three3.jpg",
             "The game of three on a ray that I made with different colors.",
         ],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        media4: [
-            "/img/three4.png",
-            "X and O of three on a line.",
-        ],
+        media4: ["/img/three4.png", "X and O of three on a line."],
         styles: ["#FFE0E0", "#591C1C", "#000"],
-        type: "casestudy",
+        type: "classic",
     },
     {
         h2: "BarbaJS transitions",
@@ -137,14 +95,8 @@ const workContents: Array<Work> = [
     to that page barba join the two pages in one to make a transition between them,
     It give to you a lot of cool things that you can do to make the transitions beatiful. 
     `,
-        media1: [
-            "/img/barba1.jpg",
-            "BarbaJS logo.",
-        ],
-        media2: [
-            "/img/barbacss.mp4",
-            "A video of barbacss",
-        ],
+        media1: ["/img/barba1.jpg", "BarbaJS logo."],
+        media2: ["/img/barbacss.mp4", "A video of barbacss"],
         p2: `I found barba thanks to Petr Tichy and his channel Ihatetomatoes. With a great tutorial 
     made by him, I really liked BarbaJS and I made the tutorial in his channel. It was
     really useful, now I can make beatiful transitions too with barba. But that didn't stop
@@ -156,16 +108,10 @@ const workContents: Array<Work> = [
     can make a simple app and make it look like a SPA. It's really useful, I
     can't use it with React in my portfolio because it was very dificult, but I'm going
     to keep trying join React and BarbaJS.`,
-        media3: [
-            "/img/barbagsap.mp4",
-            "A video of barbagsap",
-        ],
+        media3: ["/img/barbagsap.mp4", "A video of barbagsap"],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        media4: [
-            "/img/barba2.jpg",
-            "Barba and gsap in a really nice picture.",
-        ],
+        media4: ["/img/barba2.jpg", "Barba and gsap in a really nice picture."],
         styles: ["#E1CCA4", "#1F6161", "#FFFFF0"],
         type: "casestudy",
     },
@@ -180,14 +126,8 @@ const workContents: Array<Work> = [
     videos of programmers and the begin of a languague or program. Those things helped me 
     a lot. 
     `,
-        media1: [
-            "/img/bonsai1.jpg",
-            "BonsAI my first loved page.",
-        ],
-        media2: [
-            "/img/bonsai2.jpg",
-            "BonsAI my first loved page.",
-        ],
+        media1: ["/img/bonsai1.jpg", "BonsAI my first loved page."],
+        media2: ["/img/bonsai2.jpg", "BonsAI my first loved page."],
         p2: `I was learning only about JavaScript when I made this page. I made it
     beacause I have made a shop, it was a techonology shop, I used to sell
     wires, chargers, phones and further. But I couldn't manage it by myself, 
@@ -198,18 +138,12 @@ const workContents: Array<Work> = [
     I learned more about bussiness, I only couldn't start again without a plan. That was
     the purpose of my BonsAI page. I gave it all my dedication and knowledge in that time. 
     It showed me in that moment, that I gave my all, everything could be great.`,
-        media3: [
-            "/img/bonsai3.jpg",
-            "BonsAI my first loved page.",
-        ],
+        media3: ["/img/bonsai3.jpg", "BonsAI my first loved page."],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        media4: [
-            "/img/bonsai4.jpg",
-            "BonsAI my first loved page.",
-        ],
+        media4: ["/img/bonsai4.jpg", "BonsAI my first loved page."],
         styles: ["#FFEDED", "#A51818", "#800202"],
-        type: "casestudy",
+        type: "classic",
     },
     {
         h2: "My friends",
@@ -220,10 +154,9 @@ const workContents: Array<Work> = [
     `,
         media1: [
             "/img/hommies1.jpg",
-            "They are the best choice and achieve I have made",],
-        media2: [
-            "/img/hommies2.jpg",
-            "We are pointing to coco mango's logo.",],
+            "They are the best choice and achieve I have made",
+        ],
+        media2: ["/img/hommies2.jpg", "We are pointing to coco mango's logo."],
         p2: `We are not friends because we wanted, it happened by coincidence. 
     But we have a lot on common like the basketball, we are a basketball team called
     Los Pollos(The Chickens), we are bad, and I over all. Althought we still playing 
@@ -233,17 +166,45 @@ const workContents: Array<Work> = [
     Each one of us is doing something to improve like a person, we're getting experiences 
     and great moments. We have a lot of stories and remembers that will be with us forever.
     It's awesome how your friends can improve your life, it seems false.`,
-        media3: [
-            "/img/hommies3.jpg",
-            "We are family",],
+        media3: ["/img/hommies3.jpg", "We are family"],
         p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-        media4: [
-            "/img/hommies4.jpg",
-            "A collage of my friends.",
-        ],
+        media4: ["/img/hommies4.jpg", "A collage of my friends."],
         styles: ["#fffff0", "#fd7e14", "#212529"],
-        type: "casestudy",
+        type: "gallery",
+    },
+    {
+        h2: "Blog",
+        p1: `It's kind of ironic, that my first post to my blog is the blog itself.
+        But that is, the blog is my first post. I will thinking more to create a new template for it, so I can expand the posts.`,
+        p2: `I have many things that I can talk about. They are about topics like
+        programming, life and histories. It's my blog.`,
+        p3: "There's some stuff that I need to take care of first. But I will make it.",
+        media1: ["/img/Blog.webp", "The Blog is my blog haha"],
+        media2: ["/img/bloger.webp", "A mockup of a case study template of my friends"],
+        media3: ["/img/bloger-2.webp", "My and my brother working out a few years ago"],
+        media4: ["/img/bloger-3.webp", "Towards the future"],
+        p4: `I hope that you're enjoying my portfolio and don't forget, 
+        Towards the future!!!`,
+        styles: ["#DAFDFF", "#0E2219", "#537B6A"],
+        type: "classic",
+    },
+    {
+        h2: "My Projects",
+        p1: `There will be more projects than other things, so I'm going to 
+        reuse the component that I'm developing for the blog, so I can explain the
+        projects in the best way.`,
+        p2: `I have done a few projects, but I will only count the ones I created
+        by my own. Because it's more valuable when you research, code and create something
+        yourself.`,
+        p3: <><a href="https://github.com/Antonio476587/threejs-blob-2022">This is a blob with ThreeJS.</a><hr /><em>&#35;</em>&nbsp;&#32;<a href="/bgcomplement.html">This is the animation that is in the home of the web.</a><hr /><em>&#35;</em>&nbsp;&#32;<a href="https://github.com/Antonio476587/telegrambot-withpuppeteer">This is a telegram bot with puppeteer.</a></>,
+        media1: ["/img/projects.webp", "A blob made with ThreeJS"],
+        media2: ["/img/bgcomplement.jpg", "The Blog is my blog haha"],
+        media3: ["/img/projects-2.webp", "A telegram bot with puppeteer"],
+        media4: ["/img/projects-3.webp", "My portfolio, my biggest project"],
+        p4: <>I hope that you&apos;re enjoying my portfolio and don&apos;t forget, Towards the future and <a href="https://github.com/Antonio476587">check my GitHub!!!</a></>,
+        styles: ["#FBF1BC", "#170D0D", "#222"],
+        type: "classic",
     },
 ];
 

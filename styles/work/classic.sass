@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap")
 
-@mixin borderXSolidAndGray
-  border: 2px solid rgb(31, 41, 55)
+@mixin borderXSolid
+  border: 2px solid var(--color-foreground)
   border-top: none
   border-bottom: none
 
 #classic-section-wrapper
-  background-color: rgb(250, 245, 255)
+  background-color: transparent
 
 #classic-section
   position: relative
@@ -19,7 +19,7 @@
   #{&}-title
     padding: 1rem
     margin: auto
-    @include borderXSolidAndGray
+    @include borderXSolid
     width: 100%
 
     div
@@ -32,14 +32,14 @@
         font-size: 2.25rem
         line-height: 2.5rem
         font-weight: 100
-        color: rgb(51, 65, 85)
+        color: var(--color-foreground)
         min-width: max-content
 
         &::first-letter
           font-size: 2.5rem
           line-height: 1
           font-weight: 700
-          color: rgb(17, 24, 39)
+          color: var(--color-foreground-2)
 
   #{&}-description
     width: 100%
@@ -48,9 +48,9 @@
     text-align: left
     font-size: 1rem
     line-height: 1.275rem
-    background-color: rgb(31, 41, 55)
+    background-color: var(--color-foreground)
     border-radius: 0.25rem
-    color: rgb(255, 237, 213)
+    color: var(--bs-white)
 
     p
       margin-top: 2rem 0
@@ -61,7 +61,7 @@
         font-weight: 700
 
   #{&}-content
-    @include borderXSolidAndGray
+    @include borderXSolid
 
     & > div
       width: 85%

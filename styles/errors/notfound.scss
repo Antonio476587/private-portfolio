@@ -2,12 +2,13 @@
 .not-found {
   margin: auto;
   width: 75%;
-  height: max-content;
+  height: 100vh;
+  padding-top: 3%;
 
   h2 {
     font-family: Helvetica, "Franklin Gothic Medium", "Arial Narrow", Arial,
       sans-serif;
-    margin: 7% 0;
+    margin-bottom: 7%;
     font-size: xx-large;
     font-weight: bold;
   }

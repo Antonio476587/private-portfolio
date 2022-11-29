@@ -106,7 +106,9 @@ export default function Works() {
 
     useEffect(() => {
 
-        // Pre setting
+        // Pre setting 
+        globalThis.scrollTo(0, 0);
+
         anime.set(placeRef.current, {
             rotateX: "-30",
             rotateY: "235",

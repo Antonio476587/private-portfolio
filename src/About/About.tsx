@@ -59,6 +59,10 @@ export default function About(): JSX.Element {
     }
 
     useEffect(() => {
+        globalThis.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
         anime.set(".svg-div", {
             translateX: () => anime.random(-400, 400),
             translateY: () => anime.random(-1100, 1100),

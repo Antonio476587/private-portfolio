@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -42,6 +42,10 @@ function Work({ work, index }: WorkProps): JSX.Element {
     function nextSection(): void {
         location.assign((index + 1).toString());
     }
+
+    useEffect(() => {
+        globalThis.scrollTo(0, 0);
+    }, []);
 
     if (work) {
 

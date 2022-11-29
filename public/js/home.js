@@ -3,11 +3,28 @@ const bgComplementContainer = document.querySelector(
     ".bg-complement-container"
 );
 
-const menu = document.querySelector(".menu");
-const btnMenuHome = document.querySelectorAll("div.btn.btn-secondary")[1];
+const btnMenuHome = document.querySelector(".btn.btn-secondary.btn-home");
 
 btnMenuHome.addEventListener("click", () => {
-    menu.toggleAttribute("hidden");
+    const menu = document.querySelector(".menu");
+
+    if (menu) {
+        menu.toggleAttribute("hidden");
+        if (!menu.hasAttribute("hidden")) {
+            gsap.to(".menu-base-footer", {
+                duration: 1,
+                height: "25%",
+                marginTop: 0,
+                clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0, 50% 0)"
+            });
+        } else {
+            gsap.set(".menu-base-footer", {
+                height: 0,
+                marginTop: "25%",
+                clipPath: "polygon(100% 35%, 100% 100%, 0 100%, 0 0, 50% 60%)",
+            });
+        }
+    }
 });
 
 let gradosX = 50;
@@ -20,7 +37,7 @@ let bgAnimation;
 
 const xSet = gsap.quickSetter(bgComplement, "rotationX", "deg");
 const ySet = gsap.quickSetter(bgComplement, "rotationY", "deg");
-const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
+
 const setScaleX = gsap.quickSetter(bgComplementContainer, "scaleX");
 const setScaleY = gsap.quickSetter(bgComplementContainer, "scaleY");
 const scaleSet = (val) => {
@@ -28,22 +45,26 @@ const scaleSet = (val) => {
     setScaleY(val);
 };
 
+const yPositionSet = gsap.quickSetter(bgComplementContainer, "y", "px");
+
 const transformer = gsap.utils.pipe(gsap.utils.clamp(0, 200));
 
+function animateComplement() {
+    if (gradosY === 393 || gradosY > 393) gradosY = 33;
+    if (gradosX === 410 || gradosX > 410) gradosX = 50;
+    scaleSet(scale);
+    ySet(gradosY);
+    xSet(gradosX);
+    gradosY += 1;
+    gradosX += 0.2;
+}
+
 const animateHome = () => {
-    bgAnimation = setInterval(() => {
-        if (gradosY === 393 || gradosY > 393) gradosY = 33;
-        if (gradosX === 410 || gradosX > 410) gradosX = 50;
-        ySet(gradosY);
-        xSet(gradosX);
-        scaleSet(scale);
-        gradosY += 1;
-        gradosX += 0.2;
-    }, 10);
+    bgAnimation = gsap.timeline({ repeat: -1, onUpdate: animateComplement, delay: 1 });
 };
 
 const desAnimateHome = () => {
-    clearInterval(bgAnimation);
+    bgAnimation.kill();
 };
 
 animateHome();
@@ -81,14 +102,10 @@ function onDocumentMouseMove(event) {
     }
 }
 
-window.addEventListener("mousemove", onDocumentMouseMove);
-
 function updateComplement() {
     positionComplementContainer = (window.scrollY - window.scrollMaxY) * -0.7;
     yPositionSet(transformer(positionComplementContainer));
 }
-
-document.addEventListener("scroll", updateComplement);
 
 // Se activa cuando se está visualizando
 

@@ -1,0 +1,49 @@
+
+$color-shadow: #000;
+$animate-duration: 1400ms;
+
+@function resolveUrl ($fileUrl: string) {
+  @return "../public/" + quote($string: $fileUrl);
+}
+
+@mixin displayFlexCenterCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin widthAndHeight ($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+/* Home */
+
+$polygon-complement: polygon(
+  0% 5%,
+  5% 0%,
+  95% 0%,
+  100% 5%,
+  100% 95%,
+  95% 100%,
+  5% 100%,
+  0% 95%
+);
+
+/* About */
+
+@mixin antonioAndSimonImages ($url) {
+  background: url(resolveUrl($url));
+  position: absolute;
+}
+
+$airscooter-color: #f1e7db;
+$airscooter-color-2: #ccf4f3;
+$airscooter-air: #f1eee7;
+$airscooter-air-2: rgba(0, 0, 0, 0);
+
+// Works
+
+@function transformWall ($Zvalue: 25.5vw) {
+  @return rotateY(calc(90deg * var(--i))) translateZ($Zvalue);
+}

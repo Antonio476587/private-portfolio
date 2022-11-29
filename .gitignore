@@ -1,8 +1,18 @@
 node_modules
 
+dist
+
+ca_bundle.crt
+
+certificate.crt
+
+private.key
+
+.env
+
 dev.env
 
-dist
+*.well-known
 
 package-lock.json
 
@@ -18,4 +28,14 @@ package-lock.json
 
 **/vendor*
 
+**/*LICENSE.txt
+
 **/db.json
+
+assets
+
+**/index.css
+
+coverage
+
+**/*.log

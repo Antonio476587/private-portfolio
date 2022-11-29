@@ -1,6 +1,6 @@
 import "babel-polyfill";
 import React, { CSSProperties } from "react";
-import ReactDOM from "react-dom";
+import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import "bootstrap";
@@ -29,7 +29,12 @@ declare global {
         style: CSSProperties;
         toggleAttribute(qualifiedName: string, force?: boolean): boolean;
     }
+    interface Element {
+        offsetHeight: string | number;
+    }
     type email = `${string}@${string}.${string}`;
+    // eslint-disable-next-line no-var
+    var scrollMaxY: number;
 }
 
 const element: JSX.Element = (
@@ -39,8 +44,10 @@ const element: JSX.Element = (
 );
 
 const pathName: string = window.location.pathname;
+const containerPage = document.getElementById("page");
+const containerBody = document.getElementById("body");
 
 if (pathName) {
-    if (pathName === "/") ReactDOM.hydrate(element, document.getElementById("page"));
-    if (pathName !== "/") ReactDOM.hydrate(element, document.getElementById("body"));
+    if (pathName === "/" && containerPage) hydrateRoot(containerPage, element);
+    if (pathName !== "/" && containerBody) hydrateRoot(containerBody, element);
 }

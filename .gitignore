@@ -12,8 +12,6 @@ private.key
 
 dev.env
 
-*.well-known
-
 package-lock.json
 
 **/*.css.map

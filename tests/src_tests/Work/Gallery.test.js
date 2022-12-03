@@ -80,6 +80,31 @@ describe("When the buttons in the footer are clicked, they should call a functio
 
 });
 
+
+describe("Carousel", () => {
+
+    test("The slide active by default must be the first", () => {
+        act(() => {
+            root.render(<Gallery work={mockedWorkToRender} changeSectionFunctions={mockedChangeSectionFunctions} />);
+        });
+
+        expect(document.querySelector(".carousel-inner").firstElementChild).toEqual(document.querySelector(".carousel-item.active"));
+    });
+
+    test("All the images should have the width and height attributes with '100%'", () => {
+        act(() => {
+            root.render(<Gallery work={mockedWorkToRender} changeSectionFunctions={mockedChangeSectionFunctions} />);
+        });
+
+        document.querySelectorAll("img").forEach(el => {
+            expect(el.getAttribute("width")).toEqual("100%");
+            expect(el.getAttribute("height")).toEqual("100%");
+        });
+    });
+
+});
+ 
+
 describe("Testing the strucutre of the workToRender inside the Gallery component", () => {
 
     test("The h2 property should be the unique h1 element in the component", () => {

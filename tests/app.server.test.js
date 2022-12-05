@@ -209,12 +209,25 @@ describe("testing the third party and framework middleware", () => {
         it("should return a file with the type text/html", () => {
 
             return request(app)
-                .get("/indexwebpack.html")
+                .get("/bgcomplement.html")
                 .then(response => {
 
                     expect(response.statusCode).toEqual(200);
                     expect(response.type).toEqual("text/html");
                     expect(response.charset).toEqual("UTF-8");
+                });
+
+        });
+
+        it("should not find a file and return a file with the type application/octet-stream", () => {
+
+            return request(app)
+                .get("/noexistthisfile.html")
+                .then(response => {
+
+                    expect(response.statusCode).toEqual(200);
+                    expect(response.type).toEqual("application/octet-stream");
+                    expect(response.charset).toBeUndefined();
                 });
 
         });

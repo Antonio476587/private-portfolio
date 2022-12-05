@@ -2,12 +2,6 @@ node_modules
 
 dist
 
-ca_bundle.crt
-
-certificate.crt
-
-private.key
-
 .env
 
 dev.env

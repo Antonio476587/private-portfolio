@@ -101,6 +101,7 @@ div.divition {
   &::after {
     width: 1em;
     border-radius: 50%;
+    background: var(--color-foreground-2);
     z-index: 1000;
   }
 }

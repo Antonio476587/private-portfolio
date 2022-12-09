@@ -1,7 +1,5 @@
 import React, { ReactElement, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LikeRunes from "./LikeRunes";
 import HeaderWork from "./HeaderWork";
@@ -11,8 +9,6 @@ import Gallery from "./Gallery";
 import NotFound from "../Errors/NotFound";
 
 import workContents from "./workContents";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Work {
   h2: string | ReactElement,

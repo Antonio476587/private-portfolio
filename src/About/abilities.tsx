@@ -206,7 +206,7 @@ const abilities: abilities[] = [
             },
             {
                 name: "Age:",
-                content: "18",
+                content: "19",
             },
             {
                 name: "Country:",
